@@ -8,7 +8,7 @@ let y = 0;
 
 const myPics = document.getElementById("myCanvas");
 const context = myPics.getContext("2d");
-
+document.getElementById("showImg").addEventListener("click", () => {updateImage();});
 // event.offsetX, event.offsetY gives the (x,y) offset from the edge of the canvas.
 
 // Add the event listeners for mousedown, mousemove, and mouseup
@@ -45,3 +45,8 @@ function drawLine(context, x1, y1, x2, y2) {
     context.closePath();
 }
 //---------------------------------------------------
+function updateImage() {
+    const img = document.getElementById("newImg");
+    const canvasImg = document.getElementById("myCanvas").toDataURL("image/png");
+    img.src = canvasImg;
+}
