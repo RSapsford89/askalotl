@@ -45,8 +45,23 @@ function drawLine(context, x1, y1, x2, y2) {
     context.closePath();
 }
 //---------------------------------------------------
+/**
+ * updates the img element src with the id "newImg" with the current canvas image.
+ */
 function updateImage() {
     const img = document.getElementById("newImg");
     const canvasImg = document.getElementById("myCanvas").toDataURL("image/png");
     img.src = canvasImg;
+    img.style.position = "absolute";
+    img.style.pointerEvents = "none"; // Let mouse events pass through
+    img.style.display = "block";
+    mouseFollower(); // Start following mouse after updating image
+}
+
+function mouseFollower(){
+    const follower = document.getElementById("newImg");
+    document.addEventListener("mousemove", (e) => {
+        follower.style.left = e.pageX + "px";
+        follower.style.top = e.pageY + "px";
+    });
 }
