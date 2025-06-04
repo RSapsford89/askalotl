@@ -48,6 +48,8 @@ function drawLine(context, x1, y1, x2, y2) {
 /**
  * updates the img element src with the id "newImg" with the current canvas image.
  */
+let mouseFollowerInitialized = false;
+
 function updateImage() {
     const img = document.getElementById("newImg");
     const canvasImg = document.getElementById("myCanvas").toDataURL("image/png");
@@ -55,7 +57,10 @@ function updateImage() {
     img.style.position = "absolute";
     img.style.pointerEvents = "none"; // Let mouse events pass through
     img.style.display = "block";
-    mouseFollower(); // Start following mouse after updating image
+    if (!mouseFollowerInitialized) {
+        mouseFollower();
+        mouseFollowerInitialized = true;
+    }
 }
 
 function mouseFollower(){
