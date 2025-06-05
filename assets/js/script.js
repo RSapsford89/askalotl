@@ -8,6 +8,7 @@ let y = 0;
 
 const myPics = document.getElementById("myCanvas");
 const context = myPics.getContext("2d");
+
 document.getElementById("showImg").addEventListener("click", () => { updateImage(); });
 // event.offsetX, event.offsetY gives the (x,y) offset from the edge of the canvas.
 
@@ -34,14 +35,24 @@ window.addEventListener("mouseup", (e) => {
         isDrawing = false;
     }
 });
-
+/**
+ * Set the colour and thickness of the drawing/pen line. Uses a colour input picker and a slider for thickness.
+ * The values are taken from the HTML elements with the ids "drawingColor" and "drawingThickness".
+ */
 function colorPicker(){
-     context.strokeStyle = document.getElementById("drawingColor").value;
-
-    const penThickness = document.getElementById("drawingThickness").value;
-    console.log("Color: ", color, "Thickness: ", penThickness);
+    context.strokeStyle = document.getElementById("drawingColor").value;
+    context.lineWidth = document.getElementById("drawingThickness").value;
+    console.log("Color: ", context.strokeStyle, "Thickness: ", context.lineWidth);
 }
-// colorPicker(); // Call the function to set the initial color and thickness
+/**
+ * Reset the canvas and the image element with an id of "newImg". Src is set to empty and the canvas
+ * has a clearRect command which clears the canvas with parameters of 0, 0, width, height.
+ */
+function resetImg(){
+    const img = document.getElementById("newImg");
+    img.src = "";
+    context.clearRect(0, 0, myPics.width, myPics.height); // Clear the canvas. Command found via https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
+}
 
 /**
  * 
@@ -54,7 +65,7 @@ function colorPicker(){
 function drawLine(context, x1, y1, x2, y2) {
     context.beginPath();
     // context.strokeStyle = "black";// removed from the original code, so that colors can be set by the user!
-    context.lineWidth = 1;
+    // context.lineWidth = 1; // removed from the original code, so that thickness can be set by the user!
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
     context.stroke();
