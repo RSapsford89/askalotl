@@ -1,12 +1,15 @@
 body{
     background-color:  #bb7cdf;
 }
-
-
+/* default max-width for all images @300px */
+img{
+    max-width: 300px;
+}
+/* ID for the sticky button for audio mute toggling
+high z-index to ensure it does not get painted over! */
 #audioButton{
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 99;
-    
 }
