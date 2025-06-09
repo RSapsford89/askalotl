@@ -121,4 +121,12 @@ function updateImage() {
     makeImageFollow();
 }
 
+function animalSelection(){
+    const image = document.getElementById("imgSelect");
+    const paragraphs = document.getElementsByClassName("introText");
+
+    image.addEventListener('click',()=>{
+
+    });
+}
 

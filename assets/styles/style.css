@@ -5,6 +5,10 @@ body{
 img{
     max-width: 300px;
 }
+/* class used to hide content for switching purposes */
+.hide{
+
+}
 /* ID for the sticky button for audio mute toggling
 high z-index to ensure it does not get painted over! */
 #audioButton{
