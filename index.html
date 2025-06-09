@@ -4,23 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Add the meta tags here">
     <title>Document</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><!--Add the favicon-->
+    <link rel="stylesheet" href="assets/styles/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
-    
-    <canvas id="myCanvas" width="250" height="300" style="border: 2px solid rebeccapurple;"></canvas>
-    <div class=".pointer">
-        <img  src="" alt="" id="newImg">
-    </div>
-    <button id="showImg">click me</button>
-    <button id="penColor" onclick="colorPicker()">Set Colour</button>
-    <button id ="reset" onclick="resetImg()">Reset</button>
-    <input type="color" name="drawingColor" id="drawingColor" value="#000000">
-    <input type="range" name="drawingThickness" id="drawingThickness" min="1" max="10" value="1">
-    
+    <header>
+        <!-- header with some navbar here -->
+    </header>
+    <section id="animalChoice">
+        <div id="animalContentOne">
+            <h1>Welcome to Askalotl</h1>
+            <div class="image">
+                <img src="" alt="Image of Whale, Penguin, Axolotl, Cat" sizes="" srcset="">
+            </div>
+            <div class="paragraph" id="par1">
+                <!-- this will change depending on the selected animal -->
+                <p id="introParagraph">
+                    Let's say something delightful here about animals ;-) To do with what the site is about and
+                    what kind of things you can look forward to learning and doing on the site (drawing, quiz, facts)
+                </p>
+            </div>
+        </div>
+        <div id="drawing">
+            <canvas id="myCanvas" width="250" height="300" style="border: 2px solid rebeccapurple;"></canvas>
+            <div class=".pointer">
+                <img src="" alt="" id="newImg">
+            </div>
+            <button id="showImg">click me</button>
+            <button id="penColor" onclick="colorPicker()">Set Colour</button>
+            <button id="reset" onclick="resetImg()">Reset</button>
+            <input type="color" name="drawingColor" id="drawingColor" value="#000000">
+            <input type="range" name="drawingThickness" id="drawingThickness" min="1" max="10" value="1">
+        </div>
+    </section>
+    <section id="chosenAnimal">
+        <div class="animalIntroduction">
+            <h1>Your Animal Name here</h1>
+            <p>Some general information about selected animal here</p>
+        </div>
+        <div class="funFacts">
+            <h2>Fun Facts!</h2>
+            <p>Some fun facts about your animal</p>
+        </div>
+        <div id="popQuiz">
+            <img src="" alt="A picture relevant to the quiz" sizes="" srcset="">
+            <div class="quizForm">
+                <!-- whatever form content is going to go in here, which changes relating
+                 to the quiz question. Probably radio button -->
+            </div>
+        </div>
+        <div class="galleryLink">
+            <!-- some nice mouseover event of a full width image of the animal then animates to look like a preview of the Gallery. Plays a sound too -->
+        </div>
+    </section>
+    <footer>
+        <!-- footer with content here -->
+        <!-- if footer is sticky - make it have buttons for sound and reduced animations mode -->
+    </footer>
 </body>
+
+<!-- load the script at the end after the html content -->
 <script src="./assets/js/script.js"></script>
 
 </html>
