@@ -126,7 +126,8 @@ function animalSelection(){
     const paragraphs = document.getElementsByClassName("introText");
 
     image.addEventListener('click',()=>{
-
+        paragraphs[0].style.display="none";
     });
 }
 
+animalSelection();
