@@ -39,7 +39,7 @@ window.addEventListener("mouseup", (e) => {
  * Set the colour and thickness of the drawing/pen line. Uses a colour input picker and a slider for thickness.
  * The values are taken from the HTML elements with the ids "drawingColor" and "drawingThickness".
  */
-function colorPicker(){
+function colorPicker() {
     context.strokeStyle = document.getElementById("drawingColor").value;
     context.lineWidth = document.getElementById("drawingThickness").value;
     console.log("Color: ", context.strokeStyle, "Thickness: ", context.lineWidth);
@@ -48,7 +48,7 @@ function colorPicker(){
  * Reset the canvas and the image element with an id of "newImg". Src is set to empty and the canvas
  * has a clearRect command which clears the canvas with parameters of 0, 0, width, height.
  */
-function resetImg(){
+function resetImg() {
     const img = document.getElementById("newImg");
     img.src = "";
     context.clearRect(0, 0, myPics.width, myPics.height); // Clear the canvas. Command found via https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
@@ -121,42 +121,61 @@ function updateImage() {
     makeImageFollow();
 }
 
-function animalSelection(){
+function animalSelection() {
     const image = document.getElementById("imgSelect");
     const paragraphs = document.getElementsByClassName("introText");
 
-    image.addEventListener('click',()=>{
-        paragraphs[0].style.display="none";
+    image.addEventListener('click', () => {
+        paragraphs[0].style.display = "none";
     });
+}
+function getCurrentImgSize(){
+
 }
 /**
  * Function to scale the size of Image Maps on an image to work with responsive
  * elements! Takes the original image size, create co-ords, scales according to
  * the larger sized image. I.e make a ratio to multiply the image map co-ords by.
  * create array of co-ords -> multiply each by ration -> assign new value to image map 
+ * TODO: needs to detect window resize...
  */
-function imgAreaScaler(originalSize){
-let img = document.getElementById("imgSelect");
+function imgAreaScaler(imgId) {
+    
+    let img = document.getElementById(imgId);
 
-console.log(img.width);
-let currentX = img.width;//actual viewport size - changes due to responsiveness
-let currentY = img.height;
-let ratio = currentX / originalSize;//to yield ratio
-console.log(currentX, currentY, ratio);
-imgMapScaler(ratio);//call scaler function to change the co-ords
+    console.log(img.width);
+    let currentX = img.width;//actual viewport size - changes due to responsiveness
+    let currentY = img.height;
+    let ratio = currentX / originalSize;//to yield ratio
+    console.log(currentX, currentY, ratio);
+    imgMapScaler(ratio);//call scaler function to change the co-ords
 }
 /**
  * Takes the imgAreaScaler ratio and determines new imgMap co-ords by reading custom
  * data-attribute
  * @param {this is the imgAreaScaler ratio } ratio 
  */
-function imgMapScaler(ratio){
+function imgMapScaler(ratio) {
 
     let whale = document.querySelector('area[data-attribute="whale"]');
-    let co = whale.getAttribute("coords");
-    whale.setAttribute("coords","200,200,250,250");
+    let axolotl = document.querySelector('area[data-attribute="axolotl"]');
+    let penguin = document.querySelector('area[data-attribute="penguin"]');
+    let cat = document.querySelector('area[data-attribute="cat"]');
+    let strWhale = (whale.getAttribute("coords")).split(',');
+    let numWhale = strWhale.map(Number);
+    let newArr=[];
+    for (let i = 0; i < numWhale.length; i++) {
+         newArr[i] = numWhale [i] * ratio;
+        
+    }
+    //take coord string, break into array, split by ','
+    // let  coordAxolotl= axolotl.getAttribute("coords");
+    // let  coordPenguin= penguin.getAttribute("coords");
+    // let  coordCat= cat.getAttribute("coords");
+
+    whale.setAttribute("coords", `${newArr[0]},${newArr[1]},${newArr[2]},${newArr[3]}`);
     // let newX1= x1 * ratio;
     // let newY1 = y1 * ratio;
 }
-imgAreaScaler();
+//imgAreaScaler();
 animalSelection();
