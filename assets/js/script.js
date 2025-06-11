@@ -129,5 +129,34 @@ function animalSelection(){
         paragraphs[0].style.display="none";
     });
 }
+/**
+ * Function to scale the size of Image Maps on an image to work with responsive
+ * elements! Takes the original image size, create co-ords, scales according to
+ * the larger sized image. I.e make a ratio to multiply the image map co-ords by.
+ * create array of co-ords -> multiply each by ration -> assign new value to image map 
+ */
+function imgAreaScaler(originalSize){
+let img = document.getElementById("imgSelect");
 
+console.log(img.width);
+let currentX = img.width;//actual viewport size - changes due to responsiveness
+let currentY = img.height;
+let ratio = currentX / originalSize;//to yield ratio
+console.log(currentX, currentY, ratio);
+imgMapScaler(ratio);//call scaler function to change the co-ords
+}
+/**
+ * Takes the imgAreaScaler ratio and determines new imgMap co-ords by reading custom
+ * data-attribute
+ * @param {this is the imgAreaScaler ratio } ratio 
+ */
+function imgMapScaler(ratio){
+
+    let whale = document.querySelector('area[data-attribute="whale"]');
+    let co = whale.getAttribute("coords");
+    whale.setAttribute("coords","200,200,250,250");
+    // let newX1= x1 * ratio;
+    // let newY1 = y1 * ratio;
+}
+imgAreaScaler();
 animalSelection();
