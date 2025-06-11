@@ -80,6 +80,8 @@ let currentX = 0;
 let currentY = 0;
 let followingImg = null;
 let animationFrameId = null;
+//global for area mapping
+let previousSize=300;
 
 function animateImageFollow() {
     if (!followingImg) return;//if there is no image to follow, stop the animation
@@ -126,12 +128,10 @@ function animalSelection() {
     const paragraphs = document.getElementsByClassName("introText");
 
     image.addEventListener('click', () => {
-        paragraphs[0].style.display = "none";
+        paragraphs[0].style.display = "none";//hides the first one for example - will be changed for the area map clicking options
     });
 }
-function getCurrentImgSize(){
 
-}
 /**
  * Function to scale the size of Image Maps on an image to work with responsive
  * elements! Takes the original image size, create co-ords, scales according to
@@ -144,11 +144,12 @@ function imgAreaScaler(imgId) {
     let img = document.getElementById(imgId);
 
     console.log(img.width);
-    let currentX = img.width;//actual viewport size - changes due to responsiveness
+    let currentX = img.width;//live image size in viewport - changes due to responsiveness
     let currentY = img.height;
-    let ratio = currentX / originalSize;//to yield ratio
+    let ratio = currentX / previousSize;//to yield ratio -> newsize/oldsize
     console.log(currentX, currentY, ratio);
     imgMapScaler(ratio);//call scaler function to change the co-ords
+    previousSize=currentX;//update the 'last size' for next time
 }
 /**
  * Takes the imgAreaScaler ratio and determines new imgMap co-ords by reading custom
@@ -174,8 +175,7 @@ function imgMapScaler(ratio) {
     // let  coordCat= cat.getAttribute("coords");
 
     whale.setAttribute("coords", `${newArr[0]},${newArr[1]},${newArr[2]},${newArr[3]}`);
-    // let newX1= x1 * ratio;
-    // let newY1 = y1 * ratio;
+
 }
 //imgAreaScaler();
 animalSelection();
