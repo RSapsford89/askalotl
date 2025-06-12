@@ -122,16 +122,50 @@ function updateImage() {
     img.style.display = "block";
     makeImageFollow();
 }
-
-function animalSelection() {
+/**
+ *  style.display info checked here: https://developer.mozilla.org/en-US/docs/Web/CSS/display
+ * @param {string of one of the accepted animals in the switch statement} animal 
+ */
+function animalSelection(animal) {
     const image = document.getElementById("imgSelect");
     const paragraphs = document.getElementsByClassName("introText");
 
+    switch (animal) {
+        case 'whale':
+            paragraphs[0].style.display = "block";
+            paragraphs[1].style.display = "none";
+            paragraphs[2].style.display = "none";
+            paragraphs[3].style.display = "none";
+            
+            break;
+        case 'axolotl':
+            paragraphs[0].style.display = "none";
+            paragraphs[1].style.display = "block";
+            paragraphs[2].style.display = "none";
+            paragraphs[3].style.display = "none";
+        break;
+        case 'penguin':
+            paragraphs[0].style.display = "none";
+            paragraphs[1].style.display = "none";
+            paragraphs[2].style.display = "block";
+            paragraphs[3].style.display = "none";
+        break;
+        case 'cat':
+            paragraphs[0].style.display = "none";
+            paragraphs[1].style.display = "none";
+            paragraphs[2].style.display = "none";
+            paragraphs[3].style.display = "block";
+        break;
+        default:
+            console.log(`${animal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
+            break;
+    }
     image.addEventListener('click', () => {
         paragraphs[0].style.display = "none";//hides the first one for example - will be changed for the area map clicking options
     });
 }
-// resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
+
+//window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
 addEventListener("resize",()=>{
     imgAreaScaler("imgSelect");
 });
@@ -139,8 +173,7 @@ addEventListener("resize",()=>{
  * Function to scale the size of Image Maps on an image to work with responsive
  * elements! Takes the original image size, create co-ords, scales according to
  * the larger sized image. I.e make a ratio to multiply the image map co-ords by.
- * create array of co-ords -> multiply each by ration -> assign new value to image map 
- * TODO: needs to detect window resize...
+ * create array of co-ords -> multiply each by ratio -> assign new value to image map 
  */
 function imgAreaScaler(imgId) {
     
@@ -192,7 +225,7 @@ function imgMapScaler(ratio) {
     cat.setAttribute("coords",`${newArr[12]},${newArr[13]},${newArr[14]},${newArr[15]}`);
 }
 
-//imgAreaScaler();
+imgAreaScaler('imgSelect');
 // animalSelection();
 
 //module.exports ={imgMapScaler,animalSelection};
