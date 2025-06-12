@@ -1,6 +1,8 @@
 /*
 This script was taken from the MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event
 */
+
+
 // When true, moving the mouse draws on the canvas
 let isDrawing = false;
 let x = 0;
@@ -229,3 +231,9 @@ imgAreaScaler('imgSelect');
 // animalSelection();
 
 //module.exports ={imgMapScaler,animalSelection};
+// GSAP testing...
+gsap.to("#imgSelect",{
+    duration:3,
+    x:450,
+    rotation:360
+});
