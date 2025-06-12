@@ -232,8 +232,10 @@ imgAreaScaler('imgSelect');
 
 //module.exports ={imgMapScaler,animalSelection};
 // GSAP testing...
-gsap.to("#imgSelect",{
-    duration:3,
-    x:450,
-    rotation:360
+gsap.from("#imgSelect",{
+    duration:2,
+    ease:"power3.out",
+    scale:0.5
 });
+// I want to transistion the imgSelect out or fade etc. and then the current animal, transitions in from
+//the top or sides. clicking the animal then resets back to the imgSelect!
