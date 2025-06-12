@@ -131,7 +131,10 @@ function animalSelection() {
         paragraphs[0].style.display = "none";//hides the first one for example - will be changed for the area map clicking options
     });
 }
-
+// resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
+addEventListener("resize",()=>{
+    imgAreaScaler("imgSelect");
+});
 /**
  * Function to scale the size of Image Maps on an image to work with responsive
  * elements! Takes the original image size, create co-ords, scales according to
@@ -154,6 +157,7 @@ function imgAreaScaler(imgId) {
 /**
  * Takes the imgAreaScaler ratio and determines new imgMap co-ords by reading custom
  * data-attribute
+ * from MDN , map method can change a string array to a num array: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
  * @param {this is the imgAreaScaler ratio } ratio 
  */
 function imgMapScaler(ratio) {
@@ -162,20 +166,33 @@ function imgMapScaler(ratio) {
     let axolotl = document.querySelector('area[data-attribute="axolotl"]');
     let penguin = document.querySelector('area[data-attribute="penguin"]');
     let cat = document.querySelector('area[data-attribute="cat"]');
+
     let strWhale = (whale.getAttribute("coords")).split(',');
+    let strAxolotl = (axolotl.getAttribute("coords")).split(',');
+    let strPenguin = (penguin.getAttribute("coords")).split(',');
+    let strCat = (cat.getAttribute("coords")).split(',');
+
     let numWhale = strWhale.map(Number);
-    let newArr=[];
+    let numAxolotl = strAxolotl.map(Number);
+    let numPenguin = strPenguin.map(Number);
+    let numCat = strCat.map(Number);
+
+    let newArr=[16];
     for (let i = 0; i < numWhale.length; i++) {
-         newArr[i] = numWhale [i] * ratio;
+         newArr[i] = Math.round(numWhale [i] * ratio);
+         newArr[i+4] = Math.round(numAxolotl[i] * ratio);
+         newArr[i+8] = Math.round(numPenguin[i] * ratio);
+         newArr[i+12] = Math.round(numCat[i] * ratio);
         
     }
-    //take coord string, break into array, split by ','
-    // let  coordAxolotl= axolotl.getAttribute("coords");
-    // let  coordPenguin= penguin.getAttribute("coords");
-    // let  coordCat= cat.getAttribute("coords");
 
     whale.setAttribute("coords", `${newArr[0]},${newArr[1]},${newArr[2]},${newArr[3]}`);
-
+    axolotl.setAttribute("coords",`${newArr[4]},${newArr[5]},${newArr[6]},${newArr[7]}`);
+    penguin.setAttribute("coords",`${newArr[8]},${newArr[9]},${newArr[10]},${newArr[11]}`);
+    cat.setAttribute("coords",`${newArr[12]},${newArr[13]},${newArr[14]},${newArr[15]}`);
 }
+
 //imgAreaScaler();
-animalSelection();
+// animalSelection();
+
+//module.exports ={imgMapScaler,animalSelection};
