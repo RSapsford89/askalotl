@@ -1,5 +1,13 @@
+/* Andika and Arvo fonts from GoogleFonts */
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital@0;1&family=Arvo:ital,wght@0,400;0,700;1,400&display=swap');
+
+
 body{
     background-color:  #bb7cdf;
+    font-family: "Andika", serif;
+}
+h1,h2,h3{
+    font-family: "Arvo", sans-serif;
 }
 /* default max-width for all images @300px */
 img{

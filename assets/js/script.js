@@ -233,7 +233,7 @@ imgAreaScaler('imgSelect');
 //module.exports ={imgMapScaler,animalSelection};
 // GSAP testing...
 gsap.from("#imgSelect",{
-    duration:2,
+    duration:1,
     ease:"power3.out",
     scale:0.5
 });
