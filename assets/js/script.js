@@ -3,6 +3,8 @@ This script was taken from the MDN docs: https://developer.mozilla.org/en-US/doc
 */
 
 
+
+
 // When true, moving the mouse draws on the canvas
 let isDrawing = false;
 let x = 0;
@@ -83,7 +85,7 @@ let currentY = 0;
 let followingImg = null;
 let animationFrameId = null;
 //global for area mapping
-let previousSize=300;
+let previousSize = 300;
 
 function animateImageFollow() {
     if (!followingImg) return;//if there is no image to follow, stop the animation
@@ -126,7 +128,7 @@ function updateImage() {
 }
 /**
  *  style.display info checked here: https://developer.mozilla.org/en-US/docs/Web/CSS/display
- * @param {string of one of the accepted animals in the switch statement} animal 
+ * @param {string} animal 
  */
 function animalSelection(animal) {
     const image = document.getElementById("imgSelect");
@@ -138,26 +140,26 @@ function animalSelection(animal) {
             paragraphs[1].style.display = "none";
             paragraphs[2].style.display = "none";
             paragraphs[3].style.display = "none";
-            
+
             break;
         case 'axolotl':
             paragraphs[0].style.display = "none";
             paragraphs[1].style.display = "block";
             paragraphs[2].style.display = "none";
             paragraphs[3].style.display = "none";
-        break;
+            break;
         case 'penguin':
             paragraphs[0].style.display = "none";
             paragraphs[1].style.display = "none";
             paragraphs[2].style.display = "block";
             paragraphs[3].style.display = "none";
-        break;
+            break;
         case 'cat':
             paragraphs[0].style.display = "none";
             paragraphs[1].style.display = "none";
             paragraphs[2].style.display = "none";
             paragraphs[3].style.display = "block";
-        break;
+            break;
         default:
             console.log(`${animal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
             break;
@@ -168,7 +170,7 @@ function animalSelection(animal) {
 }
 
 //window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
-addEventListener("resize",()=>{
+addEventListener("resize", () => {
     imgAreaScaler("imgSelect");
 });
 /**
@@ -178,7 +180,7 @@ addEventListener("resize",()=>{
  * create array of co-ords -> multiply each by ratio -> assign new value to image map 
  */
 function imgAreaScaler(imgId) {
-    
+
     let img = document.getElementById(imgId);
 
     console.log(img.width);
@@ -187,7 +189,7 @@ function imgAreaScaler(imgId) {
     let ratio = currentX / previousSize;//to yield ratio -> newsize/oldsize
     console.log(currentX, currentY, ratio);
     imgMapScaler(ratio);//call scaler function to change the co-ords
-    previousSize=currentX;//update the 'last size' for next time
+    previousSize = currentX;//update the 'last size' for next time
 }
 /**
  * Takes the imgAreaScaler ratio and determines new imgMap co-ords by reading custom
@@ -212,19 +214,19 @@ function imgMapScaler(ratio) {
     let numPenguin = strPenguin.map(Number);
     let numCat = strCat.map(Number);
 
-    let newArr=[16];
+    let newArr = [16];
     for (let i = 0; i < numWhale.length; i++) {
-         newArr[i] = Math.round(numWhale [i] * ratio);
-         newArr[i+4] = Math.round(numAxolotl[i] * ratio);
-         newArr[i+8] = Math.round(numPenguin[i] * ratio);
-         newArr[i+12] = Math.round(numCat[i] * ratio);
-        
+        newArr[i] = Math.round(numWhale[i] * ratio);
+        newArr[i + 4] = Math.round(numAxolotl[i] * ratio);
+        newArr[i + 8] = Math.round(numPenguin[i] * ratio);
+        newArr[i + 12] = Math.round(numCat[i] * ratio);
+
     }
 
     whale.setAttribute("coords", `${newArr[0]},${newArr[1]},${newArr[2]},${newArr[3]}`);
-    axolotl.setAttribute("coords",`${newArr[4]},${newArr[5]},${newArr[6]},${newArr[7]}`);
-    penguin.setAttribute("coords",`${newArr[8]},${newArr[9]},${newArr[10]},${newArr[11]}`);
-    cat.setAttribute("coords",`${newArr[12]},${newArr[13]},${newArr[14]},${newArr[15]}`);
+    axolotl.setAttribute("coords", `${newArr[4]},${newArr[5]},${newArr[6]},${newArr[7]}`);
+    penguin.setAttribute("coords", `${newArr[8]},${newArr[9]},${newArr[10]},${newArr[11]}`);
+    cat.setAttribute("coords", `${newArr[12]},${newArr[13]},${newArr[14]},${newArr[15]}`);
 }
 
 imgAreaScaler('imgSelect');
@@ -232,10 +234,52 @@ imgAreaScaler('imgSelect');
 
 //module.exports ={imgMapScaler,animalSelection};
 // GSAP testing...
-gsap.from("#imgSelect",{
-    duration:1,
-    ease:"power3.out",
-    scale:0.5
+// .from says move FROM the current state to their default state (entrance animations)
+// .to move TO a new state from the default state (exit animations)
+// .fromTo says define a first state and then animate to a second state 
+// this is the least efficient as you are making 2 style changes (for full control animations)
+gsap.registerEffect({
+    name: "fade",
+    effect: (targets, config) => {
+        return gsap.to(targets, { duration: config.duration, opacity: 0 });
+    },
+    defaults: { duration: 2 },
+    extendTimeline: true,
 });
+
+
+
+document.getElementById("headingTitle").addEventListener("click", () => {
+    gsap.effects.fade("#headingTitle", {
+        direction: "up",
+        duration: 1,
+        onComplete:()=>{
+            document.getElementById("#headingTitle").style.display="none";
+        }
+    });
+    // opactiy of 0, slide up from bottom
+gsap.to("#imgSelect",
+        // { opacity: 0, y:0 },
+        { opacity: 1, y:'-75vh', duration: 1, ease: "power2.out", },
+        
+    );
+    
+});
+// split text animation
+gsap.registerPlugin(SplitText);
+
+gsap.set("h1",{opacity:1});
+
+let split = SplitText.create("#headingTitle", {type:"chars"});
+
+let tl = gsap.timeline();
+// falling letters using stagger and the above string split
+tl.from(split.chars,{
+    y:20,
+    autoAlpha:0,
+    stagger:0.05,
+});
+
+
 // I want to transistion the imgSelect out or fade etc. and then the current animal, transitions in from
 //the top or sides. clicking the animal then resets back to the imgSelect!

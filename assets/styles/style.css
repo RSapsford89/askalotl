@@ -15,7 +15,14 @@ img{
 }
 /* class used to hide content for switching purposes */
 .hide{
-
+    display: none;
+}
+/* wrapper div for alignment of headings etc */
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 /* ID for the sticky button for audio mute toggling
 high z-index to ensure it does not get painted over! */
@@ -24,4 +31,22 @@ high z-index to ensure it does not get painted over! */
     bottom: 20px;
     right: 20px;
     z-index: 99;
+}
+#imgSelect{
+    width: 100vh;
+    opacity: 0;
+}
+/* This styling is to create the banner which welcomes the user */
+#introBanner{
+    /* position: fixed; */
+    /* top: 60%; */
+    height: 20vh;
+    background-color: aqua;
+}
+#headingTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
 }

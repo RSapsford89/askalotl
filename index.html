@@ -56,10 +56,20 @@
     <section id="animalChoice">
         <div class="container" id="animalContentOne">
             <div class="row">
+                <!-- H1 needs to be centered in page and only thing visible, respond to click -->
+                <div class="col-12  position-absolute top start " id="headingTitle">
+                    <h1 id=""><strong>Welcome to Askalotl</strong></h1>
+                    <br>
+                    <h3 id="">(click me)</h3>
+                </div>
+                <!-- 2 second delay before moving title away -->
+                <div class="col-12">
 
-                <h1>Welcome to Askalotl</h1>
-                <div class="col col-md-12 image">
-                    <img class="img-fluid   " id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.png"
+                </div>
+                <!-- animal selection page -->
+                <!-- bootstrap d-flex to center contents taken from the docs: https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors -->
+                <div class="col-md-12 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid" id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.png"
                         alt="Image of Whale, Penguin, Axolotl, Cat" usemap="#imgSelectMap" />
                         <map name="imgSelectMap">
                             <area shape="rect" coords="1,1,145,145"  alt="whale" data-attribute="whale" onclick="animalSelection('whale')">
@@ -68,6 +78,14 @@
                             <area shape="rect" coords="150,150,300,300"  alt="cat" data-attribute="cat" onclick="animalSelection('cat')">
                             
                         </map>
+                </div>
+                <div class="col" id="introBanner">
+                    <h2 id="introHeading">Are you ready?</h2>
+                    <br>
+                    <p id="introText">
+                        Welcome to <strong>Askalotl</strong> where you can learn about Whales, Axolotls, Penguins
+                        and Cats! On your journey you will learn about your chosen animal and create your own!
+                    </p>
                 </div>
                 <div class="paragraph" id="par1">
                     <!-- this will change depending on the selected animal -->
@@ -130,7 +148,7 @@
     </section>
     <section id="chosenAnimal">
         <div class="animalIntroduction">
-            <h1>Your Animal Name here</h1>
+            <h1>Selected Animal name here</h1>
             <p>Some general information about selected animal here</p>
         </div>
         <div class="funFacts">
@@ -141,7 +159,7 @@
             <img src="" alt="A picture relevant to the quiz" sizes="" srcset="" />
             <div class="quizForm">
                 <!-- whatever form content is going to go in here, which changes relating
-                 to the quiz question. Probably radio button -->
+                to the quiz question. Probably radio button -->
             </div>
         </div>
         <div class="galleryLink">
@@ -159,7 +177,9 @@
     crossorigin="anonymous"></script>
 
 <!-- load the script at the end after the html content -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 <script  src="./assets/js/script.js"></script>
 
 </html>
