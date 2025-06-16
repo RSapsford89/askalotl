@@ -248,21 +248,27 @@ gsap.registerEffect({
 });
 
 
-
+// the animation Easing effects are demo'd here: https://gsap.com/resources/getting-started/Easing
 document.getElementById("headingTitle").addEventListener("click", () => {
-    gsap.effects.fade("#headingTitle", {
+    let tl = gsap.timeline();
+
+    tl.to("#headingTitle", {
         direction: "up",
         duration: 1,
+        opacity:0,
         onComplete:()=>{
             document.getElementById("#headingTitle").style.display="none";
         }
     });
     // opactiy of 0, slide up from bottom
-gsap.to("#imgSelect",
+    tl.to("#imgSelect",
         // { opacity: 0, y:0 },
-        { opacity: 1, y:'-75vh', duration: 1, ease: "power2.out", },
+        { opacity: 1, y:'-35vh', duration: 2, ease: "power1.out", },
         
     );
+    tl.to("#introBanner",{
+        opacity:1, duration:1, ease: "back.in"
+    })
     
 });
 // split text animation
@@ -272,9 +278,8 @@ gsap.set("h1",{opacity:1});
 
 let split = SplitText.create("#headingTitle", {type:"chars"});
 
-let tl = gsap.timeline();
 // falling letters using stagger and the above string split
-tl.from(split.chars,{
+gsap.from(split.chars,{
     y:20,
     autoAlpha:0,
     stagger:0.05,

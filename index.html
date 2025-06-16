@@ -54,21 +54,18 @@
         Silent
     </button>
     <section id="animalChoice">
-        <div class="container" id="animalContentOne">
-            <div class="row">
+        <div class="" id="animalContentOne">
                 <!-- H1 needs to be centered in page and only thing visible, respond to click -->
-                <div class="col-12  position-absolute top start " id="headingTitle">
+                <div class=" position-absolute top start " id="headingTitle">
                     <h1 id=""><strong>Welcome to Askalotl</strong></h1>
                     <br>
                     <h3 id="">(click me)</h3>
                 </div>
                 <!-- 2 second delay before moving title away -->
-                <div class="col-12">
-
-                </div>
-                <!-- animal selection page -->
+                
+                <!-- animal selection image -->
                 <!-- bootstrap d-flex to center contents taken from the docs: https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors -->
-                <div class="col-md-12 d-flex justify-content-center align-items-center">
+                <div class=" d-flex justify-content-center align-items-center position-absolute fixed-bottom">
                     <img class="img-fluid" id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.png"
                         alt="Image of Whale, Penguin, Axolotl, Cat" usemap="#imgSelectMap" />
                         <map name="imgSelectMap">
@@ -79,7 +76,7 @@
                             
                         </map>
                 </div>
-                <div class="col" id="introBanner">
+                <div class=" position-absolute fixed-bottom  " id="introBanner">
                     <h2 id="introHeading">Are you ready?</h2>
                     <br>
                     <p id="introText">
@@ -87,6 +84,7 @@
                         and Cats! On your journey you will learn about your chosen animal and create your own!
                     </p>
                 </div>
+                <div class="fullscreenSpace"></div>
                 <div class="paragraph" id="par1">
                     <!-- this will change depending on the selected animal -->
                     <!-- use jquery to easily manipulate multiple calsses and element visibilty?
@@ -132,7 +130,6 @@
                         the window, cats always find a way to have fun!
                     </p>
                 </div>
-            </div>
         </div>
         <div id="drawing">
             <canvas id="myCanvas" width="250" height="300" style="border: 2px solid rebeccapurple"></canvas>

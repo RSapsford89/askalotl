@@ -24,6 +24,9 @@ img{
     justify-content: center;
     height: 100vh;
 }
+.fullscreenSpace{
+    height: 100vh;
+}
 /* ID for the sticky button for audio mute toggling
 high z-index to ensure it does not get painted over! */
 #audioButton{
@@ -38,9 +41,8 @@ high z-index to ensure it does not get painted over! */
 }
 /* This styling is to create the banner which welcomes the user */
 #introBanner{
-    /* position: fixed; */
-    /* top: 60%; */
-    height: 20vh;
+    bottom: 5vh;
+    opacity: 0;
     background-color: aqua;
 }
 #headingTitle {
