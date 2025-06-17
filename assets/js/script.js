@@ -18,7 +18,6 @@ document.getElementById("showImg").addEventListener("click", () => { updateImage
 
 // Add the event listeners for mousedown, mousemove, and mouseup
 myPics.addEventListener("pointerdown", (e) => {
-    // e.preventDefault();
     x = e.offsetX;
     y = e.offsetY;
     isDrawing = true;
@@ -26,7 +25,6 @@ myPics.addEventListener("pointerdown", (e) => {
 
 myPics.addEventListener("pointermove", (e) => {
     if (isDrawing) {
-        // e.preventDefault();
         drawLine(context, x, y, e.offsetX, e.offsetY);
         x = e.offsetX;
         y = e.offsetY;
