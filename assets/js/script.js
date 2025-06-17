@@ -133,7 +133,8 @@ function updateImage() {
 function animalSelection(animal) {
     const image = document.getElementById("imgSelect");
     const paragraphs = document.getElementsByClassName("introText");
-
+// if all are hidden first, then Switch becomes JUST enable the one you need, adding
+// the img elements is easier to handle then...
     switch (animal) {
         case 'whale':
             paragraphs[0].style.display = "block";
@@ -257,7 +258,7 @@ document.getElementById("headingTitle").addEventListener("click", () => {
         duration: 1,
         opacity:0,
         onComplete:()=>{
-            document.getElementById("#headingTitle").style.display="none";
+            document.getElementById("headingTitle").style.display="none";
         }
     });
     // opactiy of 0, slide up from bottom
