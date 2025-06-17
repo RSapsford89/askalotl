@@ -134,7 +134,7 @@ function animalSelection(animal) {
     const image = document.getElementById("imgSelect");
     const paragraphs = document.getElementsByClassName("introText");
 // For loop to iterate and hide all the elements 
-for(let p; p <paragraphs.length; p++){
+for(let p=0; p <paragraphs.length; p++){
     paragraphs[p].style.display="none";
 }
     switch (animal) {

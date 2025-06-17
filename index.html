@@ -53,91 +53,102 @@
     <button type="button" class="btn btn-warning" id="audioButton">
         Silent
     </button>
-    <section id="animalChoice">
+    <section id="animalChoice" href="#animalChoice">
         <div class="" id="animalContentOne">
-                <!-- H1 needs to be centered in page and only thing visible, respond to click -->
-                <div class=" position-absolute top start " id="headingTitle">
-                    <h1 id=""><strong>Welcome to Askalotl</strong></h1>
-                    <br>
-                    <h3 id="">(click me)</h3>
-                </div>
-                <!-- 2 second delay before moving title away -->
-                
-                <!-- animal selection image -->
-                <!-- bootstrap d-flex to center contents taken from the docs: https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors -->
-                <div class=" d-flex justify-content-center align-items-center position-absolute fixed-bottom">
-                    <img class="img-fluid" id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.png"
-                        alt="Image of Whale, Penguin, Axolotl, Cat" usemap="#imgSelectMap" />
-                        <map name="imgSelectMap">
-                            <area shape="rect" coords="1,1,145,145"  alt="whale" data-attribute="whale" onclick="animalSelection('whale')">
-                            <area shape="rect" coords="150,0,300,145"  alt="axolotl" data-attribute="axolotl" onclick="animalSelection('axolotl')">
-                            <area shape="rect" coords="1,150,145,300"  alt="penguin" data-attribute="penguin" onclick="animalSelection('penguin')">
-                            <area shape="rect" coords="150,150,300,300"  alt="cat" data-attribute="cat" onclick="animalSelection('cat')">
-                            
-                        </map>
-                </div>
-                <div class=" position-absolute fixed-bottom  " id="introBanner">
-                    <h2 id="introHeading">Are you ready?</h2>
-                    <br>
-                    <p id="introText">
-                        Welcome to <strong>Askalotl</strong> where you can learn about Whales, Axolotls, Penguins
-                        and Cats! Press on the animal you like to learn more...
-                    </p>
-                </div>
-                <div class="fullscreenSpace"></div>
+            <!-- H1 needs to be centered in page and only thing visible, respond to click -->
+            <div class=" position-absolute top start " id="headingTitle">
+                <h1 id=""><strong>Welcome to Askalotl</strong></h1>
+                <br>
+                <h3 id="">(click me)</h3>
+            </div>
+            <!-- 2 second delay before moving title away -->
 
-                <div class="paragraph" id="par1">
-                    <!-- this will change depending on the selected animal using JS -->
-                    <!-- need to add img class to hide and update JS to show/hide
-                    Use a 'display:hide' class on the unselected -->
-                    <img class ="introText" src="assets/images/whales-feeding.jpg" alt="Whales feeding" sizes="width: 300px"  >
-                    <p class="introText" id="introParagraph1">
-                        Blue whales are the biggest animals on
-                        Earth—even bigger than dinosaurs! These gentle giants live in the
-                        ocean and can grow as long as three school buses lined up. Even
-                        though they’re huge, they eat tiny creatures called krill,
-                        swallowing thousands in one gulp. When they dive and swim, their
-                        massive tails push them gracefully through the water. And guess
-                        what? Their hearts are the size of a small car! Blue whales may be
-                        big, but they are peaceful and love to explore the deep blue sea.
-                    </p>
-                    <img class ="introText" src="assets/images/pink-axolotl-close.jpg" alt="Pink Axolotl in a tank" sizes="width: 300px" >
-                    <p class="introText" id="introParagraph2">
-                        Axolotls are magical little creatures that live underwater and can
-                        even regrow their body parts! These playful amphibians always look
-                        like they’re smiling and come in different colors, from pink to
-                        speckled brown. Unlike most salamanders, they stay in the water
-                        their whole lives and use their frilly gills to breathe. Some people
-                        call them “water dragons” because of their unique look. And the
-                        coolest part? If an axolotl loses a leg, it can grow a new one—just
-                        like a superhero!
-                    </p>
-                    <img class ="introText" src="assets/images/2-emperor-penguins.jpg" alt="Two Emperor Penguins" size="width: 300px">
-                    <p class="introText" id="introParagraph3">
-                        Penguins are waddle-tastic birds that love the cold! They
-                        can’t fly, but they’re amazing swimmers, zooming through the water
-                        like little torpedoes. Their black-and-white feathers work like a
-                        built-in tuxedo, keeping them warm. Penguins love to slide on their
-                        bellies across the ice—it’s like their version of sledding! They
-                        take turns huddling together to stay cozy, and some even sing to
-                        find their families. Whether waddling, swimming, or sliding,
-                        penguins sure know how to have fun in the snow!
-                    </p>
-                    <img class="introText" src="assets/images/cats-sleeping.jpg" alt="Cats sleeping" >
-                    <p class="introText" id="introParagraph4">
-                        Cats are playful, curious, and sometimes a little sneaky!
-                        They love to chase things, pounce, and even climb up high to
-                        explore. When they’re happy, they purr—a soft little rumbling sound
-                        that means they feel cozy and safe. Some cats are speedy and love to
-                        run, while others prefer curling up in a warm spot for a nap.
-                        They’re great jumpers, too, leaping up onto shelves and furniture
-                        with ease. Whether they’re chasing toys or watching birds through
-                        the window, cats always find a way to have fun!
-                    </p>
-                </div>
+            <!-- animal selection image -->
+            <!-- bootstrap d-flex to center contents taken from the docs: https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors -->
+            <div class=" d-flex justify-content-center align-items-center position-absolute fixed-bottom">
+                <img class="img-fluid" id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.png"
+                    alt="Image of Whale, Penguin, Axolotl, Cat" usemap="#imgSelectMap" />
+                <map name="imgSelectMap">
+                    <area shape="rect" coords="1,1,145,145" alt="whale" data-attribute="whale"
+                        onclick="animalSelection('whale')">
+                    <area shape="rect" coords="150,0,300,145" alt="axolotl" data-attribute="axolotl"
+                        onclick="animalSelection('axolotl')">
+                    <area shape="rect" coords="1,150,145,300" alt="penguin" data-attribute="penguin"
+                        onclick="animalSelection('penguin')">
+                    <area shape="rect" coords="150,150,300,300" alt="cat" data-attribute="cat"
+                        onclick="animalSelection('cat')">
+
+                </map>
+            </div>
+            <div class=" position-absolute fixed-bottom  " id="introBanner">
+                <h2 id="introHeading">Are you ready?</h2>
+                <br>
+                <p id="introText">
+                    Welcome to <strong>Askalotl</strong> where you can learn about Whales, Axolotls, Penguins
+                    and Cats! Press on the animal you like to learn more...
+                </p>
+            </div>
+            <div class="fullscreenSpace"></div>
         </div>
-        
     </section>
+    <section id="introTextSection" href="#introTextSection">
+        <div class="paragraph" id="par1">
+            <!-- this will change depending on the selected animal using JS -->
+            <!-- need to add img class to hide and update JS to show/hide
+                        Use a 'display:hide' class on the unselected -->
+            <img class="introText" src="assets/images/whales-feeding.jpg" alt="Whales feeding" sizes="width: 300px">
+            <p class="introText" id="introParagraph1">
+                Blue whales are the biggest animals on
+                Earth—even bigger than dinosaurs! These gentle giants live in the
+                ocean and can grow as long as three school buses lined up. Even
+                though they’re huge, they eat tiny creatures called krill,
+                swallowing thousands in one gulp. When they dive and swim, their
+                massive tails push them gracefully through the water. And guess
+                what? Their hearts are the size of a small car! Blue whales may be
+                big, but they are peaceful and love to explore the deep blue sea.
+            </p>
+            <img class="introText" src="assets/images/pink-axolotl-close.jpg" alt="Pink Axolotl in a tank"
+                sizes="width: 300px">
+            <p class="introText" id="introParagraph2">
+                Axolotls are magical little creatures that live underwater and can
+                even regrow their body parts! These playful amphibians always look
+                like they’re smiling and come in different colors, from pink to
+                speckled brown. Unlike most salamanders, they stay in the water
+                their whole lives and use their frilly gills to breathe. Some people
+                call them “water dragons” because of their unique look. And the
+                coolest part? If an axolotl loses a leg, it can grow a new one—just
+                like a superhero!
+            </p>
+            <img class="introText" src="assets/images/2-emperor-penguins.jpg" alt="Two Emperor Penguins"
+                size="width: 300px">
+            <p class="introText" id="introParagraph3">
+                Penguins are waddle-tastic birds that love the cold! They
+                can’t fly, but they’re amazing swimmers, zooming through the water
+                like little torpedoes. Their black-and-white feathers work like a
+                built-in tuxedo, keeping them warm. Penguins love to slide on their
+                bellies across the ice—it’s like their version of sledding! They
+                take turns huddling together to stay cozy, and some even sing to
+                find their families. Whether waddling, swimming, or sliding,
+                penguins sure know how to have fun in the snow!
+            </p>
+            <img class="introText" src="assets/images/cats-sleeping.jpg" alt="Cats sleeping">
+            <p class="introText" id="introParagraph4">
+                Cats are playful, curious, and sometimes a little sneaky!
+                They love to chase things, pounce, and even climb up high to
+                explore. When they’re happy, they purr—a soft little rumbling sound
+                that means they feel cozy and safe. Some cats are speedy and love to
+                run, while others prefer curling up in a warm spot for a nap.
+                They’re great jumpers, too, leaping up onto shelves and furniture
+                with ease. Whether they’re chasing toys or watching birds through
+                the window, cats always find a way to have fun!
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- Section contains the HTML for the drawing canvas! penColor and reset call JS functions to change
+     and reset the canvas. showImg -->
     <section id="drawingSection">
         <div id="drawing">
             <canvas id="myCanvas" width="250" height="300" style="border: 2px solid rebeccapurple"></canvas>
@@ -185,6 +196,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-<script  src="./assets/js/script.js"></script>
+<script src="./assets/js/script.js"></script>
 
 </html>
