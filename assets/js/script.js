@@ -158,9 +158,8 @@ for(let p=0; p <paragraphs.length; p++){
             console.log(`${animal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
             break;
     }
-    image.addEventListener('click', () => {
-        paragraphs[0].style.display = "none";//hides the first one for example - will be changed for the area map clicking options
-    });
+    // need to navigate to section href with a gsap scrollTo...
+    window.location.href="#introTextSection";
 }
 
 //window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
