@@ -53,5 +53,6 @@ high z-index to ensure it does not get painted over! */
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     min-height: 80vh;
 }

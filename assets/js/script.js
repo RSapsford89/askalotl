@@ -133,33 +133,26 @@ function updateImage() {
 function animalSelection(animal) {
     const image = document.getElementById("imgSelect");
     const paragraphs = document.getElementsByClassName("introText");
-// if all are hidden first, then Switch becomes JUST enable the one you need, adding
-// the img elements is easier to handle then...
+// For loop to iterate and hide all the elements 
+for(let p; p <paragraphs.length; p++){
+    paragraphs[p].style.display="none";
+}
     switch (animal) {
         case 'whale':
             paragraphs[0].style.display = "block";
-            paragraphs[1].style.display = "none";
-            paragraphs[2].style.display = "none";
-            paragraphs[3].style.display = "none";
-
-            break;
-        case 'axolotl':
-            paragraphs[0].style.display = "none";
             paragraphs[1].style.display = "block";
-            paragraphs[2].style.display = "none";
-            paragraphs[3].style.display = "none";
+            break;
+        case 'axolotl': 
+            paragraphs[2].style.display = "block";
+            paragraphs[3].style.display = "block";
             break;
         case 'penguin':
-            paragraphs[0].style.display = "none";
-            paragraphs[1].style.display = "none";
-            paragraphs[2].style.display = "block";
-            paragraphs[3].style.display = "none";
+            paragraphs[4].style.display = "block";
+            paragraphs[5].style.display = "block";
             break;
         case 'cat':
-            paragraphs[0].style.display = "none";
-            paragraphs[1].style.display = "none";
-            paragraphs[2].style.display = "none";
-            paragraphs[3].style.display = "block";
+            paragraphs[6].style.display = "block";
+            paragraphs[7].style.display = "block";
             break;
         default:
             console.log(`${animal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
