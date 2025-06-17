@@ -10,28 +10,30 @@ let isDrawing = false;
 let x = 0;
 let y = 0;
 
-const myPics = document.getElementById("myCanvas");
+const myPics = document.getElementById("drawingCanvas");
 const context = myPics.getContext("2d");
 
 document.getElementById("showImg").addEventListener("click", () => { updateImage(); });
 // event.offsetX, event.offsetY gives the (x,y) offset from the edge of the canvas.
 
 // Add the event listeners for mousedown, mousemove, and mouseup
-myPics.addEventListener("mousedown", (e) => {
+myPics.addEventListener("pointerdown", (e) => {
+    // e.preventDefault();
     x = e.offsetX;
     y = e.offsetY;
     isDrawing = true;
 });
 
-myPics.addEventListener("mousemove", (e) => {
+myPics.addEventListener("pointermove", (e) => {
     if (isDrawing) {
+        // e.preventDefault();
         drawLine(context, x, y, e.offsetX, e.offsetY);
         x = e.offsetX;
         y = e.offsetY;
     }
 });
 
-window.addEventListener("mouseup", (e) => {
+window.addEventListener("pointerup", (e) => {
     if (isDrawing) {
         drawLine(context, x, y, e.offsetX, e.offsetY);
         x = 0;
@@ -39,6 +41,8 @@ window.addEventListener("mouseup", (e) => {
         isDrawing = false;
     }
 });
+
+
 /**
  * Set the colour and thickness of the drawing/pen line. Uses a colour input picker and a slider for thickness.
  * The values are taken from the HTML elements with the ids "drawingColor" and "drawingThickness".
@@ -119,7 +123,7 @@ function makeImageFollow() {
  */
 function updateImage() {
     const img = document.getElementById("newImg");
-    const canvasImg = document.getElementById("myCanvas").toDataURL("image/png");
+    const canvasImg = document.getElementById("drawingCanvas").toDataURL("image/png");
     img.src = canvasImg;
     img.style.position = "fixed";
     img.style.pointerEvents = "none"; // Let mouse events pass through

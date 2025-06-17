@@ -58,3 +58,8 @@ high z-index to ensure it does not get painted over! */
     width: 100%;
     min-height: 80vh;
 }
+/* CSS to disable other touch actions for the canvas */
+/* https://stackoverflow.com/questions/38958354/explain-situation-when-you-might-use-touch-action-manipulation */
+#drawingCanvas{
+    touch-action: none;
+}
