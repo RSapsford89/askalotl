@@ -97,6 +97,11 @@
             <!-- need to add img class to hide and update JS to show/hide
                         Use a 'display:hide' class on the unselected -->
             <img class="introText" src="assets/images/whales-feeding.jpg" alt="Whales feeding" sizes="width: 300px">
+            <!-- element to create playback for audio. Removed as it does not feel appropriate here -->
+            <!-- <figure>
+                <figcaption>Listen to a Whale</figcaption>
+                <audio controls src="assets/sounds/whale-sounds.mp3"></audio>
+            </figure> -->
             <p class="introText" id="introParagraph1">
                 Blue whales are the biggest animals on
                 Earth—even bigger than dinosaurs! These gentle giants live in the
@@ -142,6 +147,31 @@
                 with ease. Whether they’re chasing toys or watching birds through
                 the window, cats always find a way to have fun!
             </p>
+        </div>
+        <button type="button">Next</button>
+    </section>
+    <!-- simple section showing a short video for each animal, to be animated and filtered as the intro is.
+     Simple iframe with embed YT link. Not set up for responsive design yet -->
+    <section id="videoSection1">
+        <div class="fullscreenSpace" id="video">
+            <h2 id="videoTitle">Below is a video of a Whale</h2>
+            <iframe min-width="300" src="https://www.youtube.com/embed/o767PuYbEXg" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+        <div id="video">
+            <h2 id="videoTitle">Below is a video of an Axolotl</h2>
+            <iframe min-width="300" src="https://www.youtube.com/embed/tBEf7wqbroM" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+        <div id="video">
+            <h2 id="videoTitle">Below is a video of a Penguin</h2>
+            <iframe min-width="300" src="https://www.youtube.com/embed/Oyo6lz839h4" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+        <div id="video">
+            <h2 id="videoTitle">Below is a video of a Cat</h2>
+            <iframe min-width="300" src="https://www.youtube.com/embed/W86cTIoMv2U" frameborder="0"
+                allowfullscreen></iframe>
         </div>
     </section>
 

@@ -160,10 +160,9 @@ for(let p=0; p <paragraphs.length; p++){
             console.log(`${animal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
             break;
     }
-    // need to navigate to section href with a gsap scrollTo...
+    // CSS smooth scrolling to scroll to the introSection after selecting your animal
     window.location.href="#introTextSection";
 }
-
 //window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
 addEventListener("resize", () => {
     imgAreaScaler("imgSelect");
