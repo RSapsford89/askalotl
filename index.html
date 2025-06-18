@@ -148,30 +148,38 @@
                 the window, cats always find a way to have fun!
             </p>
         </div>
-        <button type="button">Next</button>
+        <button type="button" onclick="videoFilter()">Next</button>
     </section>
     <!-- simple section showing a short video for each animal, to be animated and filtered as the intro is.
      Simple iframe with embed YT link. Not set up for responsive design yet -->
-    <section id="videoSection1">
-        <div class="fullscreenSpace" id="video">
+    <section id="videoSection1" href="#videoSection1">
+        <div class="fullscreenSpace videoDiv " id="video">
             <h2 id="videoTitle">Below is a video of a Whale</h2>
-            <iframe min-width="300" src="https://www.youtube.com/embed/o767PuYbEXg" frameborder="0"
-                allowfullscreen></iframe>
+            <div class="ratio ratio-16x9 d-flex  w-100">
+                <iframe title="Whale video" src="https://www.youtube.com/embed/o767PuYbEXg" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
         </div>
-        <div id="video">
+        <div class="fullscreenSpace videoDiv  " id="video">
             <h2 id="videoTitle">Below is a video of an Axolotl</h2>
-            <iframe min-width="300" src="https://www.youtube.com/embed/tBEf7wqbroM" frameborder="0"
+            <div class="ratio ratio-16x9  d-flex w-100">
+                <iframe title="Axolotl video" src="https://www.youtube.com/embed/tBEf7wqbroM" frameborder="0"
                 allowfullscreen></iframe>
+            </div>
         </div>
-        <div id="video">
+        <div class="fullscreenSpace videoDiv" id="video">
             <h2 id="videoTitle">Below is a video of a Penguin</h2>
-            <iframe min-width="300" src="https://www.youtube.com/embed/Oyo6lz839h4" frameborder="0"
+            <div class="ratio ratio-16x9 d-flex  w-100">
+                <iframe title="Penguin video" src="https://www.youtube.com/embed/Oyo6lz839h4" frameborder="0"
                 allowfullscreen></iframe>
+            </div>
         </div>
-        <div id="video">
+        <div class="fullscreenSpace videoDiv" id="video">
             <h2 id="videoTitle">Below is a video of a Cat</h2>
-            <iframe min-width="300" src="https://www.youtube.com/embed/W86cTIoMv2U" frameborder="0"
+            <div class="ratio ratio-16x9 d-flex  w-100">
+                <iframe title="Cat video" src="https://www.youtube.com/embed/W86cTIoMv2U" frameborder="0"
                 allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 

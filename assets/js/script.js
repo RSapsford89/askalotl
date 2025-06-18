@@ -133,18 +133,19 @@ function updateImage() {
  * @param {string} animal 
  */
 function animalSelection(animal) {
+    selectedAnimal = animal; // Store the selected animal
     const image = document.getElementById("imgSelect");
     const paragraphs = document.getElementsByClassName("introText");
-// For loop to iterate and hide all the elements 
-for(let p=0; p <paragraphs.length; p++){
-    paragraphs[p].style.display="none";
-}
+    // For loop to iterate and hide all the elements 
+    for (let p = 0; p < paragraphs.length; p++) {
+        paragraphs[p].style.display = "none";
+    }
     switch (animal) {
         case 'whale':
             paragraphs[0].style.display = "block";
             paragraphs[1].style.display = "block";
             break;
-        case 'axolotl': 
+        case 'axolotl':
             paragraphs[2].style.display = "block";
             paragraphs[3].style.display = "block";
             break;
@@ -161,12 +162,51 @@ for(let p=0; p <paragraphs.length; p++){
             break;
     }
     // CSS smooth scrolling to scroll to the introSection after selecting your animal
-    window.location.href="#introTextSection";
+    window.location.href = "#introTextSection";
 }
 //window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
 addEventListener("resize", () => {
     imgAreaScaler("imgSelect");
 });
+/**
+ * Function to silter the video section on the first page. it is called in animalSelection() at  the end
+ * and passed the same animal string. This looks for elements with the class "videDiv" and stops displaying
+ * then enables them depending on the animal.
+ * @param {string} animal 
+ */
+function videoFilter() {
+    const videos = document.getElementsByClassName("videoDiv");
+    for (let vid = 0; vid < videos.length; vid++) {
+        videos[vid].style.display = "none";
+
+    }
+    switch (selectedAnimal) {
+        case 'whale':
+            videos[0].style.display = "block";
+            break;
+        case 'axolotl':
+            videos[1].style.display = "block";
+            break;
+        case 'penguin':
+            videos[2].style.display = "block";
+            break;
+        case 'cat':
+            videos[3].style.display = "block";
+            break;
+        default:
+            console.log(`${selectedAnimal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
+            break;
+    }
+}
+// Attach event listener on the Next button which will navigate to the href when pressed.
+const nextButton = document.querySelector('#introTextSection button[type="button"]');
+if (nextButton) {
+    nextButton.addEventListener('click', function () {
+        videoFilter();
+        // Optionally scroll to video section
+        window.location.href = "#videoSection1";
+    });
+}
 /**
  * Function to scale the size of Image Maps on an image to work with responsive
  * elements! Takes the original image size, create co-ords, scales according to
@@ -249,34 +289,34 @@ document.getElementById("headingTitle").addEventListener("click", () => {
     tl.to("#headingTitle", {
         direction: "up",
         duration: 1,
-        opacity:0,
-        onComplete:()=>{
-            document.getElementById("headingTitle").style.display="none";
+        opacity: 0,
+        onComplete: () => {
+            document.getElementById("headingTitle").style.display = "none";
         }
     });
     // opactiy of 0, slide up from bottom
     tl.to("#imgSelect",
         // { opacity: 0, y:0 },
-        { opacity: 1, y:'-35vh', duration: 2, ease: "power1.out", },
-        
+        { opacity: 1, y: '-35vh', duration: 2, ease: "power1.out", },
+
     );
-    tl.to("#introBanner",{
-        opacity:1, duration:1, ease: "back.in"
+    tl.to("#introBanner", {
+        opacity: 1, duration: 1, ease: "back.in"
     })
-    
+
 });
 // split text animation
 gsap.registerPlugin(SplitText);
 
-gsap.set("h1",{opacity:1});
+gsap.set("h1", { opacity: 1 });
 
-let split = SplitText.create("#headingTitle", {type:"chars"});
+let split = SplitText.create("#headingTitle", { type: "chars" });
 
 // falling letters using stagger and the above string split
-gsap.from(split.chars,{
-    y:20,
-    autoAlpha:0,
-    stagger:0.05,
+gsap.from(split.chars, {
+    y: 20,
+    autoAlpha: 0,
+    stagger: 0.05,
 });
 
 

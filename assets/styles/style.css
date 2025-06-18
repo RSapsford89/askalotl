@@ -32,6 +32,9 @@ img{
 .introText{
     display: none;
 }
+.videoDiv{
+    display: none;
+}
 /* ID for the sticky button for audio mute toggling
 high z-index to ensure it does not get painted over! */
 #audioButton{
