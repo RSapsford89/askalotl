@@ -144,18 +144,23 @@ function animalSelection(animal) {
         case 'whale':
             paragraphs[0].style.display = "block";
             paragraphs[1].style.display = "block";
+            gsap.to("body",{backgroundColor: "#62929e", duration: 1.5});
             break;
         case 'axolotl':
             paragraphs[2].style.display = "block";
             paragraphs[3].style.display = "block";
+            gsap.to("body",{backgroundColor: "#bb7cdf", duration: 1.5});
+            
             break;
         case 'penguin':
             paragraphs[4].style.display = "block";
             paragraphs[5].style.display = "block";
+            gsap.to("body",{backgroundColor: "#4240b5", duration: 1.5});
             break;
         case 'cat':
             paragraphs[6].style.display = "block";
             paragraphs[7].style.display = "block";
+            gsap.to("body",{backgroundColor:"#f04276", duration: 1.5});
             break;
         default:
             console.log(`${animal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
@@ -263,7 +268,13 @@ function imgMapScaler(ratio) {
     cat.setAttribute("coords", `${newArr[12]},${newArr[13]},${newArr[14]},${newArr[15]}`);
 }
 
-imgAreaScaler('imgSelect');
+const img = document.getElementById('imgSelect');
+if (img.complete) {
+    imgAreaScaler('imgSelect');
+} else {
+    img.addEventListener('load', () => imgAreaScaler('imgSelect'));
+}
+window.addEventListener('resize', () => imgAreaScaler('imgSelect'));
 // animalSelection();
 
 //module.exports ={imgMapScaler,animalSelection};
@@ -292,6 +303,7 @@ document.getElementById("headingTitle").addEventListener("click", () => {
         opacity: 0,
         onComplete: () => {
             document.getElementById("headingTitle").style.display = "none";
+            document.getElementById("mapDiv").classList.remove("disabled");
         }
     });
     // opactiy of 0, slide up from bottom
@@ -303,6 +315,8 @@ document.getElementById("headingTitle").addEventListener("click", () => {
     tl.to("#introBanner", {
         opacity: 1, duration: 1, ease: "back.in"
     })
+    // add in an animation which makes the title look like it is shaking on repeat
+    
 
 });
 // split text animation

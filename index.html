@@ -65,10 +65,10 @@
 
             <!-- animal selection image -->
             <!-- bootstrap d-flex to center contents taken from the docs: https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors -->
-            <div class=" d-flex justify-content-center align-items-center position-absolute fixed-bottom">
+            <div id="mapDiv" class="disabled d-flex justify-content-center align-items-center position-absolute fixed-bottom">
                 <img class="img-fluid" id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.png"
                     alt="Image of Whale, Penguin, Axolotl, Cat" usemap="#imgSelectMap" />
-                <map name="imgSelectMap">
+                <map name="imgSelectMap" class="">
                     <area shape="rect" coords="1,1,145,145" alt="whale" data-attribute="whale"
                         onclick="animalSelection('whale')">
                     <area shape="rect" coords="150,0,300,145" alt="axolotl" data-attribute="axolotl"
@@ -92,7 +92,7 @@
         </div>
     </section>
     <section id="introTextSection" href="#introTextSection">
-        <div class="paragraph" id="par1">
+        <div class="paragraph fullscreenSpace" id="par1">
             <!-- this will change depending on the selected animal using JS -->
             <!-- need to add img class to hide and update JS to show/hide
                         Use a 'display:hide' class on the unselected -->
@@ -147,8 +147,26 @@
                 with ease. Whether they’re chasing toys or watching birds through
                 the window, cats always find a way to have fun!
             </p>
+            <button type="button"class="btn">Let's draw!</button>
         </div>
+        
         <button type="button" onclick="videoFilter()">Next</button>
+    </section>
+    <!-- Section contains the HTML for the drawing canvas! penColor and reset call JS functions to change
+     and reset the canvas. showImg -->
+    <section id="drawingSection">
+        
+        <div id="drawing">
+            <canvas id="drawingCanvas" width="250" height="300" style="border: 2px solid rebeccapurple"></canvas>
+            <div class=".pointer">
+                <img src="" alt="" id="newImg" />
+            </div>
+            <button id="showImg">click me</button>
+            <button id="penColor" onclick="colorPicker()">Set Colour</button>
+            <button id="reset" onclick="resetImg()">Reset</button>
+            <input type="color" name="drawingColor" id="drawingColor" value="#000000" />
+            <input type="range" name="drawingThickness" id="drawingThickness" min="1" max="10" value="1" />
+        </div>
     </section>
     <!-- simple section showing a short video for each animal, to be animated and filtered as the intro is.
      Simple iframe with embed YT link. Not set up for responsive design yet -->
@@ -185,21 +203,7 @@
 
 
 
-    <!-- Section contains the HTML for the drawing canvas! penColor and reset call JS functions to change
-     and reset the canvas. showImg -->
-    <section id="drawingSection">
-        <div id="drawing">
-            <canvas id="drawingCanvas" width="250" height="300" style="border: 2px solid rebeccapurple"></canvas>
-            <div class=".pointer">
-                <img src="" alt="" id="newImg" />
-            </div>
-            <button id="showImg">click me</button>
-            <button id="penColor" onclick="colorPicker()">Set Colour</button>
-            <button id="reset" onclick="resetImg()">Reset</button>
-            <input type="color" name="drawingColor" id="drawingColor" value="#000000" />
-            <input type="range" name="drawingThickness" id="drawingThickness" min="1" max="10" value="1" />
-        </div>
-    </section>
+    
     <section id="chosenAnimal">
         <div class="animalIntroduction">
             <h1>Selected Animal name here</h1>
