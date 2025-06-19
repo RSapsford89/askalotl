@@ -38,6 +38,12 @@ img{
 .videoDiv{
     display: none;
 }
+.carousel-item{
+    height: 33vh;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+}
 /* ID for the sticky button for audio mute toggling
 high z-index to ensure it does not get painted over! */
 #audioButton{

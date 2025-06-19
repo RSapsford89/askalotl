@@ -7,7 +7,7 @@
     <meta name="description" content="Add the meta tags here" />
     <title>Askalotl - A place for kids to learn</title>
     <!--Add the favicon-->
-    <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/images/favicon-32x32.webp" type="image/x-icon" />
     <!-- bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
@@ -31,16 +31,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Facts</a>
+                            <a class="nav-link active" aria-current="page" href="#">Animal Facts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Change animal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                            <a class="nav-link" href="gallery.html">Gallery</a>
                         </li>
                     </ul>
                 </div>
@@ -65,8 +59,9 @@
 
             <!-- animal selection image -->
             <!-- bootstrap d-flex to center contents taken from the docs: https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors -->
-            <div id="mapDiv" class="disabled d-flex justify-content-center align-items-center position-absolute fixed-bottom">
-                <img class="img-fluid" id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.png"
+            <div id="mapDiv"
+                class="disabled d-flex justify-content-center align-items-center position-absolute fixed-bottom">
+                <img class="img-fluid" id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.webp"
                     alt="Image of Whale, Penguin, Axolotl, Cat" usemap="#imgSelectMap" />
                 <map name="imgSelectMap" class="">
                     <area shape="rect" coords="1,1,145,145" alt="whale" data-attribute="whale"
@@ -96,7 +91,7 @@
             <!-- this will change depending on the selected animal using JS -->
             <!-- need to add img class to hide and update JS to show/hide
                         Use a 'display:hide' class on the unselected -->
-            <img class="introText" src="assets/images/whales-feeding.jpg" alt="Whales feeding" sizes="width: 300px">
+            <img class="introText" src="assets/images/whales-feeding.webp" alt="Whales feeding" sizes="width: 300px">
             <!-- element to create playback for audio. Removed as it does not feel appropriate here -->
             <!-- <figure>
                 <figcaption>Listen to a Whale</figcaption>
@@ -112,7 +107,7 @@
                 what? Their hearts are the size of a small car! Blue whales may be
                 big, but they are peaceful and love to explore the deep blue sea.
             </p>
-            <img class="introText" src="assets/images/pink-axolotl-close.jpg" alt="Pink Axolotl in a tank"
+            <img class="introText" src="assets/images/pink-axolotl-close.webp" alt="Pink Axolotl in a tank"
                 sizes="width: 300px">
             <p class="introText" id="introParagraph2">
                 Axolotls are magical little creatures that live underwater and can
@@ -124,7 +119,7 @@
                 coolest part? If an axolotl loses a leg, it can grow a new one—just
                 like a superhero!
             </p>
-            <img class="introText" src="assets/images/2-emperor-penguins.jpg" alt="Two Emperor Penguins"
+            <img class="introText" src="assets/images/2-emperor-penguins.webp" alt="Two Emperor Penguins"
                 size="width: 300px">
             <p class="introText" id="introParagraph3">
                 Penguins are waddle-tastic birds that love the cold! They
@@ -136,7 +131,7 @@
                 find their families. Whether waddling, swimming, or sliding,
                 penguins sure know how to have fun in the snow!
             </p>
-            <img class="introText" src="assets/images/cats-sleeping.jpg" alt="Cats sleeping">
+            <img class="introText" src="assets/images/cats-sleeping.webp" alt="Cats sleeping">
             <p class="introText" id="introParagraph4">
                 Cats are playful, curious, and sometimes a little sneaky!
                 They love to chase things, pounce, and even climb up high to
@@ -147,26 +142,46 @@
                 with ease. Whether they’re chasing toys or watching birds through
                 the window, cats always find a way to have fun!
             </p>
-            <button type="button"class="btn">Let's draw!</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#drawingModal">Let's draw!</button>
         </div>
-        
+
         <button type="button" onclick="videoFilter()">Next</button>
     </section>
     <!-- Section contains the HTML for the drawing canvas! penColor and reset call JS functions to change
      and reset the canvas. showImg -->
     <section id="drawingSection">
-        
-        <div id="drawing">
-            <canvas id="drawingCanvas" width="250" height="300" style="border: 2px solid rebeccapurple"></canvas>
-            <div class=".pointer">
-                <img src="" alt="" id="newImg" />
+        <!-- Modal used to contain the drawing elements for better UX on mobile -->
+         <!--TODO: #1 need to fix making the drawing transferring to the main page, not the modal... -->
+        <div class="modal" id="drawingModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Draw your favourite animal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="drawing">
+                            <canvas id="drawingCanvas" width="250" height="300"
+                                style="border: 2px solid rebeccapurple"></canvas>
+                            <div class=".pointer">
+                                <img src="" alt="" id="newImg" />
+                            </div>
+                            <button id="showImg">click me</button>
+                            <button id="penColor" onclick="colorPicker()">Set Colour</button>
+                            <button id="reset" onclick="resetImg()">Reset</button>
+                            <input type="color" name="drawingColor" id="drawingColor" value="#000000" />
+                            <input type="range" name="drawingThickness" id="drawingThickness" min="1" max="10"
+                                value="1" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
             </div>
-            <button id="showImg">click me</button>
-            <button id="penColor" onclick="colorPicker()">Set Colour</button>
-            <button id="reset" onclick="resetImg()">Reset</button>
-            <input type="color" name="drawingColor" id="drawingColor" value="#000000" />
-            <input type="range" name="drawingThickness" id="drawingThickness" min="1" max="10" value="1" />
         </div>
+
     </section>
     <!-- simple section showing a short video for each animal, to be animated and filtered as the intro is.
      Simple iframe with embed YT link. Not set up for responsive design yet -->
@@ -182,28 +197,28 @@
             <h2 id="videoTitle">Below is a video of an Axolotl</h2>
             <div class="ratio ratio-16x9  d-flex w-100">
                 <iframe title="Axolotl video" src="https://www.youtube.com/embed/tBEf7wqbroM" frameborder="0"
-                allowfullscreen></iframe>
+                    allowfullscreen></iframe>
             </div>
         </div>
         <div class="fullscreenSpace videoDiv" id="video">
             <h2 id="videoTitle">Below is a video of a Penguin</h2>
             <div class="ratio ratio-16x9 d-flex  w-100">
                 <iframe title="Penguin video" src="https://www.youtube.com/embed/Oyo6lz839h4" frameborder="0"
-                allowfullscreen></iframe>
+                    allowfullscreen></iframe>
             </div>
         </div>
         <div class="fullscreenSpace videoDiv" id="video">
             <h2 id="videoTitle">Below is a video of a Cat</h2>
             <div class="ratio ratio-16x9 d-flex  w-100">
                 <iframe title="Cat video" src="https://www.youtube.com/embed/W86cTIoMv2U" frameborder="0"
-                allowfullscreen></iframe>
+                    allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
 
 
-    
+
     <section id="chosenAnimal">
         <div class="animalIntroduction">
             <h1>Selected Animal name here</h1>
