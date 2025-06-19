@@ -1,77 +1,110 @@
 /* Andika and Arvo fonts from GoogleFonts */
-@import url('https://fonts.googleapis.com/css2?family=Andika:ital@0;1&family=Arvo:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Andika:ital@0;1&family=Arvo:ital,wght@0,400;0,700;1,400&display=swap");
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
-body{
-    background-color:  #bb7cdf;
-    font-family: "Andika", serif;
+body {
+  background-color: #bb7cdf;
+  font-family: "Andika", serif;
 }
-h1,h2,h3{
-    font-family: "Arvo", sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "Arvo", sans-serif;
 }
 /* default max-width for all images @300px */
-img{
-    max-width: 300px;
+img {
+  max-width: 300px;
 }
 /* class used to hide content for switching purposes */
-.hide{
-    display: none;
+.hide {
+  display: none;
 }
 /* wrapper div for alignment of headings etc */
-.wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
-.disabled{
-    pointer-events: none;
+.disabled {
+  pointer-events: none;
 }
-.fullscreenSpace{
-    height: 100vh;
+.fullscreenSpace {
+  height: 100vh;
 }
-.introText{
-    display: none;
+.introText {
+  display: none;
 }
-.videoDiv{
-    display: none;
+.videoDiv {
+  display: none;
 }
-.carousel-item{
-    height: 33vh;
-    width: 90vw;
-    justify-content: center;
-    align-items: center;
+/* gallery page */
+/* carousel */
+.carousel-item {
+  height: 33vh;
+  width: 90vw;
+  justify-content: center;
+  align-items: center;
 }
+/* gallery layout */
+.galleryGrid {
+  column-count: 1;
+}
+.imgContainer {
+  position: relative;
+  break-inside: avoid;
+  overflow: hidden;
+}
+.imgContainer img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ID for the sticky button for audio mute toggling
 high z-index to ensure it does not get painted over! */
-#audioButton{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
+#audioButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
 }
-#imgSelect{
-    width: 100vh;
-    opacity: 0;
+#imgSelect {
+  width: 100vh;
+  opacity: 0;
 }
 /* This styling is to create the banner which welcomes the user */
-#introBanner{
-    bottom: 0vh;
-    opacity: 0;
-    background-color: aqua;
+#introBanner {
+  bottom: 0vh;
+  opacity: 0;
+  background-color: aqua;
 }
 #headingTitle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 80vh;
 }
 /* CSS to disable other touch actions for the canvas */
 /* https://stackoverflow.com/questions/38958354/explain-situation-when-you-might-use-touch-action-manipulation */
-#drawingCanvas{
-    touch-action: none;
+#drawingCanvas {
+  touch-action: none;
+}
+
+/* media queries */
+/* media query for Gallery columns */
+@media (min-width: 700px) {
+  .galleryGrid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .galleryGrid {
+    column-count: 3;
+  }
 }
