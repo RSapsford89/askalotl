@@ -344,8 +344,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     let factsData = {};
-    let factIndex=0;
-    
+    let factIndex = 0;
+
 
     /**
      * Function to determine the questions to be asked in the quiz. Requires the
@@ -363,18 +363,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function nextFact(animal) {
-        const factPar = document.getElementById("")
+        
         switch (animal) {
             case "whale":
-                document.getElementById("introParagraph1").innerText = factsData.whaleFact[factIndex].fact;
+                document.getElementById("factTitle").innerText = factsData.whaleFacts[factIndex].question;
+                document.getElementById("introParagraph1").innerText = factsData.whaleFacts[factIndex].fact;
                 break;
             case "axolotl":
+                document.getElementById("factTitle").innerText = factsData.axolotlFacts[factIndex].question;
                 document.getElementById("introParagraph2").innerText = factsData.axolotlFacts[factIndex].fact;
                 break;
             case "penguin":
+                document.getElementById("factTitle").innerText = factsData.penguinFacts[factIndex].question;
                 document.getElementById("introParagraph3").innerText = factsData.penguinFacts[factIndex].fact;
                 break;
             case "cat":
+                document.getElementById("factTitle").innerText = factsData.catFacts[factIndex].question;
                 document.getElementById("introParagraph4").innerText = factsData.catFacts[factIndex].fact;
                 break;
             default:
@@ -383,8 +387,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (factIndex < 6) {
             factIndex++;
         }
-        else{
-            factIndex=0;
+        else {
+            factIndex = 0;
         }
     }
 
