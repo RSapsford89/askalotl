@@ -333,3 +333,31 @@ gsap.from(split.chars, {
 
 // I want to transistion the imgSelect out or fade etc. and then the current animal, transitions in from
 //the top or sides. clicking the animal then resets back to the imgSelect!
+
+// read quiz json - This is modified from API_part01 with the swapi fetch
+fetch("assets/js/quizQuestions.json")
+.then((response)=> response.json())
+.then((data)=> getQuizData(data));
+
+
+function getQuizData(data){
+    const whaleQuiz = data.whale;
+    const axolotlQuiz = data.axolotl;
+    const penguinQuiz = data.penguin;
+    const catQuiz = data.cat;
+    console.log(catQuiz);
+}
+/**
+ * Function to determine the questions to be asked in the quiz. Requires the
+ * string animal name (as used for setting the sitewide animal chosen)
+ * data is the JSON from the fetch request before / in getQuizData()
+ * @param {string} animal 
+ * @param {JSON} data 
+ */
+function quizContents(animal,data){
+
+}
+
+function updateQuizElements(data){
+    
+}

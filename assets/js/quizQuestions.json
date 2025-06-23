@@ -1,5 +1,143 @@
 {
-  "whale": [
+  "whaleFacts": [
+    {
+      "animal": "Whales",
+      "question": "what do whales eat?",
+      "fact": "Baleen whales (with big comb bristles for teeth) eat Plankton, Krill and other crustaceans. Whilst toothed Whales eat squid and fish as well."
+      
+    },
+    {
+      "animal": "Blue Whale",
+      "question": "How big is a Blue Whale?",
+      "fact": "It is as long as 30 meters, which is longer than 3 big buses! Their heart is as big as a small car too"
+    },
+    {
+      "animal": "Blue Whale",
+      "question": "Do whales sing?",
+      "answerOne": "Whale sounds are called songs and some are heard hundreds of miles away underwater!"
+    },
+    {
+      "animal": "Whales",
+      "question": "Whales breathe air",
+      "fact": "They have lungs like us and so have to hold their breath underwater. They come to the surface to take another breath!"
+      
+    },
+    {
+      "animal": "Whale",
+      "question": "How far do whales travel?",
+      "fact": "Whales migrate thousands of miles to find food and have babies. They can be found all around the Earth's oceans."
+    },
+    {
+      "animal": "Narwhal",
+      "question": "Is there a unicorn whale?!",
+      "answerOne": "The Narwhal has a great big tusk on its head which looks like a spiral. It really exists and live in the Arctic!"
+    }
+  ],
+  "axolotlFacts": [
+    {
+      "animal": "Axolotl",
+      "question": "Axolotls live in water",
+      "fact": "They live their whole lives in water and even keep their gills, which stick out like feathery branches on their heads."
+      
+    },
+    {
+      "animal": "Axolotl",
+      "question": "They are amazing healers",
+      "fact": "If an axolotl gets hurt, it can regrow body parts like legs and even bits of its heart or brain!"
+      
+    },
+    {
+      "animal": "Axolotl",
+      "question": "Where do they live?",
+      "answerOne": "Axolotls come from lakes in Mexico, but their natural homes are disappearing, so people are helping protect them."
+    },
+        {
+      "animal": "Axolotl",
+      "question": "Are they colourful?",
+      "answerOne": "Pet Axolotls are usually pink. Some axolotls are brown like mud, while others are pink, white, or even golden."
+    },
+    {
+      "animal": "Axolotl",
+      "question": "Axolotls are not fish!",
+      "answerOne": "Even though they live in water, axolotls are actually amphibians, like frogs and salamanders."
+    },
+    {
+      "animal": "Axolotl",
+      "question": "What is an Axolotl's favourite meal?",
+      "answerOne": "Earthworms! They also like to eat insects and small fish too."
+    }
+    
+    
+  ],
+  "catFacts": [
+    {
+      "animal": "Cat",
+      "question": "Cats sleep a lot",
+      "fact": "They can nap up to 16 hours a day—that’s like being a professional sleeper!"
+      
+    },
+    {
+      "animal": "Cat",
+      "question": "They have super senses",
+      "fact": "Cats can hear sounds too high for humans and see well in almost total darkness."
+      
+    },
+    {
+      "animal": "Cheetah",
+      "question": "Which cat is the fastest?",
+      "answerOne": "The Cheetah is the fastest cat and land animal on the planet! It can run at car motorway speeds!"
+    },
+        {
+      "animal": "Axolotl",
+      "question": "Are they colourful?",
+      "answerOne": "Some axolotls are brown like mud, while others are pink, white, or even golden."
+    },
+    {
+      "animal": "Axolotl",
+      "question": "Axolotls are not fish!",
+      "answerOne": "Even though they live in water, axolotls are actually amphibians, like frogs and salamanders."
+    },
+    {
+      "animal": "Axolotl",
+      "question": "What is an Axolotl's favourite meal?",
+      "answerOne": "Earthworms! They also like to eat insects and small fish too."
+    }
+  ],
+    "penguinFacts": [
+    {
+      "animal": "Adele penguin",
+      "question": "Where do they live",
+      "fact": "Only Emperor and Adele penguins live in the Antarctic! They spend lots of time at sea, finding food too."
+      
+    },
+    {
+      "animal": "Adele penguin",
+      "question": "How deep can an Adele dive?",
+      "fact": "Adele penguins are super divers! They easily swim to 150m below the surface, which is as long as three Olympic swimming pools."
+      
+    },
+    {
+      "animal": "Penguins",
+      "question": "What do they eat?",
+      "answerOne": "Most penguins eat fish and they sometimes spend days at sea gathering food for their family."
+    },
+        {
+      "animal": "Penguins",
+      "question": "How do they fly?",
+      "answerOne": "No penguin can fly! Instead we call the wings flippers and they zoom around the water instead."
+    },
+    {
+      "animal": "Penguins",
+      "question": "They talk with squawks and dancing",
+      "answerOne": "Penguins use sounds and moves to recognize each other and say “hi!"
+    },
+    {
+      "animal": "Penguins",
+      "question": "How do they keep warm in the snow?",
+      "answerOne": "Penguins huddle together to share heat and fluff their feathers to keep the heat in their feathery coats."
+    }
+  ],   
+  "whaleQuestions": [
     {
       "animal": "Blue Whale",
       "question": "what do whales eat?",
