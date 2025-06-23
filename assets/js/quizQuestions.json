@@ -1,0 +1,106 @@
+{
+  "whale": [
+    {
+      "animal": "Blue Whale",
+      "question": "what do whales eat?",
+      "answerOne": "Sea Kelp",
+      "answerTwo": "Plankton",
+      "answerThree": "Sharks",
+      "correctAnswer": "answerTwo"
+    },
+    {
+      "animal": "Blue Whale",
+      "question": "How big is a Blue Whale?",
+      "answerOne": "As big as a car",
+      "answerTwo": "The same size as a Giraffe",
+      "answerThree": "As big as two buses",
+      "correctAnswer": "answerThree"
+    },
+    {
+      "animal": "Blue Whale",
+      "question": "what do whales eat?",
+      "answerOne": "Sea Kelp",
+      "answerTwo": "Plankton",
+      "answerThree": "Sharks",
+      "correctAnswer": "answerTwo"
+    }
+  ],
+  "axolotl": [
+    {
+      "animal": "axolotl",
+      "question": "where do they live?",
+      "answerOne": "In rivers",
+      "answerTwo": "Outside, in the forest",
+      "answerThree": "In caves",
+      "correctAnswer": "In caves"
+    },
+    {
+      "animal": "axolotl",
+      "question": "What colour are most pet Axolotls?",
+      "answerOne": "Pink",
+      "answerTwo": "Yellow",
+      "answerThree": "Green",
+      "correctAnswer": "Pink"
+    },
+    {
+      "animal": "axolotl",
+      "question": "what do Axolotls eat?",
+      "answerOne": "Insects, worms and small fish",
+      "answerTwo": "Plants, algae and eggs",
+      "answerThree": "Small rocks, twigs and leaves",
+      "correctAnswer": "Insects, worms and small fish"
+    }
+  ],
+  "penguin": [
+    {
+      "animal": "Adele penguin",
+      "question": "where do they live?",
+      "answerOne": "The Antarctic, on the snow",
+      "answerTwo": "African coast, on the beaches",
+      "answerThree": "British coast, in the rain",
+      "correctAnswer": "The Antarctic, on the snow"
+    },
+    {
+      "animal": "Adele penguin",
+      "question": "How deep can an Adele dive?",
+      "answerOne": "The deep bit of a swimming pool",
+      "answerTwo": "As deep as England's deepest lake, Wastwater",
+      "answerThree": "As deep as 3 Olympic swimming pools end to end",
+      "correctAnswer": "As deep as 3 Olympic swimming pools end to end"
+    },
+    {
+      "animal": "Emperor Penguin",
+      "question": "what do Emperor Penguins eat?",
+      "answerOne": "Fish",
+      "answerTwo": "Seals and Polar Bears",
+      "answerThree": "Starfish and sea snails",
+      "correctAnswer": "Fish"
+    }
+  ],
+  "cat":[
+    {
+      "animal": "Snow Leopard",
+      "question": "where do they live?",
+      "answerOne": "The Antarctic, on the snow",
+      "answerTwo": "African savannah",
+      "answerThree": "Himalayan mountains",
+      "correctAnswer": "Himalayan mountains"
+    },
+    {
+      "animal": "Cheetah",
+      "question": "What is a Cheetah best at?",
+      "answerOne": "Running the fastest",
+      "answerTwo": "Jumping the farthest",
+      "answerThree": "Swimming the deepest",
+      "correctAnswer": "Running the fastest"
+    },
+    {
+      "animal": "(domesticated) pet cats",
+      "question": "How long have people been keeping cats?",
+      "answerOne": "Before the Ancient Egyptians",
+      "answerTwo": "Since the Ancient Romans",
+      "answerThree": "Since the Victorians",
+      "correctAnswer": "Before the Ancient Egyptians"
+    }
+    ]
+}
