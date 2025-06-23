@@ -92,11 +92,6 @@
             <!-- need to add img class to hide and update JS to show/hide
                         Use a 'display:hide' class on the unselected -->
             <img class="introText" src="assets/images/whales-feeding.webp" alt="Whales feeding" sizes="width: 300px">
-            <!-- element to create playback for audio. Removed as it does not feel appropriate here -->
-            <!-- <figure>
-                <figcaption>Listen to a Whale</figcaption>
-                <audio controls src="assets/sounds/whale-sounds.mp3"></audio>
-            </figure> -->
             <p class="introText" id="introParagraph1">
                 Blue whales are the biggest animals on
                 Earth—even bigger than dinosaurs! These gentle giants live in the
@@ -142,7 +137,8 @@
                 with ease. Whether they’re chasing toys or watching birds through
                 the window, cats always find a way to have fun!
             </p>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#drawingModal">Let's draw!</button>
+            <button type="button" onclick="nextFact('whale')">Read More</button>
+            <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#drawingModal">Read</button> -->
         </div>
 
         <button type="button" onclick="videoFilter()">Next</button>
