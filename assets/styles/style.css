@@ -34,7 +34,13 @@ img {
 .fullscreenSpace {
   height: 100vh;
 }
-.introText {
+#introText {
+  display: none;
+}
+#introImage{
+  display: none;
+}
+#introTitle{
   display: none;
 }
 .videoDiv {

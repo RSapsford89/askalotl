@@ -132,32 +132,67 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     function animalSelection(animal) {
         selectedAnimal = animal; // Store the selected animal
-        const image = document.getElementById("imgSelect");
-        const paragraphs = document.getElementsByClassName("introText");
-        // For loop to iterate and hide all the elements 
-        for (let p = 0; p < paragraphs.length; p++) {
-            paragraphs[p].style.display = "none";
-        }
+        const image = document.getElementById("introImage");
+        const paragraph = document.getElementById("introText");
+        const title = document.getElementById("introTitle");
+        let whaleText=`Blue whales are the biggest animals on
+                Earth—even bigger than dinosaurs! These gentle giants live in the
+                ocean and can grow as long as three school buses lined up. Even
+                though they’re huge, they eat tiny creatures called krill,
+                swallowing thousands in one gulp. When they dive and swim, their
+                massive tails push them gracefully through the water. And guess
+                what? Their hearts are the size of a small car! Blue whales may be
+                big, but they are peaceful and love to explore the deep blue sea.`;
+        let axolotlText=`Axolotls are magical little creatures that live underwater and can
+                even regrow their body parts! These playful amphibians always look
+                like they’re smiling and come in different colors, from pink to
+                speckled brown. Unlike most salamanders, they stay in the water
+                their whole lives and use their frilly gills to breathe. Some people
+                call them “water dragons” because of their unique look. And the
+                coolest part? If an axolotl loses a leg, it can grow a new one—just
+                like a superhero!`;
+        let penguinText=`Penguins are waddle-tastic birds that love the cold! They
+                can’t fly, but they’re amazing swimmers, zooming through the water
+                like little torpedoes. Their black-and-white feathers work like a
+                built-in tuxedo, keeping them warm. Penguins love to slide on their
+                bellies across the ice—it’s like their version of sledding! They
+                take turns huddling together to stay cozy, and some even sing to
+                find their families. Whether waddling, swimming, or sliding,
+                penguins sure know how to have fun in the snow!`;
+        let catText=`Cats are playful, curious, and sometimes a little sneaky!
+                They love to chase things, pounce, and even climb up high to
+                explore. When they’re happy, they purr—a soft little rumbling sound
+                that means they feel cozy and safe. Some cats are speedy and love to
+                run, while others prefer curling up in a warm spot for a nap.
+                They’re great jumpers, too, leaping up onto shelves and furniture
+                with ease. Whether they’re chasing toys or watching birds through
+                the window, cats always find a way to have fun!`;
+        paragraph.style.display="block";
+        image.style.display="block";
+        title.style.display="block";
         switch (animal) {
             case 'whale':
-                paragraphs[0].style.display = "block";
-                paragraphs[1].style.display = "block";
+                title.innerText="Whales";
+                paragraph.innerText=whaleText; 
+                image.src="assets/images/whales-feeding.webp";                
                 gsap.to("body", { backgroundColor: "#62929e", duration: 1.5 });
                 break;
             case 'axolotl':
-                paragraphs[2].style.display = "block";
-                paragraphs[3].style.display = "block";
+                title.innerText="Axolotls";
+                paragraph.innerText=axolotlText;
+                image.src="assets/images/pink-axolotl-close.webp";
                 gsap.to("body", { backgroundColor: "#bb7cdf", duration: 1.5 });
-
                 break;
             case 'penguin':
-                paragraphs[4].style.display = "block";
-                paragraphs[5].style.display = "block";
+                title.innerText="Penguins";
+                paragraph.innerText=penguinText;
+                image.src="assets/images/2-emperor-penguins.webp";
                 gsap.to("body", { backgroundColor: "#4240b5", duration: 1.5 });
                 break;
             case 'cat':
-                paragraphs[6].style.display = "block";
-                paragraphs[7].style.display = "block";
+                title.innerText="cat";
+                paragraph.innerText=catText;
+                image.src="assets/images/cats-sleeping.webp";
                 gsap.to("body", { backgroundColor: "#f04276", duration: 1.5 });
                 break;
             default:
@@ -165,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
         }
         // CSS smooth scrolling to scroll to the introSection after selecting your animal
+        nextFact(animal);
         window.location.href = "#introTextSection";
     }
     //window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
@@ -201,15 +237,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
         }
     }
-    // Attach event listener on the Next button which will navigate to the href when pressed.
-    const nextButton = document.querySelector('#introTextSection button[type="button"]');
-    if (nextButton) {
-        nextButton.addEventListener('click', function () {
-            videoFilter();
-            // Optionally scroll to video section
-            window.location.href = "#videoSection1";
-        });
-    }
+    // Attach event listener on the Next button which will navigate to the href when pressed - removed as needs to be more specific.
+    // const nextButton = document.querySelector('#introTextSection button[type="button"]');
+    // if (nextButton) {
+    //     nextButton.addEventListener('click', function () {
+    //         videoFilter();
+    //         // Optionally scroll to video section
+    //         window.location.href = "#videoSection1";
+    //     });
+    // }
     /**
      * Function to scale the size of Image Maps on an image to work with responsive
      * elements! Takes the original image size, create co-ords, scales according to
@@ -232,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
      * Takes the imgAreaScaler ratio and determines new imgMap co-ords by reading custom
      * data-attribute
      * from MDN , map method can change a string array to a num array: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-     * @param {this is the imgAreaScaler ratio } ratio 
+     * @param {float } ratio 
      */
     function imgMapScaler(ratio) {
 
@@ -273,10 +309,8 @@ document.addEventListener("DOMContentLoaded", function () {
         img.addEventListener('load', () => imgAreaScaler('imgSelect'));
     }
     window.addEventListener('resize', () => imgAreaScaler('imgSelect'));
-    // animalSelection();
-
-    //module.exports ={imgMapScaler,animalSelection};
-    // GSAP testing...
+   
+    // GSAP notes
     // .from says move FROM the current state to their default state (entrance animations)
     // .to move TO a new state from the default state (exit animations)
     // .fromTo says define a first state and then animate to a second state 
@@ -384,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
             default:
                 break;
         }
-        if (factIndex < 6) {
+        if (factIndex < 5) {
             factIndex++;
         }
         else {
