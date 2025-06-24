@@ -44,7 +44,7 @@ img {
   display: none;
 }
 #videoFrame{
-  display: none;
+  /* display: none; */
 }
 #videoDiv {
   display: none;

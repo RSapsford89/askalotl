@@ -79,8 +79,7 @@
                 <h2 id="introHeading">Are you ready?</h2>
                 <br>
                 <p id="">
-                    Welcome to <strong>Askalotl</strong> where you can learn about Whales, Axolotls, Penguins
-                    and Cats! Press on the animal you like to learn more...
+                    Welcome to <strong>Askalotl</strong>. Press on the animal you like to learn more...
                 </p>
             </div>
             <div class="fullscreenSpace"></div>
@@ -93,7 +92,7 @@
             Use a 'display:hide' class on the unselected -->
             <img id="introImage" src="assets/images/whales-feeding.webp" alt="Whales feeding" sizes="width: 300px">
             <h2 id="introTitle">Animal...</h2>
-            <p  id="introText">
+            <p id="introText">
                 Blue whales are the biggest animals on
                 Earth—even bigger than dinosaurs! These gentle giants live in the
                 ocean and can grow as long as three school buses lined up. Even
@@ -104,19 +103,19 @@
                 big, but they are peaceful and love to explore the deep blue sea.
             </p>
             <!-- 2 buttons, 1 to go to facts, the other to watch a video -->
-            <button type="button" onclick="nextFact('whale')">Learn More</button>
-            <button type="button" onclick="videoFilter()">Watch a video</button>
+            <button type="button" id="learnBtn">Learn More</button>
+            <button type="button" id="videoBtn">Watch a video</button>
             <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#drawingModal">Read</button> -->
         </div>
-        
     </section>
+    <!-- video displayed of user's chosen animal. embedded YT link. -->
     <section id="videoSection" href="#videoSection">
         <!-- control content through JS function as with other content:  -->
         <div class="fullscreenSpace  " id="videoDiv">
             <h2 id="videoTitle">Below is a video about Whales</h2>
             <div class="ratio ratio-16x9 d-flex w-100">
-                <iframe id="videoFrame" title="Whale video" src="https://www.youtube.com/embed/o767PuYbEXg" frameborder="0"
-                    allowfullscreen></iframe>
+                <iframe id="videoFrame" title="Whale video" src="https://www.youtube.com/embed/o767PuYbEXg"
+                    frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -124,12 +123,13 @@
         <div id="factDiv">
             <h2 id="factTitle">Animal Facts!</h2>
             <p id="factParagraph">
-                The Narwhal has a great big tusk on its head which looks like a spiral. It really exists and live in the Arctic!
+                The Narwhal has a great big tusk on its head which looks like a spiral. It really exists and live in the
+                Arctic!
             </p>
         </div>
     </section>
     <!-- Section contains the HTML for the drawing canvas! penColor and reset call JS functions to change
-     and reset the canvas. showImg -->
+    and reset the canvas. showImg -->
     <section id="drawingSection">
         <!-- Modal used to contain the drawing elements for better UX on mobile -->
         <!--TODO: #1 need to fix making the drawing transferring to the main page, not the modal... -->
@@ -164,56 +164,36 @@
         </div>
 
     </section>
-    <!-- simple section showing a short video for each animal, to be animated and filtered as the intro is.
-     Simple iframe with embed YT link. Not set up for responsive design yet -->
-    <!-- <section id="videoSection1" href="#videoSection1">
-        <div class="fullscreenSpace videoDiv " id="video">
-            <h2 id="videoTitle">Below is a video of a Whale</h2>
-            <div class="ratio ratio-16x9 d-flex  w-100">
-                <iframe title="Whale video" src="https://www.youtube.com/embed/o767PuYbEXg" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="fullscreenSpace videoDiv  " id="video">
-            <h2 id="videoTitle">Below is a video of an Axolotl</h2>
-            <div class="ratio ratio-16x9  d-flex w-100">
-                <iframe title="Axolotl video" src="https://www.youtube.com/embed/tBEf7wqbroM" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="fullscreenSpace videoDiv" id="video">
-            <h2 id="videoTitle">Below is a video of a Penguin</h2>
-            <div class="ratio ratio-16x9 d-flex  w-100">
-                <iframe title="Penguin video" src="https://www.youtube.com/embed/Oyo6lz839h4" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="fullscreenSpace videoDiv" id="video">
-            <h2 id="videoTitle">Below is a video of a Cat</h2>
-            <div class="ratio ratio-16x9 d-flex  w-100">
-                <iframe title="Cat video" src="https://www.youtube.com/embed/W86cTIoMv2U" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-    </section> -->
-
-
-
-
-    <section id="chosenAnimal">
-        <div class="animalIntroduction">
-            <h1>Selected Animal name here</h1>
-            <p>Some general information about selected animal here</p>
-        </div>
-        <div class="funFacts">
-            <h2>Fun Facts!</h2>
-            <p>Some fun facts about your animal</p>
-        </div>
+    <!-- Quiz section which will take random questions from the JSON file and populate radio
+     buttons and question field. Indicate to user if you are right/wrong. Ask for user's name
+     at the start and apply some rules (3 letters, up to 10, no numbers or special characters) -->
+    <section id="quizSection">
         <div id="popQuiz">
             <img src="" alt="A picture relevant to the quiz" sizes="" srcset="" />
             <div class="quizForm">
                 <!-- whatever form content is going to go in here, which changes relating
                 to the quiz question. Probably radio button -->
+                <div id="questionDiv">
+                    <p>Question to ask the user?</p>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                    <label class="form-check-label" for="radioDefault1">
+                        Answer 1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                    <label class="form-check-label" for="radioDefault1">
+                        Answer 2
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                    <label class="form-check-label" for="radioDefault1">
+                        Answer 3
+                    </label>
+                </div>
             </div>
         </div>
         <div class="galleryLink">

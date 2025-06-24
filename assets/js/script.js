@@ -126,6 +126,8 @@ document.addEventListener("DOMContentLoaded", function () {
         img.style.display = "block";
         makeImageFollow();
     }
+    // variable used for button clicks to set the chosen animal in animalSelection(), default value is 'whale'
+    let selectedAnimal="whale";
     /**
      *  style.display info checked here: https://developer.mozilla.org/en-US/docs/Web/CSS/display
      * @param {string} animal 
@@ -201,10 +203,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         // CSS smooth scrolling to scroll to the introSection after selecting your animal
         // call nextFact and VideoFilter to set correct content
-        nextFact(animal);
-        videoFilter(animal);
+        // nextFact(animal);
+        // videoFilter(animal);
         window.location.href = "#introTextSection";
     }
+
+    function buttonListener(){
+        document.getElementById("videoBtn").addEventListener("click", function(){
+            videoFilter(selectedAnimal);
+        });
+        document.getElementById("learnBtn").addEventListener("click", function(){
+            nextFact(selectedAnimal);
+        });
+    }
+    buttonListener();
     //window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
     addEventListener("resize", () => {
         imgAreaScaler("imgSelect");
@@ -215,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
      * then enables them depending on the animal.
      * @param {string} animal 
      */
-    function videoFilter(animal) {
+    function videoFilter() {
         const video = document.getElementById("videoFrame");
         const title = document.getElementById("videoTitle");
         document.getElementById("videoDiv").style.display="block";
@@ -245,6 +257,41 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(`${selectedAnimal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
                 break;
         }
+        window.location.href = "#videoSection";
+    }
+
+    function nextFact(animal) {
+        // display #factDiv to make this content visible
+        document.getElementById("factDiv").style.display="block";
+        const title = document.getElementById("factTitle");
+        const paragraph = document.getElementById("factParagraph");
+        switch (animal) {
+            case "whale":
+                title.innerText = factsData.whaleFacts[factIndex].question;
+                paragraph.innerText = factsData.whaleFacts[factIndex].fact;
+                break;
+            case "axolotl":
+                title.innerText = factsData.axolotlFacts[factIndex].question;
+                paragraph.innerText = factsData.axolotlFacts[factIndex].fact;
+                break;
+            case "penguin":
+                title.innerText = factsData.penguinFacts[factIndex].question;
+                paragraph.innerText = factsData.penguinFacts[factIndex].fact;
+                break;
+            case "cat":
+                title.innerText = factsData.catFacts[factIndex].question;
+                paragraph.innerText = factsData.catFacts[factIndex].fact;
+                break;
+            default:
+                break;
+        }
+        if (factIndex < 5) {
+            factIndex++;
+        }
+        else {
+            factIndex = 0;
+        }
+        window.location.href = "#factSection";
     }
     // Attach event listener on the Next button which will navigate to the href when pressed - removed as needs to be more specific.
     // const nextButton = document.querySelector('#introTextSection button[type="button"]');
@@ -404,38 +451,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    function nextFact(animal) {
-        // display #factDiv to make this content visible
-        document.getElementById("factDiv").style.display="block";
-        const title = document.getElementById("factTitle");
-        const paragraph = document.getElementById("factParagraph");
-        switch (animal) {
-            case "whale":
-                title.innerText = factsData.whaleFacts[factIndex].question;
-                paragraph.innerText = factsData.whaleFacts[factIndex].fact;
-                break;
-            case "axolotl":
-                title.innerText = factsData.axolotlFacts[factIndex].question;
-                paragraph.innerText = factsData.axolotlFacts[factIndex].fact;
-                break;
-            case "penguin":
-                title.innerText = factsData.penguinFacts[factIndex].question;
-                paragraph.innerText = factsData.penguinFacts[factIndex].fact;
-                break;
-            case "cat":
-                title.innerText = factsData.catFacts[factIndex].question;
-                paragraph.innerText = factsData.catFacts[factIndex].fact;
-                break;
-            default:
-                break;
-        }
-        if (factIndex < 5) {
-            factIndex++;
-        }
-        else {
-            factIndex = 0;
-        }
-    }
+    
 
     // At the end of the DOMContentLoaded function, expose functions globally
     window.animalSelection = animalSelection;
