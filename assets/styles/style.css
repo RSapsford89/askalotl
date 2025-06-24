@@ -7,6 +7,7 @@ html {
 body {
   background-color: #bb7cdf;
   font-family: "Andika", serif;
+  font-size: larger;
 }
 h1,
 h2,
@@ -39,6 +40,7 @@ img {
 }
 #introImage{
   display: none;
+  max-height: 35vh;
 }
 #introTitle{
   display: none;
