@@ -49,6 +49,9 @@ img {
 #videoDiv {
   display: none;
 }
+#factDiv{
+  display: none;
+}
 /* gallery page */
 /* carousel */
 .carousel-item {

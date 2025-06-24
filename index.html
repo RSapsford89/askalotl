@@ -103,19 +103,29 @@
                 what? Their hearts are the size of a small car! Blue whales may be
                 big, but they are peaceful and love to explore the deep blue sea.
             </p>
+            <!-- 2 buttons, 1 to go to facts, the other to watch a video -->
             <button type="button" onclick="nextFact('whale')">Learn More</button>
+            <button type="button" onclick="videoFilter()">Watch a video</button>
             <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#drawingModal">Read</button> -->
         </div>
-        <button type="button" onclick="videoFilter()">Next</button>
+        
     </section>
-    <section id="videoSection">
+    <section id="videoSection" href="#videoSection">
         <!-- control content through JS function as with other content:  -->
         <div class="fullscreenSpace  " id="videoDiv">
-            <h2 id="videoTitle">Below is a video of a Whale</h2>
+            <h2 id="videoTitle">Below is a video about Whales</h2>
             <div class="ratio ratio-16x9 d-flex w-100">
                 <iframe id="videoFrame" title="Whale video" src="https://www.youtube.com/embed/o767PuYbEXg" frameborder="0"
                     allowfullscreen></iframe>
             </div>
+        </div>
+    </section>
+    <section id="factSection" href="#factSection">
+        <div id="factDiv">
+            <h2 id="factTitle">Animal Facts!</h2>
+            <p id="factParagraph">
+                The Narwhal has a great big tusk on its head which looks like a spiral. It really exists and live in the Arctic!
+            </p>
         </div>
     </section>
     <!-- Section contains the HTML for the drawing canvas! penColor and reset call JS functions to change
@@ -156,7 +166,7 @@
     </section>
     <!-- simple section showing a short video for each animal, to be animated and filtered as the intro is.
      Simple iframe with embed YT link. Not set up for responsive design yet -->
-    <section id="videoSection1" href="#videoSection1">
+    <!-- <section id="videoSection1" href="#videoSection1">
         <div class="fullscreenSpace videoDiv " id="video">
             <h2 id="videoTitle">Below is a video of a Whale</h2>
             <div class="ratio ratio-16x9 d-flex  w-100">
@@ -185,7 +195,7 @@
                     allowfullscreen></iframe>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 

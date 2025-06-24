@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 gsap.to("body", { backgroundColor: "#4240b5", duration: 1.5 });
                 break;
             case 'cat':
-                title.innerText="cat";
+                title.innerText="Cats";
                 paragraph.innerText=catText;
                 image.src="assets/images/cats-sleeping.webp";
                 gsap.to("body", { backgroundColor: "#f04276", duration: 1.5 });
@@ -200,7 +200,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
         }
         // CSS smooth scrolling to scroll to the introSection after selecting your animal
+        // call nextFact and VideoFilter to set correct content
         nextFact(animal);
+        videoFilter(animal);
         window.location.href = "#introTextSection";
     }
     //window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
@@ -403,23 +405,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function nextFact(animal) {
-        
+        // display #factDiv to make this content visible
+        document.getElementById("factDiv").style.display="block";
+        const title = document.getElementById("factTitle");
+        const paragraph = document.getElementById("factParagraph");
         switch (animal) {
             case "whale":
-                document.getElementById("factTitle").innerText = factsData.whaleFacts[factIndex].question;
-                document.getElementById("introParagraph1").innerText = factsData.whaleFacts[factIndex].fact;
+                title.innerText = factsData.whaleFacts[factIndex].question;
+                paragraph.innerText = factsData.whaleFacts[factIndex].fact;
                 break;
             case "axolotl":
-                document.getElementById("factTitle").innerText = factsData.axolotlFacts[factIndex].question;
-                document.getElementById("introParagraph2").innerText = factsData.axolotlFacts[factIndex].fact;
+                title.innerText = factsData.axolotlFacts[factIndex].question;
+                paragraph.innerText = factsData.axolotlFacts[factIndex].fact;
                 break;
             case "penguin":
-                document.getElementById("factTitle").innerText = factsData.penguinFacts[factIndex].question;
-                document.getElementById("introParagraph3").innerText = factsData.penguinFacts[factIndex].fact;
+                title.innerText = factsData.penguinFacts[factIndex].question;
+                paragraph.innerText = factsData.penguinFacts[factIndex].fact;
                 break;
             case "cat":
-                document.getElementById("factTitle").innerText = factsData.catFacts[factIndex].question;
-                document.getElementById("introParagraph4").innerText = factsData.catFacts[factIndex].fact;
+                title.innerText = factsData.catFacts[factIndex].question;
+                paragraph.innerText = factsData.catFacts[factIndex].fact;
                 break;
             default:
                 break;
