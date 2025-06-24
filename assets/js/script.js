@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         makeImageFollow();
     }
     // variable used for button clicks to set the chosen animal in animalSelection(), default value is 'whale'
-    let selectedAnimal="whale";
+    let selectedAnimal = "whale";
     /**
      *  style.display info checked here: https://developer.mozilla.org/en-US/docs/Web/CSS/display
      * @param {string} animal 
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const image = document.getElementById("introImage");
         const paragraph = document.getElementById("introText");
         const title = document.getElementById("introTitle");
-        let whaleText=`Blue whales are the biggest animals on
+        let whaleText = `Blue whales are the biggest animals on
                 Earth—even bigger than dinosaurs! These gentle giants live in the
                 ocean and can grow as long as three school buses lined up. Even
                 though they’re huge, they eat tiny creatures called krill,
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 massive tails push them gracefully through the water. And guess
                 what? Their hearts are the size of a small car! Blue whales may be
                 big, but they are peaceful and love to explore the deep blue sea.`;
-        let axolotlText=`Axolotls are magical little creatures that live underwater and can
+        let axolotlText = `Axolotls are magical little creatures that live underwater and can
                 even regrow their body parts! These playful amphibians always look
                 like they’re smiling and come in different colors, from pink to
                 speckled brown. Unlike most salamanders, they stay in the water
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 call them “water dragons” because of their unique look. And the
                 coolest part? If an axolotl loses a leg, it can grow a new one—just
                 like a superhero!`;
-        let penguinText=`Penguins are waddle-tastic birds that love the cold! They
+        let penguinText = `Penguins are waddle-tastic birds that love the cold! They
                 can’t fly, but they’re amazing swimmers, zooming through the water
                 like little torpedoes. Their black-and-white feathers work like a
                 built-in tuxedo, keeping them warm. Penguins love to slide on their
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 take turns huddling together to stay cozy, and some even sing to
                 find their families. Whether waddling, swimming, or sliding,
                 penguins sure know how to have fun in the snow!`;
-        let catText=`Cats are playful, curious, and sometimes a little sneaky!
+        let catText = `Cats are playful, curious, and sometimes a little sneaky!
                 They love to chase things, pounce, and even climb up high to
                 explore. When they’re happy, they purr—a soft little rumbling sound
                 that means they feel cozy and safe. Some cats are speedy and love to
@@ -169,38 +169,47 @@ document.addEventListener("DOMContentLoaded", function () {
                 They’re great jumpers, too, leaping up onto shelves and furniture
                 with ease. Whether they’re chasing toys or watching birds through
                 the window, cats always find a way to have fun!`;
-        paragraph.style.display="block";
-        image.style.display="block";
-        title.style.display="block";
+        paragraph.style.display = "block";
+        image.style.display = "block";
+        title.style.display = "block";
         switch (animal) {
             case 'whale':
-                title.innerText="Whales";
-                paragraph.innerText=whaleText; 
-                image.src="assets/images/whales-feeding.webp";                
+                title.innerText = "Whales";
+                paragraph.innerText = whaleText;
+                image.src = "assets/images/whales-feeding.webp";
                 gsap.to("body", { backgroundColor: "#62929e", duration: 1.5 });
                 break;
             case 'axolotl':
-                title.innerText="Axolotls";
-                paragraph.innerText=axolotlText;
-                image.src="assets/images/pink-axolotl-close.webp";
+                title.innerText = "Axolotls";
+                paragraph.innerText = axolotlText;
+                image.src = "assets/images/pink-axolotl-close.webp";
                 gsap.to("body", { backgroundColor: "#bb7cdf", duration: 1.5 });
                 break;
             case 'penguin':
-                title.innerText="Penguins";
-                paragraph.innerText=penguinText;
-                image.src="assets/images/2-emperor-penguins.webp";
+                title.innerText = "Penguins";
+                paragraph.innerText = penguinText;
+                image.src = "assets/images/2-emperor-penguins.webp";
                 gsap.to("body", { backgroundColor: "#4240b5", duration: 1.5 });
                 break;
             case 'cat':
-                title.innerText="Cats";
-                paragraph.innerText=catText;
-                image.src="assets/images/cats-sleeping.webp";
+                title.innerText = "Cats";
+                paragraph.innerText = catText;
+                image.src = "assets/images/cats-sleeping.webp";
                 gsap.to("body", { backgroundColor: "#f04276", duration: 1.5 });
                 break;
             default:
                 console.log(`${animal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
                 break;
         }
+        gsap.to("#introBanner", {
+            opacity: 0,
+            duration: 0.5,
+            onComplete: () => {
+                document.getElementById("introBanner").classList.add("hide");
+                document.getElementById("animalChoiceSpacer").classList.remove("fullscreenSpace");
+                document.getElementById("animalChoiceSpacer").classList.add("halfscreenSpace");//this isnt working as desired yet. Maybe move the animal image up first
+            }
+        });
         // CSS smooth scrolling to scroll to the introSection after selecting your animal
         // call nextFact and VideoFilter to set correct content
         // nextFact(animal);
@@ -208,11 +217,11 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "#introTextSection";
     }
 
-    function buttonListener(){
-        document.getElementById("videoBtn").addEventListener("click", function(){
+    function buttonListener() {
+        document.getElementById("videoBtn").addEventListener("click", function () {
             videoFilter(selectedAnimal);
         });
-        document.getElementById("learnBtn").addEventListener("click", function(){
+        document.getElementById("learnBtn").addEventListener("click", function () {
             nextFact(selectedAnimal);
         });
     }
@@ -230,28 +239,28 @@ document.addEventListener("DOMContentLoaded", function () {
     function videoFilter() {
         const video = document.getElementById("videoFrame");
         const title = document.getElementById("videoTitle");
-        document.getElementById("videoDiv").style.display="block";
+        document.getElementById("videoDiv").style.display = "block";
 
         switch (selectedAnimal) {
             case 'whale':
-                title.innerText="Watch a video about Whales";
-                video.src="https://www.youtube.com/embed/o767PuYbEXg";
-                video.title="Whale video";
+                title.innerText = "Watch a video about Whales";
+                video.src = "https://www.youtube.com/embed/o767PuYbEXg";
+                video.title = "Whale video";
                 break;
             case 'axolotl':
-                title.innerText="Watch a video about Axolotls";
-                video.src="https://www.youtube.com/embed/tBEf7wqbroM";
-                video.title="Axolotl video"
+                title.innerText = "Watch a video about Axolotls";
+                video.src = "https://www.youtube.com/embed/tBEf7wqbroM";
+                video.title = "Axolotl video"
                 break;
             case 'penguin':
-                title.innerText="Watch a video about Penguins";
-                video.src="https://www.youtube.com/embed/Oyo6lz839h4";
-                video.title="Penguin video";
+                title.innerText = "Watch a video about Penguins";
+                video.src = "https://www.youtube.com/embed/Oyo6lz839h4";
+                video.title = "Penguin video";
                 break;
             case 'cat':
-                title.innerText="Watch a video about Cats";
-                video.src="https://www.youtube.com/embed/W86cTIoMv2U";
-                video.title="Cat video";
+                title.innerText = "Watch a video about Cats";
+                video.src = "https://www.youtube.com/embed/W86cTIoMv2U";
+                video.title = "Cat video";
                 break;
             default:
                 console.log(`${selectedAnimal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
@@ -262,23 +271,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function nextFact(animal) {
         // display #factDiv to make this content visible
-        document.getElementById("factDiv").style.display="block";
+        document.getElementById("factDiv").style.display = "block";
         const title = document.getElementById("factTitle");
         const paragraph = document.getElementById("factParagraph");
+        const img = document.getElementById("factImg");
         switch (animal) {
             case "whale":
+                img.src = "assets/images/whale-tail.webp";
                 title.innerText = factsData.whaleFacts[factIndex].question;
                 paragraph.innerText = factsData.whaleFacts[factIndex].fact;
                 break;
             case "axolotl":
+                img.src = "assets/images/black-axolotl-on-sand.webp";
                 title.innerText = factsData.axolotlFacts[factIndex].question;
                 paragraph.innerText = factsData.axolotlFacts[factIndex].fact;
                 break;
             case "penguin":
+                img.src = "assets/images/penguin-eyebrows.webp";
                 title.innerText = factsData.penguinFacts[factIndex].question;
                 paragraph.innerText = factsData.penguinFacts[factIndex].fact;
                 break;
             case "cat":
+                img.src = "assets/images/kittens-in-basket.webp";
                 title.innerText = factsData.catFacts[factIndex].question;
                 paragraph.innerText = factsData.catFacts[factIndex].fact;
                 break;
@@ -364,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
         img.addEventListener('load', () => imgAreaScaler('imgSelect'));
     }
     window.addEventListener('resize', () => imgAreaScaler('imgSelect'));
-   
+
     // GSAP notes
     // .from says move FROM the current state to their default state (entrance animations)
     // .to move TO a new state from the default state (exit animations)
@@ -403,7 +417,7 @@ document.addEventListener("DOMContentLoaded", function () {
             opacity: 1, duration: 1, ease: "back.in"
         })
         // add in an animation which makes the title look like it is shaking on repeat
-
+        
 
     });
     // split text animation
@@ -418,7 +432,13 @@ document.addEventListener("DOMContentLoaded", function () {
         y: 20,
         autoAlpha: 0,
         stagger: 0.05,
+        repeat: -1,
+        yoyo: true,
+        repeatDelay:1.5
     });
+    // gsap.to("#headingTitle"{
+        
+    // });
 
 
     // I want to transistion the imgSelect out or fade etc. and then the current animal, transitions in from
@@ -451,7 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    
+
 
     // At the end of the DOMContentLoaded function, expose functions globally
     window.animalSelection = animalSelection;

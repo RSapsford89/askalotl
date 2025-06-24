@@ -35,6 +35,9 @@ img {
 .fullscreenSpace {
   height: 100vh;
 }
+.halfscreenSpace{
+  height: 75vh;
+}
 #introText {
   display: none;
 }
