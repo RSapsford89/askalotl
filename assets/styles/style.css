@@ -43,7 +43,10 @@ img {
 #introTitle{
   display: none;
 }
-.videoDiv {
+#videoFrame{
+  display: none;
+}
+#videoDiv {
   display: none;
 }
 /* gallery page */

@@ -213,24 +213,31 @@ document.addEventListener("DOMContentLoaded", function () {
      * then enables them depending on the animal.
      * @param {string} animal 
      */
-    function videoFilter() {
-        const videos = document.getElementsByClassName("videoDiv");
-        for (let vid = 0; vid < videos.length; vid++) {
-            videos[vid].style.display = "none";
+    function videoFilter(animal) {
+        const video = document.getElementById("videoFrame");
+        const title = document.getElementById("videoTitle");
+        document.getElementById("videoDiv").style.display="block";
 
-        }
         switch (selectedAnimal) {
             case 'whale':
-                videos[0].style.display = "block";
+                title.innerText="Watch a video about Whales";
+                video.src="https://www.youtube.com/embed/o767PuYbEXg";
+                video.title="Whale video";
                 break;
             case 'axolotl':
-                videos[1].style.display = "block";
+                title.innerText="Watch a video about Axolotls";
+                video.src="https://www.youtube.com/embed/tBEf7wqbroM";
+                video.title="Axolotl video"
                 break;
             case 'penguin':
-                videos[2].style.display = "block";
+                title.innerText="Watch a video about Penguins";
+                video.src="https://www.youtube.com/embed/Oyo6lz839h4";
+                video.title="Penguin video";
                 break;
             case 'cat':
-                videos[3].style.display = "block";
+                title.innerText="Watch a video about Cats";
+                video.src="https://www.youtube.com/embed/W86cTIoMv2U";
+                video.title="Cat video";
                 break;
             default:
                 console.log(`${selectedAnimal} not an accepted case. animalSelection() accepts whale, penguin, cat, axolotl`)
@@ -293,7 +300,6 @@ document.addEventListener("DOMContentLoaded", function () {
             newArr[i + 4] = Math.round(numAxolotl[i] * ratio);
             newArr[i + 8] = Math.round(numPenguin[i] * ratio);
             newArr[i + 12] = Math.round(numCat[i] * ratio);
-
         }
 
         whale.setAttribute("coords", `${newArr[0]},${newArr[1]},${newArr[2]},${newArr[3]}`);
