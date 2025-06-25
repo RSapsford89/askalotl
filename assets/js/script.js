@@ -206,8 +206,8 @@ document.addEventListener("DOMContentLoaded", function () {
             duration: 0.5,
             onComplete: () => {
                 document.getElementById("introBanner").classList.add("hide");
-                document.getElementById("animalChoiceSpacer").classList.remove("fullscreenSpace");
-                document.getElementById("animalChoiceSpacer").classList.add("halfscreenSpace");//this isnt working as desired yet. Maybe move the animal image up first
+                // document.getElementById("animalChoiceSpacer").classList.remove("screenSpaceSpace");
+                // document.getElementById("animalChoiceSpacer").classList.add("halfscreenSpace");//this isnt working as desired yet. Maybe move the animal image up first
                 document.getElementById("navBtnDiv").classList.remove("hide");
             }
         });

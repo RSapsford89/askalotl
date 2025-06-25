@@ -34,8 +34,8 @@ img {
 .disabled {
   pointer-events: none;
 }
-.fullscreenSpace {
-  height: 100vh;
+.screenSpace {
+  height: 70vh;
 }
 .halfscreenSpace{
   height: 75vh;
