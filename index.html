@@ -122,7 +122,7 @@
             data-bs-target="#videoModal"><i class="fa-solid fa-film"></i></button>
         <button type="button" class="btn btn-primary" id="learnBtn"><i
                 class="fa-solid fa-circle-arrow-right"></i></button>
-        <button type="button" class="btn btn-primary" id="quizBtn"><i class="fa-solid fa-graduation-cap"></i></a>
+        <button type="button" class="btn btn-primary" id="quizBtn" onclick="quizContents()"><i class="fa-solid fa-graduation-cap"></i></a>
     </div>
     <!-- video displayed of user's chosen animal. embedded YT link. -->
     <section id="videoSection" href="#videoSection">
@@ -194,32 +194,34 @@
      buttons and question field. Indicate to user if you are right/wrong. Ask for user's name
      at the start and apply some rules (3 letters, up to 10, no numbers or special characters) -->
     <section id="quizSection">
-        <div class="hide" id="popQuiz">
-            <img src="" alt="A picture relevant to the quiz" sizes="" srcset="" />
+        <div class="" id="popQuiz">
+            <img src="assets/images/favicon-32x32.png" alt="A picture relevant to the quiz" sizes="" srcset="" />
             <div class="quizForm">
                 <!-- whatever form content is going to go in here, which changes relating
                 to the quiz question. Probably radio button -->
-                <div id="questionDiv">
-                    <p>Question to ask the user?</p>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-                    <label class="form-check-label" for="radioDefault1">
-                        Answer 1
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-                    <label class="form-check-label" for="radioDefault1">
-                        Answer 2
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-                    <label class="form-check-label" for="radioDefault1">
-                        Answer 3
-                    </label>
-                </div>
+                <form action="">
+                    <div id="questionDiv">
+                        <p id="questionP">Question to ask the user?</p>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                        <label class="form-check-label" for="radioDefault1">
+                            Answer 1
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                        <label class="form-check-label" for="radioDefault1">
+                            Answer 2
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                        <label class="form-check-label" for="radioDefault1">
+                            Answer 3
+                        </label>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="galleryLink">

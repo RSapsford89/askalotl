@@ -8,12 +8,12 @@
     {
       "animal": "Blue Whale",
       "question": "How big is a Blue Whale?",
-      "fact": "It is as long as 30 meters, which is longer than 3 big buses! Their heart is as big as a small car too"
+      "fact": "It is as long as 30 meters, which is 3 big buses! Their heart is as big as a small car too"
     },
     {
       "animal": "Blue Whale",
       "question": "Do whales sing?",
-      "fact": "Whale sounds are called songs and some are heard hundreds of miles away underwater!"
+      "fact": "Whale sounds are called songs and some are heard hundreds of miles away underwater and are much louder than Jet planes!"
     },
     {
       "animal": "Whales",
@@ -130,7 +130,7 @@
   "whaleQuestions": [
     {
       "animal": "Blue Whale",
-      "question": "what do whales eat?",
+      "question": "what do baleen whales eat?",
       "answerOne": "Sea Kelp",
       "answerTwo": "Plankton",
       "answerThree": "Sharks",
@@ -141,19 +141,19 @@
       "question": "How big is a Blue Whale?",
       "answerOne": "As big as a car",
       "answerTwo": "The same size as a Giraffe",
-      "answerThree": "As big as two buses",
+      "answerThree": "As big as three buses",
       "correctAnswer": "answerThree"
     },
     {
       "animal": "Blue Whale",
-      "question": "what do whales eat?",
-      "answerOne": "Sea Kelp",
-      "answerTwo": "Plankton",
-      "answerThree": "Sharks",
-      "correctAnswer": "answerTwo"
+      "question": "How loud can whales be?",
+      "answerOne": "As loud as a person shouting",
+      "answerTwo": "As loud as a roaring Lion",
+      "answerThree": "Louder than jet plane",
+      "correctAnswer": "answerThree"
     }
   ],
-  "axolotl": [
+  "axolotlQuestions": [
     {
       "animal": "axolotl",
       "question": "where do they live?",
@@ -179,7 +179,7 @@
       "correctAnswer": "Insects, worms and small fish"
     }
   ],
-  "penguin": [
+  "penguinQuestions": [
     {
       "animal": "Adele penguin",
       "question": "where do they live?",
@@ -205,7 +205,7 @@
       "correctAnswer": "Fish"
     }
   ],
-  "cat":[
+  "catQuestions":[
     {
       "animal": "Snow Leopard",
       "question": "where do they live?",

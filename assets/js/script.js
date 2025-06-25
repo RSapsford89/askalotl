@@ -308,7 +308,59 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         window.location.href = "#factSection";
     }
-    
+
+    /**
+ * Function to determine the questions to be asked in the quiz. Requires the
+ * string animal name (as used for setting the sitewide animal chosen)
+ * data is the JSON from the fetch request before / in getQuizData()
+ * @param {string} animal 
+ * @param {JSON} data 
+ */
+    function quizContents(animal, data) {
+        const question = document.getElementById("questionP");
+        const answers = document.getElementsByClassName("form-check-label");
+        let questionSize=factsData.`${selectedAnimal}Questions`.length;
+        switch (selectedAnimal) {
+            case "whale":
+                question.innerText = factsData.whaleQuestions[questionIndex].question;
+                answers[0].innerText = factsData.whaleQuestions[questionIndex].answerOne;
+                answers[1].innerText = factsData.whaleQuestions[questionIndex].answerTwo;
+                answers[2].innerText = factsData.whaleQuestions[questionIndex].answerThree;
+                break;
+            case "axolotl":
+                question.innerText = factsData.axolotlQuestions[questionIndex].question;
+                answers[0].innerText = factsData.axolotlQuestions[questionIndex].answerOne;
+                answers[1].innerText = factsData.axolotlQuestions[questionIndex].answerTwo;
+                answers[2].innerText = factsData.axolotlQuestions[questionIndex].answerThree;
+                break;
+            case "penguin":
+                question.innerText = factsData.penguinQuestions[questionIndex].question;
+                answers[0].innerText = factsData.penguinQuestions[questionIndex].answerOne;
+                answers[1].innerText = factsData.penguinQuestions[questionIndex].answerTwo;
+                answers[2].innerText = factsData.penguinQuestions[questionIndex].answerThree;
+                break;
+            case "cat":
+                question.innerText = factsData.catQuestions[questionIndex].question;
+                answers[0].innerText = factsData.catQuestions[questionIndex].answerOne;
+                answers[1].innerText = factsData.catQuestions[questionIndex].answerTwo;
+                answers[2].innerText = factsData.catQuestions[questionIndex].answerThree;
+                break;
+
+            default:
+                break;
+        }
+        if (questionIndex < 5) {
+            questionIndex++;
+        }
+        else {
+            questionIndex = 0;
+        }
+    }
+
+    function updateQuizElements(data) {
+
+    }
+
     /**
      * Function to scale the size of Image Maps on an image to work with responsive
      * elements! Takes the original image size, create co-ords, scales according to
@@ -398,7 +450,7 @@ document.addEventListener("DOMContentLoaded", function () {
             onComplete: () => {
                 document.getElementById("headingTitle").style.display = "none";
                 document.getElementById("mapDiv").classList.remove("disabled");
-                
+
             }
         });
         // opactiy of 0, slide up from bottom
@@ -410,14 +462,14 @@ document.addEventListener("DOMContentLoaded", function () {
         tl.to("#introBanner", {
             opacity: 1, duration: 1, ease: "back.in"
         })
-        tl.from(".introImg",{
-            opacity:0,
-            scale:0.8,
-            duration:0.5,
-            ease:"back.out"
+        tl.from(".introImg", {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.5,
+            ease: "back.out"
         });
         // add in an animation which makes the title look like it is shaking on repeat
-        
+
 
     });
     // split text animation
@@ -434,17 +486,17 @@ document.addEventListener("DOMContentLoaded", function () {
         stagger: 0.05,
         repeat: -1,
         yoyo: true,
-        repeatDelay:1.5
+        repeatDelay: 1.5
     });
-    gsap.to(".introImage",{
-        delay:1.5,
-            opacity:1,
-            scale:0.8,
-            duration:0.8,
-            ease:"back.out"
-        });
+    gsap.to(".introImage", {
+        delay: 1.5,
+        opacity: 1,
+        scale: 0.8,
+        duration: 0.8,
+        ease: "back.out"
+    });
     // gsap.to("#headingTitle"{
-        
+
     // });
 
 
@@ -463,20 +515,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let factIndex = 0;
 
 
-    /**
-     * Function to determine the questions to be asked in the quiz. Requires the
-     * string animal name (as used for setting the sitewide animal chosen)
-     * data is the JSON from the fetch request before / in getQuizData()
-     * @param {string} animal 
-     * @param {JSON} data 
-     */
-    function quizContents(animal, data) {
 
-    }
-
-    function updateQuizElements(data) {
-
-    }
 
 
 
