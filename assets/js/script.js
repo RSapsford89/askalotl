@@ -308,15 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         window.location.href = "#factSection";
     }
-    // Attach event listener on the Next button which will navigate to the href when pressed - removed as needs to be more specific.
-    // const nextButton = document.querySelector('#introTextSection button[type="button"]');
-    // if (nextButton) {
-    //     nextButton.addEventListener('click', function () {
-    //         videoFilter();
-    //         // Optionally scroll to video section
-    //         window.location.href = "#videoSection1";
-    //     });
-    // }
+    
     /**
      * Function to scale the size of Image Maps on an image to work with responsive
      * elements! Takes the original image size, create co-ords, scales according to
@@ -418,6 +410,12 @@ document.addEventListener("DOMContentLoaded", function () {
         tl.to("#introBanner", {
             opacity: 1, duration: 1, ease: "back.in"
         })
+        tl.from(".introImg",{
+            opacity:0,
+            scale:0.8,
+            duration:0.5,
+            ease:"back.out"
+        });
         // add in an animation which makes the title look like it is shaking on repeat
         
 
@@ -438,6 +436,13 @@ document.addEventListener("DOMContentLoaded", function () {
         yoyo: true,
         repeatDelay:1.5
     });
+    gsap.to(".introImage",{
+        delay:1.5,
+            opacity:1,
+            scale:0.8,
+            duration:0.8,
+            ease:"back.out"
+        });
     // gsap.to("#headingTitle"{
         
     // });

@@ -40,6 +40,28 @@ img {
 .halfscreenSpace{
   height: 75vh;
 }
+.introImage{
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  opacity: 0;
+  }
+#imgTopLeft{
+  top: 25vh;
+  left: 15vw;
+  }
+  #imgTopRight{
+  top: 25vh;
+  right: 15vw;
+  }
+#imgBottomLeft{
+  bottom: 25vh;
+  left: 20vw;
+}
+#imgBottomRight{
+  bottom: 25vh;
+  right: 20vw;
+}
 #introText {
   display: none;
 }
@@ -50,9 +72,7 @@ img {
 #introTitle{
   display: none;
 }
-#videoFrame{
-  /* display: none; */
-}
+
 #videoDiv {
   display: none;
 }
