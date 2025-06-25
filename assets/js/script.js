@@ -208,6 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("introBanner").classList.add("hide");
                 document.getElementById("animalChoiceSpacer").classList.remove("fullscreenSpace");
                 document.getElementById("animalChoiceSpacer").classList.add("halfscreenSpace");//this isnt working as desired yet. Maybe move the animal image up first
+                document.getElementById("navBtnDiv").classList.remove("hide");
             }
         });
         // CSS smooth scrolling to scroll to the introSection after selecting your animal
@@ -271,10 +272,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function nextFact(animal) {
         // display #factDiv to make this content visible
-        document.getElementById("factDiv").style.display = "block";
-        const title = document.getElementById("factTitle");
-        const paragraph = document.getElementById("factParagraph");
-        const img = document.getElementById("factImg");
+        // document.getElementById("factDiv").style.display = "block";
+        const title = document.getElementById("introTitle");
+        const paragraph = document.getElementById("introText");
+        const img = document.getElementById("introImage");
         switch (animal) {
             case "whale":
                 img.src = "assets/images/whale-tail.webp";
@@ -405,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
             onComplete: () => {
                 document.getElementById("headingTitle").style.display = "none";
                 document.getElementById("mapDiv").classList.remove("disabled");
-                document.getElementById("navBtnDiv").classList.remove("hide");
+                
             }
         });
         // opactiy of 0, slide up from bottom
