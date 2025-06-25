@@ -88,6 +88,7 @@
         </div>
     </section>
     <section id="introTextSection" href="#introTextSection">
+        <h1>Animal Facts</h1>
         <div class="paragraph " id="par1">
             <!-- this will change depending on the selected animal using JS -->
             <!-- need to add img class to hide and update JS to show/hide
@@ -111,8 +112,12 @@
     </section>
     <div class="hide" id="navBtnDiv">
         <!-- 2 buttons, 1 to go to facts, the other to watch a video -->
-        <button type="button" class="btn btn-primary" id="learnBtn">Learn More</button>
-        <button type="button" class="btn btn-primary" id="videoBtn" data-bs-toggle="modal" data-bs-target="#videoModal">Watch a video</button>
+        <a type="button" class="btn btn-primary" id="refreshBtn" href="#animalChoice"><i
+                class="fa-solid fa-arrow-rotate-right"></i></i></i></a>
+        <button type="button" class="btn btn-primary" id="videoBtn" data-bs-toggle="modal"
+            data-bs-target="#videoModal"><i class="fa-solid fa-film"></i></button>
+        <button type="button" class="btn btn-primary" id="learnBtn"><i
+                class="fa-solid fa-circle-arrow-right"></i></i></button>
     </div>
     <!-- video displayed of user's chosen animal. embedded YT link. -->
     <section id="videoSection" href="#videoSection">
