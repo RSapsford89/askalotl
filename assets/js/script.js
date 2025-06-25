@@ -405,6 +405,7 @@ document.addEventListener("DOMContentLoaded", function () {
             onComplete: () => {
                 document.getElementById("headingTitle").style.display = "none";
                 document.getElementById("mapDiv").classList.remove("disabled");
+                document.getElementById("navBtnDiv").classList.remove("hide");
             }
         });
         // opactiy of 0, slide up from bottom
