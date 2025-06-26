@@ -56,10 +56,14 @@
                 <h1 id=""><strong>Welcome to Askalotl</strong></h1>
                 <br>
                 <h3 id="">(click me)<i class="fa-solid fa-hand-pointer"></i></h3>
-                <img class="introImage" id="imgTopLeft" src="assets/images/pixelart-whale-reaching.png" alt="Whale diving">
-                <img class="introImage" id="imgTopRight" src="assets/images/pixelart-penguin-reaching.png" alt="Cat reaching">
-                <img class="introImage" id="imgBottomLeft" src="assets/images/pixelart-axolotl-reaching.png" alt="Whale diving">
-                <img class="introImage" id="imgBottomRight" src="assets/images/pixelart-cat-reaching.png" alt="Whale diving">
+                <img class="introImage" id="imgTopLeft" src="assets/images/pixelart-whale-reaching.png"
+                    alt="Whale diving">
+                <img class="introImage" id="imgTopRight" src="assets/images/pixelart-penguin-reaching.png"
+                    alt="Cat reaching">
+                <img class="introImage" id="imgBottomLeft" src="assets/images/pixelart-axolotl-reaching.png"
+                    alt="Whale diving">
+                <img class="introImage" id="imgBottomRight" src="assets/images/pixelart-cat-reaching.png"
+                    alt="Whale diving">
             </div>
             <!-- 2 second delay before moving title away -->
 
@@ -91,8 +95,9 @@
             <div id="animalChoiceSpacer" class="screenSpace"></div>
         </div>
     </section>
+    <hr>
     <section id="introTextSection" href="#introTextSection">
-        
+
         <div class="paragraph " id="par1">
             <!-- this will change depending on the selected animal using JS -->
             <!-- need to add img class to hide and update JS to show/hide
@@ -109,8 +114,6 @@
                 what? Their hearts are the size of a small car! Blue whales may be
                 big, but they are peaceful and love to explore the deep blue sea.
             </p>
-
-
             <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#drawingModal">Read</button> -->
         </div>
     </section>
@@ -120,10 +123,14 @@
                 class="fa-solid fa-arrow-rotate-right"></i></a>
         <button type="button" class="btn btn-primary" id="videoBtn" data-bs-toggle="modal"
             data-bs-target="#videoModal"><i class="fa-solid fa-film"></i></button>
-        <button type="button" class="btn btn-primary" id="learnBtn"><i
-                class="fa-solid fa-circle-arrow-right"></i></button>
-        <button type="button" class="btn btn-primary" id="quizBtn" onclick="quizContents()"><i class="fa-solid fa-graduation-cap"></i></a>
+        <button type="button" class="btn btn-primary" id="quizBtn" onclick="quizContents()"><i
+                class="fa-solid fa-graduation-cap"></i></button>
     </div>
+    <hr>
+    <div>
+        <button type="button" class="btn btn-primary" id="learnBtn"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
     <!-- video displayed of user's chosen animal. embedded YT link. -->
     <section id="videoSection" href="#videoSection">
         <div class="modal" id="videoModal" tabindex="-1">
@@ -150,8 +157,6 @@
                 </div>
             </div>
         </div>
-        <!-- control content through JS function as with other content:  -->
-
     </section>
 
     <!-- Section contains the HTML for the drawing canvas! penColor and reset call JS functions to change
@@ -188,38 +193,49 @@
                 </div>
             </div>
         </div>
-
     </section>
     <!-- Quiz section which will take random questions from the JSON file and populate radio
-     buttons and question field. Indicate to user if you are right/wrong. Ask for user's name
-     at the start and apply some rules (3 letters, up to 10, no numbers or special characters) -->
+    buttons and question field. Indicate to user if you are right/wrong. Ask for user's name
+    at the start and apply some rules (3 letters, up to 10, no numbers or special characters) -->
     <section id="quizSection">
-        <div class="" id="popQuiz">
-            <img src="assets/images/favicon-32x32.png" alt="A picture relevant to the quiz" sizes="" srcset="" />
+        <div class="container hide" id="popQuiz">
+            <!-- <img src="assets/images/favicon-32x32.png" alt="A picture relevant to the quiz" sizes="" srcset="" /> -->
             <div class="quizForm">
                 <!-- whatever form content is going to go in here, which changes relating
                 to the quiz question. Probably radio button -->
-                <form action="">
+                <h1>Finish a quiz!</h1>
+                <form>                    
+                    <div class="col-9 col-md-6">
+                        <label for="nameEntry" class="form-label">Enter a name</label>
+                        <input class=" form-control form-control-lg" type="text" placeholder="Walter Whale"
+                            id="nameEntry" aria-label=".form-control-lg example">
+                    </div>
                     <div id="questionDiv">
                         <p id="questionP">Question to ask the user?</p>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-                        <label class="form-check-label" for="radioDefault1">
-                            Answer 1
-                        </label>
+                    <div class="col-12 col-md-6" id="radioContainer">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                            <label class="form-check-label" for="radioDefault1">
+                                Answer 1
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                            <label class="form-check-label" for="radioDefault2">
+                                Answer 2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3">
+                            <label class="form-check-label" for="radioDefault3">
+                                Answer 3
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-                        <label class="form-check-label" for="radioDefault1">
-                            Answer 2
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-                        <label class="form-check-label" for="radioDefault1">
-                            Answer 3
-                        </label>
+                    <div>
+                        <button type="button" class="btn btn-primary" id="quizBtn" onclick="checkAnswer()"><i
+                class="fa-solid fa-graduation-cap"></i></button>
                     </div>
                 </form>
             </div>

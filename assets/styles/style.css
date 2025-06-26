@@ -46,6 +46,9 @@ img {
   height: auto;
   opacity: 0;
   }
+  .form{
+    border: 5px solid white;
+  }
 #imgTopLeft{
   top: 25vh;
   left: 15vw;
@@ -72,7 +75,9 @@ img {
 #introTitle{
   display: none;
 }
-
+#popQuiz{
+  height: 60vh;
+}
 #videoDiv {
   display: none;
 }
@@ -86,6 +91,9 @@ left: 10px;
 }
 #videoBtn{
 
+}
+#learnBtn{
+  right: 20vw;
 }
 /* gallery page */
 /* carousel */

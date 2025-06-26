@@ -141,34 +141,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 Earth—even bigger than dinosaurs! These gentle giants live in the
                 ocean and can grow as long as three school buses lined up. Even
                 though they’re huge, they eat tiny creatures called krill,
-                swallowing thousands in one gulp. When they dive and swim, their
-                massive tails push them gracefully through the water. And guess
-                what? Their hearts are the size of a small car! Blue whales may be
-                big, but they are peaceful and love to explore the deep blue sea.`;
+                swallowing thousands in one gulp.`;
         let axolotlText = `Axolotls are magical little creatures that live underwater and can
-                even regrow their body parts! These playful amphibians always look
-                like they’re smiling and come in different colors, from pink to
-                speckled brown. Unlike most salamanders, they stay in the water
-                their whole lives and use their frilly gills to breathe. Some people
-                call them “water dragons” because of their unique look. And the
-                coolest part? If an axolotl loses a leg, it can grow a new one—just
-                like a superhero!`;
+                even regrow their body parts! Unlike most salamanders, they stay in the water
+                their whole lives and use their frilly gills to breathe.`;
         let penguinText = `Penguins are waddle-tastic birds that love the cold! They
-                can’t fly, but they’re amazing swimmers, zooming through the water
-                like little torpedoes. Their black-and-white feathers work like a
-                built-in tuxedo, keeping them warm. Penguins love to slide on their
-                bellies across the ice—it’s like their version of sledding! They
-                take turns huddling together to stay cozy, and some even sing to
-                find their families. Whether waddling, swimming, or sliding,
-                penguins sure know how to have fun in the snow!`;
+                can’t fly, but they’re amazing swimmers. Penguins love to slide on their
+                bellies across the ice—it’s like their version of sledding!`;
         let catText = `Cats are playful, curious, and sometimes a little sneaky!
                 They love to chase things, pounce, and even climb up high to
                 explore. When they’re happy, they purr—a soft little rumbling sound
-                that means they feel cozy and safe. Some cats are speedy and love to
-                run, while others prefer curling up in a warm spot for a nap.
-                They’re great jumpers, too, leaping up onto shelves and furniture
-                with ease. Whether they’re chasing toys or watching birds through
-                the window, cats always find a way to have fun!`;
+                that means they feel cozy and safe.
+                `;
         paragraph.style.display = "block";
         image.style.display = "block";
         title.style.display = "block";
@@ -316,10 +300,12 @@ document.addEventListener("DOMContentLoaded", function () {
  * @param {string} animal 
  * @param {JSON} data 
  */
+let questionIndex=0;
     function quizContents(animal, data) {
         const question = document.getElementById("questionP");
         const answers = document.getElementsByClassName("form-check-label");
-        let questionSize=factsData.`${selectedAnimal}Questions`.length;
+        // let questionSize=factsData.${selectedAnimal}Questions.length;
+        document.getElementById("popQuiz").style.display="block";
         switch (selectedAnimal) {
             case "whale":
                 question.innerText = factsData.whaleQuestions[questionIndex].question;
