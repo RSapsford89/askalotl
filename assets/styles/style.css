@@ -68,16 +68,12 @@ img {
   bottom: 25vh;
   right: 20vw;
 }
-#introText {
-  display: none;
-}
+
 #introImage {
   display: none;
   max-height: 35vh;
 }
-#introTitle {
-  display: none;
-}
+
 #introButtonDiv {
   position: relative;
   margin-left: auto;

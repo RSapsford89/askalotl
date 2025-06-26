@@ -303,9 +303,11 @@ document.addEventListener("DOMContentLoaded", function () {
         else {
             factIndex = 0;
         }
+        gsap.set("#introTitle",{opacity:1, x:0});
+        gsap.set("#introText",{opacity:1, boxShadow:"none"});
         let tl = gsap.timeline();
         tl.from("#introTitle",{duration:0.8, direction:"left",x:-100,opacity:0})
-            .from("#introText",{duration:1,direction:"left",opacity:0,boxShadow:"0px 0px 20px 20px black"})
+            .from("#introText",{duration:1,direction:"left",opacity:0,boxShadow:"0px 0px 10px 10px grey"})
         
         window.location.href = "#factSection";
     }
