@@ -82,7 +82,6 @@
                         onclick="animalSelection('penguin')">
                     <area shape="rect" coords="150,150,300,300" alt="cat" data-attribute="cat"
                         onclick="animalSelection('cat')">
-
                 </map>
             </div>
             <div class=" position-absolute fixed-bottom  " id="introBanner">
@@ -95,10 +94,10 @@
             <div id="animalChoiceSpacer" class="screenSpace"></div>
         </div>
     </section>
-    <hr>
-    <section id="introTextSection" href="#introTextSection">
 
-        <div class="paragraph " id="par1">
+    <section id="introTextSection" href="#introTextSection">
+        <hr>
+        <div class="paragraph d-flex flex-column hide" id="introDiv">
             <!-- this will change depending on the selected animal using JS -->
             <!-- need to add img class to hide and update JS to show/hide
             Use a 'display:hide' class on the unselected -->
@@ -114,7 +113,10 @@
                 what? Their hearts are the size of a small car! Blue whales may be
                 big, but they are peaceful and love to explore the deep blue sea.
             </p>
-            <!-- <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#drawingModal">Read</button> -->
+            <div class="mt-auto" id="introButtonDiv">
+                <button type="button" class="btn btn-primary" id="learnBtn"><i
+                        class="fa-solid fa-chevron-right"></i></button>
+            </div>
         </div>
     </section>
     <div class="hide" id="navBtnDiv">
@@ -127,9 +129,7 @@
                 class="fa-solid fa-graduation-cap"></i></button>
     </div>
     <hr>
-    <div>
-        <button type="button" class="btn btn-primary" id="learnBtn"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
+
 
     <!-- video displayed of user's chosen animal. embedded YT link. -->
     <section id="videoSection" href="#videoSection">
@@ -204,7 +204,7 @@
                 <!-- whatever form content is going to go in here, which changes relating
                 to the quiz question. Probably radio button -->
                 <h1>Finish a quiz!</h1>
-                <form>                    
+                <form>
                     <div class="col-9 col-md-6">
                         <label for="nameEntry" class="form-label">Enter a name</label>
                         <input class=" form-control form-control-lg" type="text" placeholder="Walter Whale"
@@ -235,7 +235,7 @@
                     </div>
                     <div>
                         <button type="button" class="btn btn-primary" id="quizBtn" onclick="checkAnswer()"><i
-                class="fa-solid fa-graduation-cap"></i></button>
+                                class="fa-solid fa-graduation-cap"></i></button>
                     </div>
                 </form>
             </div>

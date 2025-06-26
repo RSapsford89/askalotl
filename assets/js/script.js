@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // document.getElementById("animalChoiceSpacer").classList.remove("screenSpaceSpace");
                 // document.getElementById("animalChoiceSpacer").classList.add("halfscreenSpace");//this isnt working as desired yet. Maybe move the animal image up first
                 document.getElementById("navBtnDiv").classList.remove("hide");
+                document.getElementById("introDiv").classList.remove("hide");
             }
         });
         // CSS smooth scrolling to scroll to the introSection after selecting your animal
@@ -253,43 +254,59 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         window.location.href = "#videoSection";
     }
-
+/**
+ * used to control the displayed fact title, fact, and image. Takes data from quizQuestions.JSON
+ * 
+ * @param {string} animal 
+ */
     function nextFact(animal) {
         // display #factDiv to make this content visible
         // document.getElementById("factDiv").style.display = "block";
         const title = document.getElementById("introTitle");
         const paragraph = document.getElementById("introText");
         const img = document.getElementById("introImage");
+        let numberOfQuestions = 3;//There are a minimum 3 questions, so this is the default
         switch (animal) {
             case "whale":
                 img.src = "assets/images/whale-tail.webp";
                 title.innerText = factsData.whaleFacts[factIndex].question;
                 paragraph.innerText = factsData.whaleFacts[factIndex].fact;
+                numberOfQuestions = factsData.whaleFacts.length;
                 break;
             case "axolotl":
                 img.src = "assets/images/black-axolotl-on-sand.webp";
                 title.innerText = factsData.axolotlFacts[factIndex].question;
                 paragraph.innerText = factsData.axolotlFacts[factIndex].fact;
+                numberOfQuestions = factsData.axolotlFacts.length;
                 break;
             case "penguin":
                 img.src = "assets/images/penguin-eyebrows.webp";
                 title.innerText = factsData.penguinFacts[factIndex].question;
                 paragraph.innerText = factsData.penguinFacts[factIndex].fact;
+                numberOfQuestions = factsData.penguinFacts.length;
+
                 break;
             case "cat":
                 img.src = "assets/images/kittens-in-basket.webp";
                 title.innerText = factsData.catFacts[factIndex].question;
                 paragraph.innerText = factsData.catFacts[factIndex].fact;
+                numberOfQuestions = factsData.catFacts.length;
+
                 break;
             default:
                 break;
         }
-        if (factIndex < 5) {
+        //if we reached the end of the questions, set index to 0!
+        if (factIndex < numberOfQuestions-1) {
             factIndex++;
         }
         else {
             factIndex = 0;
         }
+        let tl = gsap.timeline();
+        tl.from("#introTitle",{duration:0.8, direction:"left",x:-100,opacity:0})
+            .from("#introText",{duration:1,direction:"left",opacity:0,boxShadow:"0px 0px 20px 20px black"})
+        
         window.location.href = "#factSection";
     }
 
@@ -448,7 +465,7 @@ let questionIndex=0;
         tl.to("#introBanner", {
             opacity: 1, duration: 1, ease: "back.in"
         })
-        tl.from(".introImg", {
+        tl.from(".introImage", {
             opacity: 0,
             scale: 0.8,
             duration: 0.5,

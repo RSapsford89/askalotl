@@ -22,7 +22,7 @@ img {
 }
 /* class used to hide content for switching purposes */
 .hide {
-  display: none;
+  display: none !important;
 }
 /* wrapper div for alignment of headings etc */
 .wrapper {
@@ -37,63 +37,70 @@ img {
 .screenSpace {
   height: 70vh;
 }
-.halfscreenSpace{
+.halfscreenSpace {
   height: 75vh;
 }
-.introImage{
+.introImage {
   position: absolute;
   width: 20vw;
   height: auto;
   opacity: 0;
-  }
-  .form{
-    border: 5px solid white;
-  }
-#imgTopLeft{
+}
+.form {
+  border: 5px solid white;
+}
+#introDiv {
+  min-height: 600px;
+}
+#imgTopLeft {
   top: 25vh;
   left: 15vw;
-  }
-  #imgTopRight{
+}
+#imgTopRight {
   top: 25vh;
   right: 15vw;
-  }
-#imgBottomLeft{
+}
+#imgBottomLeft {
   bottom: 25vh;
   left: 20vw;
 }
-#imgBottomRight{
+#imgBottomRight {
   bottom: 25vh;
   right: 20vw;
 }
 #introText {
   display: none;
 }
-#introImage{
+#introImage {
   display: none;
   max-height: 35vh;
 }
-#introTitle{
+#introTitle {
   display: none;
 }
-#popQuiz{
-  height: 60vh;
+#introButtonDiv {
+  position: relative;
+  margin-left: auto;
+  bottom: 50px;
+}
+#popQuiz {
+  height: 70vh;
 }
 #videoDiv {
   display: none;
 }
-#factDiv{
+#factDiv {
   display: none;
 }
-#navBtnDiv{
-position: fixed;
-bottom: 20px;
-left: 10px;
+#navBtnDiv {
+  position: fixed;
+  bottom: 20px;
+  left: 10px;
 }
-#videoBtn{
-
+#videoBtn {
 }
-#learnBtn{
-  right: 20vw;
+#learnBtn {
+  width: 40vw;
 }
 /* gallery page */
 /* carousel */
@@ -129,7 +136,7 @@ high z-index to ensure it does not get painted over! */
 #imgSelect {
   width: 100vh;
   opacity: 0;
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 /* This styling is to create the banner which welcomes the user */
 #introBanner {
