@@ -90,13 +90,45 @@ img {
 }
 #navBtnDiv {
   position: fixed;
-  bottom: 20px;
+  border: red 2px dashed;
+  height: 250px;
+  width: 50px;
+  bottom: 50px;
   left: 10px;
-}
-#videoBtn {
 }
 #learnBtn {
   width: 40vw;
+}
+#galleryBtn{
+  position: absolute;
+  left: 0px;
+  bottom: 200px;
+  border: 5px;
+}
+#quizBtn {
+  position: absolute;
+  left: 0px;
+  bottom: 150px;
+  border: 5px;
+}
+#videoBtn {
+  position: absolute;
+  left: 0px;
+  bottom: 100px;
+  border: 5px;
+}
+#restartBtn{
+  position: absolute;
+  left: 0px;
+  bottom: 50px;
+  border: 5px;
+}
+/* The menu button for navigation */
+#optionBtn{
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  border: 5px;
 }
 /* gallery page */
 /* carousel */

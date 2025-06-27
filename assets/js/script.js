@@ -192,15 +192,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("introBanner").classList.add("hide");
                 // document.getElementById("animalChoiceSpacer").classList.remove("screenSpaceSpace");
                 // document.getElementById("animalChoiceSpacer").classList.add("halfscreenSpace");//this isnt working as desired yet. Maybe move the animal image up first
-                document.getElementById("navBtnDiv").classList.remove("hide");
+                
                 document.getElementById("introDiv").classList.remove("hide");
+                window.location.href = "#introTextSection";
             }
         });
         // CSS smooth scrolling to scroll to the introSection after selecting your animal
         // call nextFact and VideoFilter to set correct content
         // nextFact(animal);
         // videoFilter(animal);
-        window.location.href = "#introTextSection";
+        
     }
 
     function buttonListener() {
@@ -301,16 +302,47 @@ document.addEventListener("DOMContentLoaded", function () {
             factIndex++;
         }
         else {
+            // set index back to 0 to allow facts to loop and animate in a new
+            // button for the user to see
             factIndex = 0;
+            document.getElementById("navBtnDiv").classList.remove("hide");
+            gsap.from("#optionBtn",{
+                duration: 1,
+                opacity:1,
+                rotate: 360
+            });
         }
         gsap.set("#introTitle",{opacity:1, x:0});
         gsap.set("#introText",{opacity:1, boxShadow:"none"});
         let tl = gsap.timeline();
         tl.from("#introTitle",{duration:0.8, direction:"left",x:-100,opacity:0})
-            .from("#introText",{duration:1,direction:"left",opacity:0,boxShadow:"0px 0px 10px 10px grey"})
+            .from("#introText",{duration:1,direction:"left",opacity:0},"-=0.5")
         
         window.location.href = "#factSection";
     }
+
+let openMenu=false;
+function openMenu(){
+    document.getElementById("restartBtn").classList.remove("hide");
+    document.getElementById("videoBtn").classList.remove("hide");
+    document.getElementById("quizBtn").classList.remove("hide");
+    document.getElementById("galleryBtn").classList.remove("hide");
+
+if(openMenu == false){
+    
+let tl = gsap.timeline();
+    tl.from("#restartBtn",{opacity:1, y:50, duration:0.5})
+        .from("#videoBtn",{opacity:1, y:100, duration:0.5},"-=0.2")
+        .from("#quizBtn",{opacity:1, y:150, duration:0.5},"-=0.3")
+        .from("#galleryBtn",{opacity:1, y:200, duration:0.5},"-=0.4")
+    openMenu=true;
+}
+else{
+
+    openMenu=false;
+}
+    
+}
 
     /**
  * Function to determine the questions to be asked in the quiz. Requires the
@@ -529,4 +561,5 @@ let questionIndex=0;
     window.quizContents = quizContents;
     window.updateQuizElements = updateQuizElements;
     window.nextFact = nextFact;
+    window.openMenu = openMenu;
 });//end of doc load event

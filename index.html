@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="kids, children, animals, whale, axolotl, penguin, cat, animal facts, learning, education, primary school, fun, quiz, drawing, gallery" />
-    <meta name="description" content="Askalotl is a fun educational site for Primary school children to learn about Whales, Cats, Penguins and Axolotls.">
+    <meta name="keywords"
+        content="kids, children, animals, whale, axolotl, penguin, cat, animal facts, learning, education, primary school, fun, quiz, drawing, gallery" />
+    <meta name="description"
+        content="Askalotl is a fun educational site for Primary school children to learn about Whales, Cats, Penguins and Axolotls.">
     <title>Askalotl - A place for kids to learn</title>
     <!--Add the favicon-->
     <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon" />
@@ -94,10 +96,10 @@
             </div>
             <div id="animalChoiceSpacer" class="screenSpace"></div>
         </div>
+        <hr>
     </section>
 
     <section id="introTextSection" href="#introTextSection">
-        <hr>
         <div class="paragraph d-flex flex-column hide" id="introDiv">
             <!-- this will change depending on the selected animal using JS -->
             <!-- need to add img class to hide and update JS to show/hide
@@ -121,15 +123,16 @@
         </div>
     </section>
     <div class="hide" id="navBtnDiv">
-        <!-- 2 buttons, 1 to go to facts, the other to watch a video -->
-        <a type="button" class="btn btn-primary" id="refreshBtn" href="#animalChoice"><i
-                class="fa-solid fa-arrow-rotate-right"></i></a>
-        <button type="button" class="btn btn-primary" id="videoBtn" data-bs-toggle="modal"
-            data-bs-target="#videoModal"><i class="fa-solid fa-film"></i></button>
-        <button type="button" class="btn btn-primary" id="quizBtn" onclick="quizContents()"><i
-                class="fa-solid fa-graduation-cap"></i></button>
+        <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
+         <button type="button" class="btn btn-primary" id="optionBtn" onclick="openMenu()"><i class="fa-solid fa-compass"></i></button>
+         <button type="button" class="btn btn-primary hide" id="galleryBtn" ><i class="fa-solid fa-photo-film"></i></button>
+         <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents()"><i class="fa-solid fa-graduation-cap"></i></button>
+         <button type="button" class="btn btn-primary hide" id="videoBtn" data-bs-toggle="modal" data-bs-target="#videoModal"><i class="fa-brands fa-youtube"></i></button>
+        <a type="button" class="btn btn-primary hide" id="restartBtn" href="#animalChoice"><i class="fa-solid fa-arrow-rotate-right"></i></a>
+        
+        
     </div>
-    <hr>
+    
 
 
     <!-- video displayed of user's chosen animal. embedded YT link. -->
