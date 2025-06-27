@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("introBanner").classList.add("hide");
                 // document.getElementById("animalChoiceSpacer").classList.remove("screenSpaceSpace");
                 // document.getElementById("animalChoiceSpacer").classList.add("halfscreenSpace");//this isnt working as desired yet. Maybe move the animal image up first
-                
+
                 document.getElementById("introDiv").classList.remove("hide");
                 window.location.href = "#introTextSection";
             }
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // call nextFact and VideoFilter to set correct content
         // nextFact(animal);
         // videoFilter(animal);
-        
+
     }
 
     function buttonListener() {
@@ -255,11 +255,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         window.location.href = "#videoSection";
     }
-/**
- * used to control the displayed fact title, fact, and image. Takes data from quizQuestions.JSON
- * 
- * @param {string} animal 
- */
+    /**
+     * used to control the displayed fact title, fact, and image. Takes data from quizQuestions.JSON
+     * 
+     * @param {string} animal 
+     */
     function nextFact(animal) {
         // display #factDiv to make this content visible
         // document.getElementById("factDiv").style.display = "block";
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
         }
         //if we reached the end of the questions, set index to 0!
-        if (factIndex < numberOfQuestions-1) {
+        if (factIndex < numberOfQuestions - 1) {
             factIndex++;
         }
         else {
@@ -306,58 +306,64 @@ document.addEventListener("DOMContentLoaded", function () {
             // button for the user to see
             factIndex = 0;
             document.getElementById("navBtnDiv").classList.remove("hide");
-            gsap.from("#optionBtn",{
+            gsap.from("#optionBtn", {
                 duration: 1,
-                opacity:1,
+                opacity: 1,
                 rotate: 360
             });
         }
-        gsap.set("#introTitle",{opacity:1, x:0});
-        gsap.set("#introText",{opacity:1, boxShadow:"none"});
+        gsap.set("#introTitle", { opacity: 1, x: 0 });
+        gsap.set("#introText", { opacity: 1, boxShadow: "none" });
         let tl = gsap.timeline();
-        tl.from("#introTitle",{duration:0.8, direction:"left",x:-100,opacity:0})
-            .from("#introText",{duration:1,direction:"left",opacity:0},"-=0.5")
-        
+        tl.from("#introTitle", { duration: 0.8, direction: "left", x: -100, opacity: 0 })
+            .from("#introText", { duration: 1, direction: "left", opacity: 0 }, "-=0.5")
+
         window.location.href = "#factSection";
     }
 
-let openMenu=false;
-function showHideMenu(){
-    // remove hide class to make visibile (immediately opacity goes to 0 from GSAP below)
-    document.getElementById("restartBtn").classList.remove("hide");
-    document.getElementById("videoBtn").classList.remove("hide");
-    document.getElementById("quizBtn").classList.remove("hide");
-    document.getElementById("galleryBtn").classList.remove("hide");
-// if the menu bool is false (menu not open)
-if(openMenu == false){
-// animate the buttons nicely upwards 'from' move from the defined pos to the CSS pos
-    let tl = gsap.timeline();
-        tl.from("#restartBtn",{opacity:1, y:50, duration:0.5})
-            .from("#videoBtn",{opacity:1, y:100, duration:0.5},"-=0.2")
-            .from("#quizBtn",{opacity:1, y:150, duration:0.5},"-=0.3")
-            .from("#galleryBtn",{opacity:1, y:200, duration:0.5},"-=0.4")
-    openMenu=true;//set flag to true now animation is carried out
-}
-else{
-    //animate down to hide - 'to' moves from the CSS pos to the position given
-    let tl = gsap.timeline({
-        onComplete:()=>{
-        document.getElementById("restartBtn").classList.add("hide");
-        document.getElementById("videoBtn").classList.add("hide");
-        document.getElementById("quizBtn").classList.add("hide");
-        document.getElementById("galleryBtn").classList.add("hide");
+    let openMenu = false;
+    function showHideMenu() {
+        // remove hide class to make visibile (immediately opacity goes to 0 from GSAP below)
+        document.getElementById("restartBtn").classList.remove("hide");
+        document.getElementById("videoBtn").classList.remove("hide");
+        document.getElementById("quizBtn").classList.remove("hide");
+        document.getElementById("galleryBtn").classList.remove("hide");
+        //need these lines like the animation for teh introTitle to reset the position to 'default' otherwise
+        // animations go from their new positions instead of the default
+        gsap.set("#restartBtn", { y: 0, opacity: 1 });
+        gsap.set("#videoBtn", { y: 0, opacity: 1 });
+        gsap.set("#quizBtn", { y: 0, opacity: 1 });
+        gsap.set("#galleryBtn", { y: 0, opacity: 1 });
+        // if the menu bool is false (menu not open)
+        if (openMenu == false) {
+            // animate the buttons nicely upwards 'from' move from the defined pos to the CSS pos
+            let tl = gsap.timeline();
+            tl.from("#restartBtn", { opacity: 1, y: 50, duration: 0.5 })
+                .from("#videoBtn", { opacity: 1, y: 100, duration: 0.5 }, "-=0.2")
+                .from("#quizBtn", { opacity: 1, y: 150, duration: 0.5 }, "-=0.3")
+                .from("#galleryBtn", { opacity: 1, y: 200, duration: 0.5 }, "-=0.4")
+            openMenu = true;//set flag to true now animation is carried out
         }
-    });
-    tl.to("#restartBtn",{opacity:1, y:50, duration:0.5})
-        .to("#videoBtn",{opacity:1, y:100, duration:0.5},"-=0.2")
-        .to("#quizBtn",{opacity:1, y:150, duration:0.5},"-=0.3")
-        .to("#galleryBtn",{opacity:1, y:200, duration:0.5},"-=0.4")
-    openMenu=false;//menu was open, set flag to false after hide animation and clss
-    //hide the buttons again!
+        else {
+            //animate down to hide - 'to' moves from the CSS pos to the position given
+            let tl = gsap.timeline({
+                onComplete: () => {
+                    document.getElementById("restartBtn").classList.add("hide");
+                    document.getElementById("videoBtn").classList.add("hide");
+                    document.getElementById("quizBtn").classList.add("hide");
+                    document.getElementById("galleryBtn").classList.add("hide");
+                }
+            });
+            tl.to("#restartBtn", { opacity: 1, y: 50, duration: 0.5 })
+                .to("#videoBtn", { opacity: 1, y: 100, duration: 0.5 }, "-=0.2")
+                .to("#quizBtn", { opacity: 1, y: 150, duration: 0.5 }, "-=0.3")
+                .to("#galleryBtn", { opacity: 1, y: 200, duration: 0.5 }, "-=0.4")
+            openMenu = false;//menu was open, set flag to false after hide animation and clss
+            //hide the buttons again!
 
-}
-    
-}
+        }
+
+    }
 
     /**
  * Function to determine the questions to be asked in the quiz. Requires the
@@ -366,12 +372,12 @@ else{
  * @param {string} animal 
  * @param {JSON} data 
  */
-let questionIndex=0;
+    let questionIndex = 0;
     function quizContents(animal, data) {
         const question = document.getElementById("questionP");
         const answers = document.getElementsByClassName("form-check-label");
         // let questionSize=factsData.${selectedAnimal}Questions.length;
-        document.getElementById("popQuiz").style.display="block";
+        document.getElementById("popQuiz").style.display = "block";
         switch (selectedAnimal) {
             case "whale":
                 question.innerText = factsData.whaleQuestions[questionIndex].question;
