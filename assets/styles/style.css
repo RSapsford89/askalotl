@@ -40,7 +40,7 @@ img {
 .halfscreenSpace {
   height: 75vh;
 }
-.introImage {
+.animalChoiceImg {
   position: absolute;
   width: 20vw;
   height: auto;
@@ -72,6 +72,7 @@ img {
 #introImage {
   display: none;
   max-height: 35vh;
+  object-fit: cover;
 }
 
 #introButtonDiv {

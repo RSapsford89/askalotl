@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tl.to("#introBanner", {
             opacity: 1, duration: 1, ease: "back.in"
         })
-        tl.from(".introImage", {
+        tl.from(".animalChoiceImg", {
             opacity: 0,
             scale: 0.8,
             duration: 0.5,
@@ -546,7 +546,7 @@ document.addEventListener("DOMContentLoaded", function () {
         yoyo: true,
         repeatDelay: 1.5
     });
-    gsap.to(".introImage", {
+    gsap.to(".animalChoiceImg", {
         delay: 1.5,
         opacity: 1,
         scale: 0.8,
