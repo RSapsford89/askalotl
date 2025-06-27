@@ -322,24 +322,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 let openMenu=false;
-function openMenu(){
+function showHideMenu(){
+    // remove hide class to make visibile (immediately opacity goes to 0 from GSAP below)
     document.getElementById("restartBtn").classList.remove("hide");
     document.getElementById("videoBtn").classList.remove("hide");
     document.getElementById("quizBtn").classList.remove("hide");
     document.getElementById("galleryBtn").classList.remove("hide");
-
+// if the menu bool is false (menu not open)
 if(openMenu == false){
-    
-let tl = gsap.timeline();
-    tl.from("#restartBtn",{opacity:1, y:50, duration:0.5})
-        .from("#videoBtn",{opacity:1, y:100, duration:0.5},"-=0.2")
-        .from("#quizBtn",{opacity:1, y:150, duration:0.5},"-=0.3")
-        .from("#galleryBtn",{opacity:1, y:200, duration:0.5},"-=0.4")
-    openMenu=true;
+// animate the buttons nicely upwards 'from' move from the defined pos to the CSS pos
+    let tl = gsap.timeline();
+        tl.from("#restartBtn",{opacity:1, y:50, duration:0.5})
+            .from("#videoBtn",{opacity:1, y:100, duration:0.5},"-=0.2")
+            .from("#quizBtn",{opacity:1, y:150, duration:0.5},"-=0.3")
+            .from("#galleryBtn",{opacity:1, y:200, duration:0.5},"-=0.4")
+    openMenu=true;//set flag to true now animation is carried out
 }
 else{
+    //animate down to hide - 'to' moves from the CSS pos to the position given
+    let tl = gsap.timeline({
+        onComplete:()=>{
+        document.getElementById("restartBtn").classList.add("hide");
+        document.getElementById("videoBtn").classList.add("hide");
+        document.getElementById("quizBtn").classList.add("hide");
+        document.getElementById("galleryBtn").classList.add("hide");
+        }
+    });
+    tl.to("#restartBtn",{opacity:1, y:50, duration:0.5})
+        .to("#videoBtn",{opacity:1, y:100, duration:0.5},"-=0.2")
+        .to("#quizBtn",{opacity:1, y:150, duration:0.5},"-=0.3")
+        .to("#galleryBtn",{opacity:1, y:200, duration:0.5},"-=0.4")
+    openMenu=false;//menu was open, set flag to false after hide animation and clss
+    //hide the buttons again!
 
-    openMenu=false;
 }
     
 }
@@ -561,5 +576,5 @@ let questionIndex=0;
     window.quizContents = quizContents;
     window.updateQuizElements = updateQuizElements;
     window.nextFact = nextFact;
-    window.openMenu = openMenu;
+    window.showHideMenu = showHideMenu;
 });//end of doc load event
