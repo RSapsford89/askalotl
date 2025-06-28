@@ -78,7 +78,7 @@ img {
 #introButtonDiv {
   position: relative;
   margin-left: auto;
-  bottom: 50px;
+  bottom: 5px;
 }
 #popQuiz {
   height: 70vh;
