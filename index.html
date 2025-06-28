@@ -124,11 +124,15 @@
     </section>
     <div class="hide" id="navBtnDiv">
         <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
-         <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><i class="fa-solid fa-compass"></i></button>
-         <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html" ><i class="fa-solid fa-photo-film"></i></a>
-         <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents()"><i class="fa-solid fa-graduation-cap"></i></button>
-         <button type="button" class="btn btn-primary hide" id="videoBtn" data-bs-toggle="modal" data-bs-target="#videoModal"><i class="fa-brands fa-youtube"></i></button>
-        <a type="button" class="btn btn-primary hide" id="restartBtn" href="#animalChoice"><i class="fa-solid fa-arrow-rotate-right"></i></a>
+         <!-- <label id="galleryBtnLabel" for="galleryBtn">See the gallery</label> 
+         <label id="quizBtnLabel" for="quizBtn">Try the quiz</label>
+         <label id="videoBtnLabel" for="videoBtn">Watch a video</label>
+         <label id="restartBtnLabel" for="restartBtn">Choose another animal</label> -->
+        <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><i class="fa-solid fa-compass"></i></button>
+         <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html" ><i class="fa-solid fa-photo-film"></i> Gallery</a>
+         <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents()"><i class="fa-solid fa-graduation-cap"></i> Quiz</button>
+         <button type="button" class="btn btn-primary hide" id="videoBtn" data-bs-toggle="modal" data-bs-target="#videoModal"><i class="fa-brands fa-youtube"></i> Video</button>
+        <a type="button" class="btn btn-primary hide" id="restartBtn" href="#animalChoice"><i class="fa-solid fa-arrow-rotate-right"></i> Retry</a>
         
         
     </div>
