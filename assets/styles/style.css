@@ -96,6 +96,7 @@ img {
   bottom: 50px;
   left: 10px;
 }
+/* apply to all buttons and a ref in the navBtnDiv */
 #navBtnDiv button, #navBtnDiv a{
   position: absolute;
   font-size: x-small;
@@ -110,25 +111,25 @@ img {
 }
 #galleryBtn{
   position: absolute;
-  left: 0px;
+  
   bottom: 200px;
 
 }
 #quizBtn {
   position: absolute;
-  left: 0px;
+  
   bottom: 150px;
 
 }
 #videoBtn {
   position: absolute;
-  left: 0px;
+  
   bottom: 100px;
 
 }
 #restartBtn{
   position: absolute;
-  left: 0px;
+  
   bottom: 50px;
 
 }

@@ -373,11 +373,13 @@ document.addEventListener("DOMContentLoaded", function () {
  * @param {JSON} data 
  */
     let questionIndex = 0;
-    function quizContents(animal, data) {
+    function quizContents() {
         const question = document.getElementById("questionP");
         const answers = document.getElementsByClassName("form-check-label");
+        const quizElement =document.getElementById("popQuiz");
         // let questionSize=factsData.${selectedAnimal}Questions.length;
-        document.getElementById("popQuiz").style.display = "block";
+        quizElement.classList.remove("hide");
+        quizElement.style.display = "block";
         switch (selectedAnimal) {
             case "whale":
                 question.innerText = factsData.whaleQuestions[questionIndex].question;
@@ -414,7 +416,43 @@ document.addEventListener("DOMContentLoaded", function () {
             questionIndex = 0;
         }
     }
+    /**
+     * validate the string in the name entry box. 
+     * Rules: must fall within [A-Z-a-z]regular expression and be 3 to 10 characters long
+     */
+    function nameValidation(){
+        let name="";
+        try {
+            const nameElement= document.getElementById("nameEntry");
+            name = nameElement.value;
+        } catch (error) {
+            //prompt an entry to make > null
+            alert("Enter a name in the space");
+        }
+        let re =/^A-Z-a-z/g;//regular expression. Negated set - (true if does not include A-z)
+        let nameValid=true;//assume entry is invalid till tested
+        
+        if (name.length<3 || name.length > 10) {
+            alert("name is too long! Between 3 and 10 chars pl0x");
+        }
+        else{
+            nameValid =re.test(name);
+            //illegal characters found...
+            if(nameValid == true){
+                //get user to try again, show the rules
+                alert("no mate, just use letters without any spaces");
+            }
+            else{
+                //welcome the user to the quiz and then open it
+            }
+        }
+        
+        
 
+        
+
+
+    }
     function updateQuizElements(data) {
 
     }
@@ -583,4 +621,5 @@ document.addEventListener("DOMContentLoaded", function () {
     window.updateQuizElements = updateQuizElements;
     window.nextFact = nextFact;
     window.showHideMenu = showHideMenu;
+    window.nameValidation = nameValidation;
 });//end of doc load event
