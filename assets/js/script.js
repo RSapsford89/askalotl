@@ -360,11 +360,41 @@ document.addEventListener("DOMContentLoaded", function () {
                 .to("#galleryBtn", { opacity: 1, y: 200, duration: 0.5 }, "-=0.4")
             openMenu = false;//menu was open, set flag to false after hide animation and clss
             //hide the buttons again!
-
         }
-
     }
 
+    /**
+       * validate the string in the name entry box. 
+       * Rules: must fall within [A-Z-a-z]regular expression and be 3 to 10 characters long
+       */
+    function nameValidation() {
+        let name = "";
+        try {
+            const nameElement = document.getElementById("nameEntry");
+            name = nameElement.value;
+        } catch (error) {
+            //prompt an entry to make > null
+            alert("Enter a name in the space");
+        }
+        let re = /[^A-Z-a-z]/g;//regular expression. Negated set - (true if does not include A-z)
+        let nameValid = true;//assume entry is invalid till tested
+
+        if (name.length < 3 || name.length > 10) {
+            alert("name is too long! Between 3 and 10 chars pl0x");
+        }
+        else {
+            nameValid = re.test(name);
+            //illegal characters found...
+            if (nameValid == true) {
+                //get user to try again, show the rules
+                alert("no mate, just use letters.");
+            }
+            else {
+                //welcome the user to the quiz reveal the quiz section fully
+                quizContents(name);
+            }
+        }
+    }
     /**
  * Function to determine the questions to be asked in the quiz. Requires the
  * string animal name (as used for setting the sitewide animal chosen)
@@ -372,14 +402,46 @@ document.addEventListener("DOMContentLoaded", function () {
  * @param {string} animal 
  * @param {JSON} data 
  */
-    let questionIndex = 0;
+    let lastIndex=[];
+    // find number of questions per animal, assign rnd to questionIndex
     function quizContents() {
         const question = document.getElementById("questionP");
         const answers = document.getElementsByClassName("form-check-label");
-        const quizElement =document.getElementById("popQuiz");
-        // let questionSize=factsData.${selectedAnimal}Questions.length;
+        const quizElement = document.getElementById("popQuiz");
         quizElement.classList.remove("hide");
         quizElement.style.display = "block";
+
+        let questionIndex = 0;
+        let animalQuestions;
+        switch (selectedAnimal) {
+            case "whale":
+                animalQuestions = factsData.whaleQuestions.length;
+                break;
+            case "axolotl":
+                animalQuestions = factsData.axolotlQuestions.length;
+                break;
+            case "penguin":
+                animalQuestions = factsData.penguinQuestions.length;
+                break;
+            case "cat":
+                animalQuestions = factsData.catQuestions.length;
+                break;
+            default:
+                break;
+        }
+        
+        
+        
+        // if number is already present (question asked...) try generating again
+        do {
+            questionIndex= Math.floor(Math.random() * animalQuestions);// https://www.w3schools.com/JS/js_random.asp for creating random integers
+        } 
+        while (lastIndex.includes(questionIndex))
+        
+        lastIndex.push(questionIndex);
+        
+        
+
         switch (selectedAnimal) {
             case "whale":
                 question.innerText = factsData.whaleQuestions[questionIndex].question;
@@ -405,7 +467,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 answers[1].innerText = factsData.catQuestions[questionIndex].answerTwo;
                 answers[2].innerText = factsData.catQuestions[questionIndex].answerThree;
                 break;
-
             default:
                 break;
         }
@@ -416,43 +477,8 @@ document.addEventListener("DOMContentLoaded", function () {
             questionIndex = 0;
         }
     }
-    /**
-     * validate the string in the name entry box. 
-     * Rules: must fall within [A-Z-a-z]regular expression and be 3 to 10 characters long
-     */
-    function nameValidation(){
-        let name="";
-        try {
-            const nameElement= document.getElementById("nameEntry");
-            name = nameElement.value;
-        } catch (error) {
-            //prompt an entry to make > null
-            alert("Enter a name in the space");
-        }
-        let re =/^A-Z-a-z/g;//regular expression. Negated set - (true if does not include A-z)
-        let nameValid=true;//assume entry is invalid till tested
-        
-        if (name.length<3 || name.length > 10) {
-            alert("name is too long! Between 3 and 10 chars pl0x");
-        }
-        else{
-            nameValid =re.test(name);
-            //illegal characters found...
-            if(nameValid == true){
-                //get user to try again, show the rules
-                alert("no mate, just use letters without any spaces");
-            }
-            else{
-                //welcome the user to the quiz and then open it
-            }
-        }
-        
-        
-
-        
 
 
-    }
     function updateQuizElements(data) {
 
     }
