@@ -435,8 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (lastIndex.length >= animalQuestions) {
             lastIndex=[];//set back to empty for the next time an animal is chosen or the quiz is run
             //end the quiz
-        }
-        
+        }        
         // if number is already present (question asked...) try generating again
         do {
             questionIndex= Math.floor(Math.random() * animalQuestions);// https://www.w3schools.com/JS/js_random.asp for creating random integers
@@ -473,18 +472,10 @@ document.addEventListener("DOMContentLoaded", function () {
             default:
                 break;
         }
-        if (questionIndex < 5) {
-            questionIndex++;
-        }
-        else {
-            questionIndex = 0;
-        }
+    
     }
 
 
-    function updateQuizElements(data) {
-
-    }
 
     /**
      * Function to scale the size of Image Maps on an image to work with responsive
@@ -595,7 +586,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         // add in an animation which makes the title look like it is shaking on repeat
 
-
     });
     // split text animation
     gsap.registerPlugin(SplitText);
@@ -620,10 +610,7 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.8,
         ease: "back.out"
     });
-    // gsap.to("#headingTitle"{
-
-    // });
-
+    
 
     // I want to transistion the imgSelect out or fade etc. and then the current animal, transitions in from
     //the top or sides. clicking the animal then resets back to the imgSelect!
@@ -639,15 +626,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let factsData = {};
     let factIndex = 0;
 
-
-
-
-
-
     // At the end of the DOMContentLoaded function, expose functions globally
     window.animalSelection = animalSelection;
     window.quizContents = quizContents;
-    window.updateQuizElements = updateQuizElements;
     window.nextFact = nextFact;
     window.showHideMenu = showHideMenu;
     window.nameValidation = nameValidation;
