@@ -73,7 +73,7 @@
             <!-- animal selection image -->
             <!-- bootstrap d-flex to center contents taken from the docs: https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors -->
             <div id="mapDiv"
-                class="disabled d-flex justify-content-center align-items-center position-absolute fixed-bottom">
+                class="disabled d-flex justify-content-center align-items-center position-absolute fixed-top">
                 <img class="img-fluid" id="imgSelect" src="assets/images/whale-axolotl-penguin-cat.png"
                     alt="Image of Whale, Penguin, Axolotl, Cat" usemap="#imgSelectMap" />
                 <map name="imgSelectMap" class="">
@@ -99,7 +99,7 @@
         <hr>
     </section>
 
-    <section id="introTextSection" href="#introTextSection">
+    <section id="displaySection" href="#displaySection">
         <div class="paragraph d-flex flex-column hide" id="introDiv">
             <!-- this will change depending on the selected animal using JS -->
             <!-- need to add img class to hide and update JS to show/hide
@@ -117,17 +117,58 @@
                 big, but they are peaceful and love to explore the deep blue sea.
             </p>
             <div class="mt-auto" id="introButtonDiv">
-                <button type="button" class="btn btn-primary" id="learnBtn"><i
+                <!-- This button is in the fact area to bring the next fact on screen -->
+                <button type="button" class="btn btn-primary" id="nextFactBtn"><i
                         class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <!-- Div contains the popQuiz elements and is hidden by default. -->
+        <div class="container hide" id="popQuiz">
+
+            <h1>Finish a quiz!</h1>
+            <div class="col-9 col-md-6" id="nameEntryDiv">
+                <label for="nameEntry" class="form-label">Enter a name</label>
+                    <input class=" form-control form-control-lg" type="text" placeholder="Walter Whale" id="nameEntry"
+                        aria-label=".form-control-lg example">
+                    <button id="namesubmit" onclick="nameValidation()">Enter</button>
+            </div>
+            <div class="hide" id="quizForm">
+                <form>
+                    <div id="questionDiv">
+                        <p id="questionP">Question to ask the user?</p>
+                    </div>
+                    <div class="col-12 col-md-6" id="radioContainer">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                                onclick="checkAnswer(this)">
+                            <label class="form-check-label" for="radioDefault1">
+                                Answer 1
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                                onclick="checkAnswer(this)">
+                            <label class="form-check-label" for="radioDefault2">
+                                Answer 2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3"
+                                onclick="checkAnswer(this)">
+                            <label class="form-check-label" for="radioDefault3">
+                                Answer 3
+                            </label>
+                        </div>
+                    </div>
+                    <div id="quizFeedback">
+                        <p id="quizfeedbackP"> </p>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
     <div class="hide" id="navBtnDiv">
         <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
-        <!-- <label id="galleryBtnLabel" for="galleryBtn">See the gallery</label> 
-         <label id="quizBtnLabel" for="quizBtn">Try the quiz</label>
-         <label id="videoBtnLabel" for="videoBtn">Watch a video</label>
-         <label id="restartBtnLabel" for="restartBtn">Choose another animal</label> -->
         <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><i
                 class="fa-solid fa-compass"></i></button>
         <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><i
@@ -209,51 +250,7 @@
     buttons and question field. Indicate to user if you are right/wrong. Ask for user's name
     at the start and apply some rules (3 letters, up to 10, no numbers or special characters) -->
     <section id="quizSection">
-        <div class="container hide" id="popQuiz">
-            <!-- <img src="assets/images/favicon-32x32.png" alt="A picture relevant to the quiz" sizes="" srcset="" /> -->
-            <div class="quizForm">
-                <!-- whatever form content is going to go in here, which changes relating
-                to the quiz question. Probably radio button -->
-                <h1>Finish a quiz!</h1>
-                <div class="col-9 col-md-6" id="nameEntryDiv">
-                    <label for="nameEntry" class="form-label">Enter a name</label>
-                    <span>
-                        <input class=" form-control form-control-lg" type="text" placeholder="Walter Whale"
-                            id="nameEntry" aria-label=".form-control-lg example">
-                        <button id="namesubmit" onclick="nameValidation()">Enter</button>
-                    </span>
-                </div>
-                
-                <form>
-                    <div id="questionDiv">
-                        <p id="questionP">Question to ask the user?</p>
-                    </div>
-                    <div class="col-12 col-md-6" id="radioContainer">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
-                                onclick="checkAnswer(this)">
-                            <label class="form-check-label" for="radioDefault1">
-                                Answer 1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
-                                onclick="checkAnswer(this)">
-                            <label class="form-check-label" for="radioDefault2">
-                                Answer 2
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3"
-                                onclick="checkAnswer(this)">
-                            <label class="form-check-label" for="radioDefault3">
-                                Answer 3
-                            </label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+
         <div class="galleryLink">
             <!-- some nice mouseover event of a full width image of the animal then animates to look like a preview of the Gallery. Plays a sound too -->
         </div>

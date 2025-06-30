@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // document.getElementById("animalChoiceSpacer").classList.add("halfscreenSpace");//this isnt working as desired yet. Maybe move the animal image up first
 
                 document.getElementById("introDiv").classList.remove("hide");
-                window.location.href = "#introTextSection";
+                window.location.href = "#displaySection";
             }
         });
         // CSS smooth scrolling to scroll to the introSection after selecting your animal
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("videoBtn").addEventListener("click", function () {
             videoFilter(selectedAnimal);
         });
-        document.getElementById("learnBtn").addEventListener("click", function () {
+        document.getElementById("nextFactBtn").addEventListener("click", function () {
             nextFact(selectedAnimal);
         });
     }
@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
        */
     let name = "";
     function nameValidation() {
-        
+
         try {
             const nameElement = document.getElementById("nameEntry");
             name = nameElement.value;
@@ -394,7 +394,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 //welcome the user to the quiz reveal the quiz section fully
                 // quizContents(name);
                 //hide the name entry div
-                document.getElementById("nameEntryDiv").classList.add("hide");
+                let tl = gsap.timeline();
+                tl.to("#nameEntryDiv", {
+                    opacity: 0,
+                    x: -400,
+                    scale: 0.8,
+                    duration: 0.5,
+                    ease: "back.out",
+                    onComplete: ()=>{
+                        document.getElementById("nameEntryDiv").classList.add("hide");
+                        document.getElementById("quizForm").classList.remove("hide");
+                    }
+                })
+                .from("#quizForm",{
+                    x:-400,
+                    duration:0.5,
+                    ease: "back.in"
+                })
+                
             }
         }
     }
@@ -409,6 +426,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let correctAnswer;
     // find number of questions per animal, assign rnd to questionIndex
     function quizContents() {
+        document.getElementById("introDiv").classList.add("hide");
         const question = document.getElementById("questionP");
         const answers = document.getElementsByClassName("form-check-label");
         const quizElement = document.getElementById("popQuiz");
@@ -483,11 +501,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-/**
- * This used an AI suggested solution to work correctly with the .this keyword
- * @param {*} radioInput 
- */
+    /**
+     * This used an AI suggested solution to work correctly with the .this keyword
+     * @param {*} radioInput 
+     */
     function checkAnswer(radioInput) {
+        const feedback = document.getElementById("quizfeedbackP");
         const label = document.querySelector('label[for="' + radioInput.id + '"]');
         const labelText = label ? label.innerText.trim() : "";
         // Use labelText for answer checking
@@ -496,10 +515,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (labelText == correctAnswer) {
             //answer is correct - inform user
             alert("You picked the right answer");
+            feedback.innerText="Well done, that was right!"
+            quizContents();
         }
         else {
             //answer is incorrect - show user the correct answer
-            alert(`Sorry, the answer was: ${labelText}`);
+            alert(`Sorry, the answer was: ${correctAnswer}`);
+            feedback.innerText=`Oops! The answer was: ${correctAnswer}`;
+            
         }
     }
 
@@ -599,12 +622,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // opactiy of 0, slide up from bottom
         tl.to("#imgSelect",
             // { opacity: 0, y:0 },
-            { opacity: 1, y: '-35vh', duration: 2, ease: "power1.out", },
+            { opacity: 1, y: '20vh', duration: 2, ease: "power1.out", },
 
         );
         tl.to("#introBanner", {
             opacity: 1, duration: 1, ease: "back.in"
-        })
+        },"-=1.5s")
         tl.from(".animalChoiceImg", {
             opacity: 0,
             scale: 0.8,
