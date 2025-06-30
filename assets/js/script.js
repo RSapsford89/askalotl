@@ -430,7 +430,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
         }
         
-        
+        //to stop infinte while loop. if the length of lastindex is as long as the available number of questions, end the quiz
+        //or set lastindex back to empty.
+        if (lastIndex.length >= animalQuestions) {
+            lastIndex=[];//set back to empty for the next time an animal is chosen or the quiz is run
+            //end the quiz
+        }
         
         // if number is already present (question asked...) try generating again
         do {
@@ -439,8 +444,6 @@ document.addEventListener("DOMContentLoaded", function () {
         while (lastIndex.includes(questionIndex))
         
         lastIndex.push(questionIndex);
-        
-        
 
         switch (selectedAnimal) {
             case "whale":
