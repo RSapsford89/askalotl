@@ -367,8 +367,9 @@ document.addEventListener("DOMContentLoaded", function () {
        * validate the string in the name entry box. 
        * Rules: must fall within [A-Z-a-z]regular expression and be 3 to 10 characters long
        */
+    let name = "";
     function nameValidation() {
-        let name = "";
+        
         try {
             const nameElement = document.getElementById("nameEntry");
             name = nameElement.value;
@@ -391,7 +392,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             else {
                 //welcome the user to the quiz reveal the quiz section fully
-                quizContents(name);
+                // quizContents(name);
+                //hide the name entry div
+                document.getElementById("nameEntryDiv").classList.add("hide");
             }
         }
     }
@@ -402,7 +405,8 @@ document.addEventListener("DOMContentLoaded", function () {
  * @param {string} animal 
  * @param {JSON} data 
  */
-    let lastIndex=[];
+    let lastIndex = [];
+    let correctAnswer;
     // find number of questions per animal, assign rnd to questionIndex
     function quizContents() {
         const question = document.getElementById("questionP");
@@ -429,19 +433,19 @@ document.addEventListener("DOMContentLoaded", function () {
             default:
                 break;
         }
-        
+
         //to stop infinte while loop. if the length of lastindex is as long as the available number of questions, end the quiz
         //or set lastindex back to empty.
         if (lastIndex.length >= animalQuestions) {
-            lastIndex=[];//set back to empty for the next time an animal is chosen or the quiz is run
+            lastIndex = [];//set back to empty for the next time an animal is chosen or the quiz is run
             //end the quiz
-        }        
+        }
         // if number is already present (question asked...) try generating again
         do {
-            questionIndex= Math.floor(Math.random() * animalQuestions);// https://www.w3schools.com/JS/js_random.asp for creating random integers
-        } 
+            questionIndex = Math.floor(Math.random() * animalQuestions);// https://www.w3schools.com/JS/js_random.asp for creating random integers
+        }
         while (lastIndex.includes(questionIndex))
-        
+
         lastIndex.push(questionIndex);
 
         switch (selectedAnimal) {
@@ -450,31 +454,54 @@ document.addEventListener("DOMContentLoaded", function () {
                 answers[0].innerText = factsData.whaleQuestions[questionIndex].answerOne;
                 answers[1].innerText = factsData.whaleQuestions[questionIndex].answerTwo;
                 answers[2].innerText = factsData.whaleQuestions[questionIndex].answerThree;
+                correctAnswer = factsData.whaleQuestions[questionIndex].correctAnswer;
                 break;
             case "axolotl":
                 question.innerText = factsData.axolotlQuestions[questionIndex].question;
                 answers[0].innerText = factsData.axolotlQuestions[questionIndex].answerOne;
                 answers[1].innerText = factsData.axolotlQuestions[questionIndex].answerTwo;
                 answers[2].innerText = factsData.axolotlQuestions[questionIndex].answerThree;
+                correctAnswer = factsData.axolotlQuestions[questionIndex].correctAnswer;
                 break;
             case "penguin":
                 question.innerText = factsData.penguinQuestions[questionIndex].question;
                 answers[0].innerText = factsData.penguinQuestions[questionIndex].answerOne;
                 answers[1].innerText = factsData.penguinQuestions[questionIndex].answerTwo;
                 answers[2].innerText = factsData.penguinQuestions[questionIndex].answerThree;
+                correctAnswer = factsData.penguinQuestions[questionIndex].correctAnswer;
+
                 break;
             case "cat":
                 question.innerText = factsData.catQuestions[questionIndex].question;
                 answers[0].innerText = factsData.catQuestions[questionIndex].answerOne;
                 answers[1].innerText = factsData.catQuestions[questionIndex].answerTwo;
                 answers[2].innerText = factsData.catQuestions[questionIndex].answerThree;
+                correctAnswer = factsData.catQuestions[questionIndex].correctAnswer;
                 break;
             default:
                 break;
         }
-    
-    }
 
+    }
+/**
+ * This used an AI suggested solution to work correctly with the .this keyword
+ * @param {*} radioInput 
+ */
+    function checkAnswer(radioInput) {
+        const label = document.querySelector('label[for="' + radioInput.id + '"]');
+        const labelText = label ? label.innerText.trim() : "";
+        // Use labelText for answer checking
+        console.log(labelText);
+
+        if (labelText == correctAnswer) {
+            //answer is correct - inform user
+            alert("You picked the right answer");
+        }
+        else {
+            //answer is incorrect - show user the correct answer
+            alert(`Sorry, the answer was: ${labelText}`);
+        }
+    }
 
 
     /**
@@ -610,7 +637,7 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.8,
         ease: "back.out"
     });
-    
+
 
     // I want to transistion the imgSelect out or fade etc. and then the current animal, transitions in from
     //the top or sides. clicking the animal then resets back to the imgSelect!
@@ -632,4 +659,5 @@ document.addEventListener("DOMContentLoaded", function () {
     window.nextFact = nextFact;
     window.showHideMenu = showHideMenu;
     window.nameValidation = nameValidation;
+    window.checkAnswer = checkAnswer;
 });//end of doc load event

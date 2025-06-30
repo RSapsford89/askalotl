@@ -124,19 +124,22 @@
     </section>
     <div class="hide" id="navBtnDiv">
         <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
-         <!-- <label id="galleryBtnLabel" for="galleryBtn">See the gallery</label> 
+        <!-- <label id="galleryBtnLabel" for="galleryBtn">See the gallery</label> 
          <label id="quizBtnLabel" for="quizBtn">Try the quiz</label>
          <label id="videoBtnLabel" for="videoBtn">Watch a video</label>
          <label id="restartBtnLabel" for="restartBtn">Choose another animal</label> -->
-        <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><i class="fa-solid fa-compass"></i></button>
-         <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html" ><i class="fa-solid fa-photo-film"></i> Gallery</a>
-         <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents()"><i class="fa-solid fa-graduation-cap"></i> Quiz</button>
-         <button type="button" class="btn btn-primary hide" id="videoBtn" data-bs-toggle="modal" data-bs-target="#videoModal"><i class="fa-brands fa-youtube"></i> Video</button>
-        <a type="button" class="btn btn-primary hide" id="restartBtn" href="#animalChoice"><i class="fa-solid fa-arrow-rotate-right"></i> Retry</a>
-        
-        
+        <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><i
+                class="fa-solid fa-compass"></i></button>
+        <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><i
+                class="fa-solid fa-photo-film"></i> Gallery</a>
+        <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents()"><i
+                class="fa-solid fa-graduation-cap"></i> Quiz</button>
+        <button type="button" class="btn btn-primary hide" id="videoBtn" data-bs-toggle="modal"
+            data-bs-target="#videoModal"><i class="fa-brands fa-youtube"></i> Video</button>
+        <a type="button" class="btn btn-primary hide" id="restartBtn" href="#animalChoice"><i
+                class="fa-solid fa-arrow-rotate-right"></i> Retry</a>
     </div>
-    
+
 
 
     <!-- video displayed of user's chosen animal. embedded YT link. -->
@@ -212,41 +215,41 @@
                 <!-- whatever form content is going to go in here, which changes relating
                 to the quiz question. Probably radio button -->
                 <h1>Finish a quiz!</h1>
+                <div class="col-9 col-md-6" id="nameEntryDiv">
+                    <label for="nameEntry" class="form-label">Enter a name</label>
+                    <span>
+                        <input class=" form-control form-control-lg" type="text" placeholder="Walter Whale"
+                            id="nameEntry" aria-label=".form-control-lg example">
+                        <button id="namesubmit" onclick="nameValidation()">Enter</button>
+                    </span>
+                </div>
+                
                 <form>
-                    <div class="col-9 col-md-6">
-                        <label for="nameEntry" class="form-label">Enter a name</label>
-                        <span>
-                            <input class=" form-control form-control-lg" type="text" placeholder="Walter Whale"
-                                id="nameEntry" aria-label=".form-control-lg example">
-                                <button id="namesubmit" onclick="nameValidation()">Enter</button>
-                        </span>
-                    </div>
                     <div id="questionDiv">
                         <p id="questionP">Question to ask the user?</p>
                     </div>
                     <div class="col-12 col-md-6" id="radioContainer">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
+                                onclick="checkAnswer(this)">
                             <label class="form-check-label" for="radioDefault1">
                                 Answer 1
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
+                                onclick="checkAnswer(this)">
                             <label class="form-check-label" for="radioDefault2">
                                 Answer 2
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3"
+                                onclick="checkAnswer(this)">
                             <label class="form-check-label" for="radioDefault3">
                                 Answer 3
                             </label>
                         </div>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-primary" id="quizBtn" onclick="checkAnswer()"><i
-                                class="fa-solid fa-graduation-cap"></i></button>
                     </div>
                 </form>
             </div>

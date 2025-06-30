@@ -134,7 +134,7 @@
       "answerOne": "Sea Kelp",
       "answerTwo": "Plankton",
       "answerThree": "Sharks",
-      "correctAnswer": "answerTwo"
+      "correctAnswer": "Plankton"
     },
     {
       "animal": "Blue Whale",
@@ -142,7 +142,7 @@
       "answerOne": "As big as a car",
       "answerTwo": "The same size as a Giraffe",
       "answerThree": "As big as three buses",
-      "correctAnswer": "answerThree"
+      "correctAnswer": "As big as three buses"
     },
     {
       "animal": "Blue Whale",
@@ -150,7 +150,7 @@
       "answerOne": "As loud as a person shouting",
       "answerTwo": "As loud as a roaring Lion",
       "answerThree": "Louder than jet plane",
-      "correctAnswer": "answerThree"
+      "correctAnswer": "Louder than jet plane"
     }
   ],
   "axolotlQuestions": [
