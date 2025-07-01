@@ -165,16 +165,23 @@
     </section>
     <div class="hide" id="navBtnDiv">
         <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
-        <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><i
-                class="fa-solid fa-compass"></i>Menu</button>
-        <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><i
-                class="fa-solid fa-photo-film"></i> Gallery</a>
-        <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents(),showHideMenu()"><i
-                class="fa-solid fa-graduation-cap"></i> Quiz</button>
+        <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><span class="largeText">
+                <i class="fa-solid fa-compass"></i>
+            </span><span class="btnLabel">Menu</span></button>
+        <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><span class="largeText">
+                <i class="fa-solid fa-photo-film"></i>
+            </span><span class="btnLabel">Gallery</span></a>
+        <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents(),showHideMenu()"><span
+                class="largeText">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </span> <span class="btnLabel">Quiz</span></button>
         <button type="button" class="btn btn-primary hide" id="videoBtn" onclick="showHideMenu()" data-bs-toggle="modal"
-            data-bs-target="#videoModal"><i class="fa-brands fa-youtube"></i> Video</button>
-        <a type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu()" href="#animalChoice"><i
-                class="fa-solid fa-arrow-rotate-right"></i> Retry</a>
+            data-bs-target="#videoModal"><span class="largeText"><i class="fa-brands fa-youtube"></i></span>
+            <span class="btnLabel">Video</span></button>
+        <a type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu()"
+            href="#animalChoice"><span class="largeText">
+                <i class="fa-solid fa-circle-chevron-up"></i>
+            </span><span class="btnLabel">Top</span></a>
     </div>
 
 

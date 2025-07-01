@@ -49,6 +49,9 @@ img {
 .form {
   border: 5px solid white;
 }
+.largeText{
+  font-size: 1.3rem;
+}
 #introDiv {
   min-height: 600px;
 }
@@ -89,56 +92,52 @@ img {
 #factDiv {
   display: none;
 }
+/* Styles for the menu buttons */
 #navBtnDiv {
   position: fixed;
   height: 250px;
-  width: 50px;
+  width: 55px;
   bottom: 50px;
   left: 10px;
-}
-/* apply to all buttons and a ref in the navBtnDiv */
-#navBtnDiv button, #navBtnDiv a{
-  position: absolute;
-  font-size: x-small;
-  border: 2px;
-  left:0px;
-  height: 45px;
-  width: 47px;
-
+  
 }
 #nextFactBtn {
   width: 40vw;
 }
-#galleryBtn{
+/* apply to all buttons and a ref in the navBtnDiv */
+#navBtnDiv button, #navBtnDiv a{
   position: absolute;
-  
-  bottom: 200px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px;  
+  left:0px;
+  height: 50px;
+  width: 50px;
+  padding: 0;
 }
-#quizBtn {
-  position: absolute;
-  
-  bottom: 150px;
-
+.btnLabel{
+  margin-top: 0rem;
+  font-size: 0.8rem;
 }
-#videoBtn {
-  position: absolute;
-  
-  bottom: 100px;
-
+#galleryBtn{  
+  bottom: 220px;
 }
-#restartBtn{
-  position: absolute;
-  
-  bottom: 50px;
-
+#quizBtn { 
+  bottom: 165px;
+}
+#videoBtn { 
+  bottom: 110px;
+}
+#restartBtn{  
+  bottom: 55px;
 }
 /* The menu button for navigation */
 #optionBtn{
-  position: absolute;
   left: 0px;
   bottom: 0px;
-  border: 5px;
+  border: 2px;
 }
 /* gallery page */
 /* carousel */

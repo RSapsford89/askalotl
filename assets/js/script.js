@@ -338,10 +338,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (openMenu == false) {
             // animate the buttons nicely upwards 'from' move from the defined pos to the CSS pos
             let tl = gsap.timeline();
-            tl.from("#restartBtn", { opacity: 1, y: 50, duration: 0.5 })
-                .from("#videoBtn", { opacity: 1, y: 100, duration: 0.5 }, "-=0.2")
-                .from("#quizBtn", { opacity: 1, y: 150, duration: 0.5 }, "-=0.3")
-                .from("#galleryBtn", { opacity: 1, y: 200, duration: 0.5 }, "-=0.4")
+            tl.from("#restartBtn", { opacity: 1, y: 55, duration: 0.5 })
+                .from("#videoBtn", { opacity: 1, y: 110, duration: 0.5 }, "-=0.2")
+                .from("#quizBtn", { opacity: 1, y: 165, duration: 0.5 }, "-=0.3")
+                .from("#galleryBtn", { opacity: 1, y: 220, duration: 0.5 }, "-=0.4")
             openMenu = true;//set flag to true now animation is carried out
         }
         else {
@@ -354,10 +354,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById("galleryBtn").classList.add("hide");
                 }
             });
-            tl.to("#restartBtn", { opacity: 1, y: 50, duration: 0.5 })
-                .to("#videoBtn", { opacity: 1, y: 100, duration: 0.5 }, "-=0.2")
-                .to("#quizBtn", { opacity: 1, y: 150, duration: 0.5 }, "-=0.3")
-                .to("#galleryBtn", { opacity: 1, y: 200, duration: 0.5 }, "-=0.4")
+            tl.to("#restartBtn", { opacity: 1, y: 55, duration: 0.5 })
+                .to("#videoBtn", { opacity: 1, y: 110, duration: 0.5 }, "-=0.2")
+                .to("#quizBtn", { opacity: 1, y: 165, duration: 0.5 }, "-=0.3")
+                .to("#galleryBtn", { opacity: 1, y: 220, duration: 0.5 }, "-=0.4")
             openMenu = false;//menu was open, set flag to false after hide animation and clss
             //hide the buttons again!
         }
