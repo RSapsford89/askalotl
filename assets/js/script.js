@@ -369,31 +369,35 @@ document.addEventListener("DOMContentLoaded", function () {
        */
     let name = "";
     function nameValidation() {
-
+        const nameElement = document.getElementById("nameEntry");
+        const nameTitle = document.getElementById("nameTitle");
+        const nameHelp = document.getElementById("nameHelp");
         try {
-            const nameElement = document.getElementById("nameEntry");
             name = nameElement.value;
         } catch (error) {
             //prompt an entry to make > null
+            nameHelp.innerText = "Please enter a name.";
             alert("Enter a name in the space");
         }
         let re = /[^A-Z-a-z]/g;//regular expression. Negated set - (true if does not include A-z)
         let nameValid = true;//assume entry is invalid till tested
 
         if (name.length < 3 || name.length > 10) {
-            alert("name is too long! Between 3 and 10 chars pl0x");
+            nameHelp.innerText = "Please use between 3 and 10 letters only."
         }
         else {
             nameValid = re.test(name);
             //illegal characters found...
             if (nameValid == true) {
                 //get user to try again, show the rules
-                alert("no mate, just use letters.");
+                nameHelp.innerText = "Please only use letters - no spaces or special characters";
+
             }
             else {
                 //welcome the user to the quiz reveal the quiz section fully
                 // quizContents(name);
                 //hide the name entry div
+                nameHelp.innerText="";
                 let tl = gsap.timeline();
                 tl.to("#nameEntryDiv", {
                     opacity: 0,
@@ -401,17 +405,18 @@ document.addEventListener("DOMContentLoaded", function () {
                     scale: 0.8,
                     duration: 0.5,
                     ease: "back.out",
-                    onComplete: ()=>{
+                    onComplete: () => {
                         document.getElementById("nameEntryDiv").classList.add("hide");
                         document.getElementById("quizForm").classList.remove("hide");
+                        nameTitle.innerText = "Welcome, " + name;
                     }
                 })
-                .from("#quizForm",{
-                    x:-400,
-                    duration:0.5,
-                    ease: "back.in"
-                })
-                
+                    .from("#quizForm", {
+                        x: -400,
+                        duration: 0.5,
+                        ease: "back.in"
+                    })
+
             }
         }
     }
@@ -514,16 +519,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (labelText == correctAnswer) {
             //answer is correct - inform user
-            alert("You picked the right answer");
-            feedback.innerText="Well done, that was right!"
-            quizContents();
+            feedback.innerText = "Well done, that was right!"
+
         }
         else {
             //answer is incorrect - show user the correct answer
-            alert(`Sorry, the answer was: ${correctAnswer}`);
-            feedback.innerText=`Oops! The answer was: ${correctAnswer}`;
-            
+            feedback.innerText = `Oops! The answer was: ${correctAnswer}`;
+
         }
+        //information on setTimeout: https://www.sitepoint.com/javascript-settimeout-function-examples/
+        //keep the current state for 3 seconds before removing the message and calling next question via quizContents
+        setTimeout(function () {
+            feedback.innerText = "";
+            quizContents();
+        }
+            , 2000);
+
     }
 
 
@@ -627,7 +638,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         tl.to("#introBanner", {
             opacity: 1, duration: 1, ease: "back.in"
-        },"-=1.5s")
+        }, "-=1.5s")
         tl.from(".animalChoiceImg", {
             opacity: 0,
             scale: 0.8,

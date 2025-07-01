@@ -130,7 +130,7 @@
   "whaleQuestions": [
     {
       "animal": "Blue Whale",
-      "question": "what do baleen whales eat?",
+      "question": "What do baleen whales eat?",
       "answerOne": "Sea Kelp",
       "answerTwo": "Plankton",
       "answerThree": "Sharks",
@@ -156,8 +156,8 @@
   "axolotlQuestions": [
     {
       "animal": "axolotl",
-      "question": "where do they live?",
-      "answerOne": "In rivers",
+      "question": "where do Axolotls  live?",
+      "answerOne": "In the desert",
       "answerTwo": "Outside, in the forest",
       "answerThree": "In caves",
       "correctAnswer": "In caves"
@@ -182,7 +182,7 @@
   "penguinQuestions": [
     {
       "animal": "Adele penguin",
-      "question": "where do they live?",
+      "question": "Where do Adele penguins live?",
       "answerOne": "The Antarctic, on the snow",
       "answerTwo": "African coast, on the beaches",
       "answerThree": "British coast, in the rain",
@@ -208,7 +208,7 @@
   "catQuestions":[
     {
       "animal": "Snow Leopard",
-      "question": "where do they live?",
+      "question": "where do Snow Leopards live?",
       "answerOne": "The Antarctic, on the snow",
       "answerTwo": "African savannah",
       "answerThree": "Himalayan mountains",
@@ -224,7 +224,7 @@
     },
     {
       "animal": "(domesticated) pet cats",
-      "question": "How long have people been keeping cats?",
+      "question": "How long have people been keeping pet cats?",
       "answerOne": "Before the Ancient Egyptians",
       "answerTwo": "Since the Ancient Romans",
       "answerThree": "Since the Victorians",

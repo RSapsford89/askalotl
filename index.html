@@ -26,7 +26,7 @@
     <header>
         <!-- header with some navbar here -->
         <!-- navbar could use JS events to trigger the formatting changes -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Askalotl</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -44,7 +44,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
     </header>
     <!-- absolute position to anchor bottom right of page body. JS to
     toggle the page to be muted or not. Should change the image from
@@ -108,13 +108,7 @@
             <h2 id="introTitle">Animal...</h2>
             <p id="introText">
                 Blue whales are the biggest animals on
-                Earth—even bigger than dinosaurs! These gentle giants live in the
-                ocean and can grow as long as three school buses lined up. Even
-                though they’re huge, they eat tiny creatures called krill,
-                swallowing thousands in one gulp. When they dive and swim, their
-                massive tails push them gracefully through the water. And guess
-                what? Their hearts are the size of a small car! Blue whales may be
-                big, but they are peaceful and love to explore the deep blue sea.
+                Earth—even bigger than dinosaurs!
             </p>
             <div class="mt-auto" id="introButtonDiv">
                 <!-- This button is in the fact area to bring the next fact on screen -->
@@ -125,12 +119,14 @@
         <!-- Div contains the popQuiz elements and is hidden by default. -->
         <div class="container hide" id="popQuiz">
 
-            <h1>Finish a quiz!</h1>
+            <h1>Try a quiz!..</h1>
+            <h2 id="nameTitle"></h2>
             <div class="col-9 col-md-6" id="nameEntryDiv">
                 <label for="nameEntry" class="form-label">Enter a name</label>
-                    <input class=" form-control form-control-lg" type="text" placeholder="Walter Whale" id="nameEntry"
-                        aria-label=".form-control-lg example">
-                    <button id="namesubmit" onclick="nameValidation()">Enter</button>
+                <input class=" form-control form-control-lg" type="text" placeholder="WalterWhale" id="nameEntry"
+                    aria-label=".form-control-lg example">
+                <button id="namesubmit" onclick="nameValidation()">Enter</button>
+                <p id="nameHelp"> </p>
             </div>
             <div class="hide" id="quizForm">
                 <form>
@@ -170,14 +166,14 @@
     <div class="hide" id="navBtnDiv">
         <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
         <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><i
-                class="fa-solid fa-compass"></i></button>
+                class="fa-solid fa-compass"></i>Menu</button>
         <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><i
                 class="fa-solid fa-photo-film"></i> Gallery</a>
-        <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents()"><i
+        <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents(),showHideMenu()"><i
                 class="fa-solid fa-graduation-cap"></i> Quiz</button>
-        <button type="button" class="btn btn-primary hide" id="videoBtn" data-bs-toggle="modal"
+        <button type="button" class="btn btn-primary hide" id="videoBtn" onclick="showHideMenu()" data-bs-toggle="modal"
             data-bs-target="#videoModal"><i class="fa-brands fa-youtube"></i> Video</button>
-        <a type="button" class="btn btn-primary hide" id="restartBtn" href="#animalChoice"><i
+        <a type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu()" href="#animalChoice"><i
                 class="fa-solid fa-arrow-rotate-right"></i> Retry</a>
     </div>
 
