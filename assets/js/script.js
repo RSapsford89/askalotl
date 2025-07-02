@@ -520,6 +520,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (labelText == correctAnswer) {
             //answer is correct - inform user
             feedback.innerText = "Well done, that was right!"
+            
 
         }
         else {
@@ -531,6 +532,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //keep the current state for 3 seconds before removing the message and calling next question via quizContents
         setTimeout(function () {
             feedback.innerText = "";
+            radioInput.checked=false;
             quizContents();
         }
             , 2000);
