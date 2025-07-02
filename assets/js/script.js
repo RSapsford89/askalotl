@@ -266,6 +266,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const title = document.getElementById("introTitle");
         const paragraph = document.getElementById("introText");
         const img = document.getElementById("introImage");
+        const nextFactBtn = document.getElementById("nextFactBtn");
+        nextFactBtn.innerHTML=`Next <i class="fa-solid fa-caret-right"></i>`;
         let numberOfQuestions = 3;//There are a minimum 3 questions, so this is the default
         switch (animal) {
             case "whale":
@@ -297,15 +299,14 @@ document.addEventListener("DOMContentLoaded", function () {
             default:
                 break;
         }
-        //if we reached the end of the questions, set index to 0!
+        
         if (factIndex < numberOfQuestions - 1) {
             factIndex++;
         }
         else {
-            // set index back to 0 to allow facts to loop and animate in a new
-            // button for the user to see
-            factIndex = 0;
-            document.getElementById("navBtnDiv").classList.remove("hide");
+            factIndex = 0;// set index back to 0 to allow facts to loop and animate in a new
+            nextFactBtn.innerHTML=`Repeat <i class="fa-solid fa-backward-fast"></i>`;
+            document.getElementById("navBtnDiv").classList.remove("hide");// button for the user to see (the menu button)
             gsap.from("#optionBtn", {
                 duration: 1,
                 opacity: 1,
@@ -322,6 +323,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let openMenu = false;
+    /**
+     * Shows and hides the navigation buttons.
+     */
     function showHideMenu() {
         // remove hide class to make visibile (immediately opacity goes to 0 from GSAP below)
         document.getElementById("restartBtn").classList.remove("hide");
