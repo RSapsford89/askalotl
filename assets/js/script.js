@@ -382,7 +382,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             //prompt an entry to make > null
             nameHelp.innerText = "Please enter a name.";
-            alert("Enter a name in the space");
         }
         let re = /[^A-Z-a-z]/g;//regular expression. Negated set - (true if does not include A-z)
         let nameValid = true;//assume entry is invalid till tested
@@ -396,7 +395,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (nameValid == true) {
                 //get user to try again, show the rules
                 nameHelp.innerText = "Please only use letters - no spaces or special characters";
-
             }
             else {
                 //welcome the user to the quiz reveal the quiz section fully
@@ -561,6 +559,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function endQuiz(score) {
         document.getElementById("quizForm").classList.add("hide");//hide the quiz form, not the entire thing
         document.getElementById("results").classList.remove("hide");//show the results area
+        document.getElementById("nameTitle").classList.add("hide");
         const resultHeading = document.getElementById("resultHeading");
         const resultP = document.getElementById("resultP");
         resultHeading.innerText = `Well done, ${name}!`;

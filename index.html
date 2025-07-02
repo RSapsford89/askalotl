@@ -46,15 +46,11 @@
             </div>
         </nav> -->
     </header>
-    <!-- absolute position to anchor bottom right of page body. JS to
-    toggle the page to be muted or not. Should change the image from
-    a speaker with sound to a speaker with a line for silent. -->
     <button type="button" class="btn btn-warning" id="audioButton">
         <i class="fa-solid fa-volume-xmark"></i><i class="fa-solid fa-volume-high"></i>
     </button>
     <section id="animalChoice" href="#animalChoice">
         <div class="" id="animalContentOne">
-            <!-- H1 needs to be centered in page and only thing visible, respond to click -->
             <div class=" position-absolute top start " id="headingTitle">
                 <h1 id=""><strong>Welcome to Askalotl</strong></h1>
                 <br>
@@ -68,9 +64,7 @@
                 <img class="animalChoiceImg" id="imgBottomRight" src="assets/images/pixelart-cat-reaching.png"
                     alt="Whale diving">
             </div>
-            <!-- 2 second delay before moving title away -->
-
-            <!-- animal selection image -->
+           <!-- animal selection image -->
             <!-- bootstrap d-flex to center contents taken from the docs: https://getbootstrap.com/docs/5.3/utilities/flex/#enable-flex-behaviors -->
             <div id="mapDiv"
                 class="disabled d-flex justify-content-center align-items-center position-absolute fixed-top">
@@ -129,6 +123,9 @@
             </div>
             <div class="hide" id="quizForm">
                 <form>
+                    <div class="d-flex justify-content-center">
+                        <img src="assets/images/android-chrome-192x192.png" alt="cartoon picture of a Whale and Axolotl">
+                    </div>
                     <div id="questionDiv">
                         <p id="questionP">Question to ask the user?</p>
                     </div>

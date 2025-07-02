@@ -147,6 +147,12 @@ img {
   justify-content: center;
   align-items: center;
 }
+.carousel-item img{
+  object-fit: cover;
+  height: 90%;
+  width: 100%;
+  display: block;
+}
 /* gallery layout */
 .galleryGrid {
   column-count: 1;
@@ -160,6 +166,7 @@ img {
   width: 100%;
   height: auto;
   display: block;
+  justify-content: center;
 }
 
 /* ID for the sticky button for audio mute toggling
@@ -171,7 +178,7 @@ high z-index to ensure it does not get painted over! */
   z-index: 99;
 }
 #imgSelect {
-  width: 100vh;
+  max-width: 400px;
   opacity: 0;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
