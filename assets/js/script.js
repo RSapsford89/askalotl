@@ -137,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const image = document.getElementById("introImage");
         const paragraph = document.getElementById("introText");
         const title = document.getElementById("introTitle");
+        document.getElementById("popQuiz").classList.add("hide");
         let whaleText = `Blue whales are the biggest animals on
                 Earth—even bigger than dinosaurs! These gentle giants live in the
                 ocean and can grow as long as three school buses lined up. Even
@@ -267,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const paragraph = document.getElementById("introText");
         const img = document.getElementById("introImage");
         const nextFactBtn = document.getElementById("nextFactBtn");
-        nextFactBtn.innerHTML=`Next <i class="fa-solid fa-caret-right"></i>`;
+        nextFactBtn.innerHTML = `Next <i class="fa-solid fa-caret-right"></i>`;
         let numberOfQuestions = 3;//There are a minimum 3 questions, so this is the default
         switch (animal) {
             case "whale":
@@ -299,13 +300,13 @@ document.addEventListener("DOMContentLoaded", function () {
             default:
                 break;
         }
-        
+
         if (factIndex < numberOfQuestions - 1) {
             factIndex++;
         }
         else {
             factIndex = 0;// set index back to 0 to allow facts to loop and animate in a new
-            nextFactBtn.innerHTML=`Repeat <i class="fa-solid fa-backward-fast"></i>`;
+            nextFactBtn.innerHTML = `Repeat <i class="fa-solid fa-backward-fast"></i>`;
             document.getElementById("navBtnDiv").classList.remove("hide");// button for the user to see (the menu button)
             gsap.from("#optionBtn", {
                 duration: 1,
@@ -401,7 +402,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 //welcome the user to the quiz reveal the quiz section fully
                 // quizContents(name);
                 //hide the name entry div
-                nameHelp.innerText="";
+                nameHelp.innerText = "";
                 let tl = gsap.timeline();
                 tl.to("#nameEntryDiv", {
                     opacity: 0,
@@ -424,24 +425,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-    /**
- * Function to determine the questions to be asked in the quiz. Requires the
- * string animal name (as used for setting the sitewide animal chosen)
- * data is the JSON from the fetch request before / in getQuizData()
- * @param {string} animal 
- * @param {JSON} data 
- */
+    
     let lastIndex = [];
     let correctAnswer;
-    // find number of questions per animal, assign rnd to questionIndex
+    let score = 0;//used
+    /**
+     * Function to determine the questions to be asked in the quiz. Requires the
+     * string animal name (as used for setting the sitewide animal chosen)
+     * data is the JSON from the fetch request before / in getQuizData()
+     * @param {string} animal 
+     * @param {JSON} data 
+     */
     function quizContents() {
+        document.getElementById("results").classList.add("hide");
+        document.getElementById("quizForm").classList.remove("hide");
         document.getElementById("introDiv").classList.add("hide");
+        document.getElementById("quizFeedback").classList.add("hide");
         const question = document.getElementById("questionP");
         const answers = document.getElementsByClassName("form-check-label");
         const quizElement = document.getElementById("popQuiz");
-        quizElement.classList.remove("hide");
-        quizElement.style.display = "block";
-
+        quizElement.classList.remove("hide");//make visible
         let questionIndex = 0;
         let animalQuestions;
         switch (selectedAnimal) {
@@ -463,9 +466,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //to stop infinte while loop. if the length of lastindex is as long as the available number of questions, end the quiz
         //or set lastindex back to empty.
-        if (lastIndex.length >= animalQuestions) {
+        if (lastIndex.length >= 3) {
             lastIndex = [];//set back to empty for the next time an animal is chosen or the quiz is run
-            //end the quiz
+            endQuiz(score);//end the quiz
+            score=0;
         }
         // if number is already present (question asked...) try generating again
         do {
@@ -508,23 +512,25 @@ document.addEventListener("DOMContentLoaded", function () {
             default:
                 break;
         }
-
     }
     /**
      * This used an AI suggested solution to work correctly with the .this keyword
      * @param {*} radioInput 
      */
+
     function checkAnswer(radioInput) {
+        const divFeedback = document.getElementById("quizFeedback");
         const feedback = document.getElementById("quizfeedbackP");
         const label = document.querySelector('label[for="' + radioInput.id + '"]');
         const labelText = label ? label.innerText.trim() : "";
+        divFeedback.classList.remove("hide");
         // Use labelText for answer checking
         console.log(labelText);
 
         if (labelText == correctAnswer) {
             //answer is correct - inform user
             feedback.innerText = "Well done, that was right!"
-            
+            score++;
 
         }
         else {
@@ -533,16 +539,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
         //information on setTimeout: https://www.sitepoint.com/javascript-settimeout-function-examples/
-        //keep the current state for 3 seconds before removing the message and calling next question via quizContents
+        //keep the current state for 2 seconds before removing the message and calling next question via quizContents
         setTimeout(function () {
             feedback.innerText = "";
-            radioInput.checked=false;
+            radioInput.checked = false;
             quizContents();
         }
             , 2000);
 
     }
-
+    /**
+     * Hide the radiobuttons
+     * say well done to username
+     * tell them their score
+     * have a Try Again button?
+     * set score back to 0
+     * @param {*} score 
+     */
+    function endQuiz(score) {
+        document.getElementById("quizForm").classList.add("hide");//hide the quiz form, not the entire thing
+        document.getElementById("results").classList.remove("hide");//show the results area
+        const resultHeading = document.getElementById("resultHeading");
+        const resultP = document.getElementById("resultP");
+        resultHeading.innerText = `Well done, ${name}!`;
+        resultP.innerText = `You scored ${score} out of 3. Try the quiz again for different questions.`;
+    }
 
     /**
      * Function to scale the size of Image Maps on an image to work with responsive

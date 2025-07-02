@@ -112,12 +112,12 @@
             </p>
             <div class="mt-auto" id="introButtonDiv">
                 <!-- This button is in the fact area to bring the next fact on screen -->
-                <button type="button" class="btn btn-primary" id="nextFactBtn">Next <i class="fa-solid fa-caret-right"></i></button>
+                <button type="button" class="btn btn-primary" id="nextFactBtn">Next <i
+                        class="fa-solid fa-caret-right"></i></button>
             </div>
         </div>
         <!-- Div contains the popQuiz elements and is hidden by default. -->
         <div class="container hide" id="popQuiz">
-
             <h1>Try a quiz!..</h1>
             <h2 id="nameTitle"></h2>
             <div class="col-9 col-md-6" id="nameEntryDiv">
@@ -160,14 +160,19 @@
                     </div>
                 </form>
             </div>
+            <div class="hide" id="results">
+                <h2 id="resultHeading"></h2>
+                <p id="resultP"></p>
+            </div>
         </div>
     </section>
+
     <div class="hide" id="navBtnDiv">
         <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
         <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><span class="largeText">
                 <i class="fa-solid fa-compass"></i>
             </span><span class="btnLabel">Menu</span></button>
-            
+
         <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><span class="largeText">
                 <i class="fa-solid fa-photo-film"></i>
             </span><span class="btnLabel">Gallery</span></a>
@@ -184,10 +189,8 @@
         <a type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu()"
             href="#animalChoice"><span class="largeText">
                 <i class="fa-solid fa-circle-chevron-up"></i>
-            </span><span class="btnLabel">Top</span></a>
+            </span><span class="btnLabel">New Animal</span></a>
     </div>
-
-
 
     <!-- video displayed of user's chosen animal. embedded YT link. -->
     <section id="videoSection" href="#videoSection">
@@ -252,15 +255,6 @@
             </div>
         </div>
     </section>
-    <!-- Quiz section which will take random questions from the JSON file and populate radio
-    buttons and question field. Indicate to user if you are right/wrong. Ask for user's name
-    at the start and apply some rules (3 letters, up to 10, no numbers or special characters) -->
-    <section id="quizSection">
-
-        <div class="galleryLink">
-            <!-- some nice mouseover event of a full width image of the animal then animates to look like a preview of the Gallery. Plays a sound too -->
-        </div>
-    </section>
     <footer>
         <!-- footer with content here -->
         <!-- if footer is sticky - make it have buttons for sound and reduced animations mode -->
@@ -272,9 +266,10 @@
     crossorigin="anonymous"></script>
 
 <!-- load the script at the end after the html content -->
+ <!-- GSAP cdn 2 links: gsap.min is the base data and splitText.min is used for advanced text anmimations -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+
 <script src="./assets/js/script.js"></script>
 
 </html>

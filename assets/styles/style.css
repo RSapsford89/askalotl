@@ -47,7 +47,7 @@ img {
   opacity: 0;
 }
 .form {
-  border: 5px solid white;
+  border: 5px solid black;
 }
 .largeText{
   font-size: 1.3rem;
@@ -97,7 +97,7 @@ img {
   position: fixed;
   height: 250px;
   width: 55px;
-  bottom: 50px;
+  bottom: 20px;
   left: 10px;
   
 }
@@ -119,7 +119,7 @@ img {
 }
 .btnLabel{
   margin-top: 0rem;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
 }
 #galleryBtn{  
   bottom: 220px;
@@ -167,7 +167,7 @@ high z-index to ensure it does not get painted over! */
 #audioButton {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 10px;
   z-index: 99;
 }
 #imgSelect {
