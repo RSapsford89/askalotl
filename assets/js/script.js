@@ -447,6 +447,7 @@ document.addEventListener("DOMContentLoaded", function () {
         quizElement.classList.remove("hide");//make visible
         let questionIndex = 0;
         let animalQuestions;
+
         switch (selectedAnimal) {
             case "whale":
                 animalQuestions = factsData.whaleQuestions.length;
@@ -470,6 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
             lastIndex = [];//set back to empty for the next time an animal is chosen or the quiz is run
             endQuiz(score);//end the quiz
             score=0;
+            return;
         }
         // if number is already present (question asked...) try generating again
         do {
