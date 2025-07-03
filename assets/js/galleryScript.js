@@ -7,13 +7,19 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleImage(this); 
         });
     });
-
+/**
+ * Used to toggle opacity and show audio and image text
+ * @param {HTMLElement} img 
+ */
     function toggleImage(img){
         console.log(img.alt);
         img.classList.toggle("imgOpacity");
         showDescription(img.nextElementSibling);//found at https://www.javascripttutorial.net/javascript-dom/javascript-siblings/
     }
-
+/**
+ * used to hide the div
+ * @param {HTMLElement} div 
+ */
     function showDescription(div){
         div.classList.toggle("hide");
     }

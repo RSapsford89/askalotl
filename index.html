@@ -22,37 +22,40 @@
 
 <body>
     <header>
-        <!-- header with some navbar here -->
-        <!-- navbar could use JS events to trigger the formatting changes -->
-        <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Askalotl</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Animal Facts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery.html">Gallery</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
+        <div class="hide" id="navBtnDiv">
+            <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
+            <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><span
+                    class="largeText">
+                    <i class="fa-solid fa-compass"></i>
+                </span><span class="btnLabel">Menu</span></button>
+
+            <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><span class="largeText">
+                    <i class="fa-solid fa-photo-film"></i>
+                </span><span class="btnLabel">Gallery</span></a>
+
+            <button type="button" class="btn btn-primary hide" id="quizBtn"
+                onclick="quizContents(),showHideMenu()"><span class="largeText">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </span> <span class="btnLabel">Quiz</span></button>
+
+            <button type="button" class="btn btn-primary hide" id="videoBtn" onclick="showHideMenu()"
+                data-bs-toggle="modal" data-bs-target="#videoModal"><span class="largeText"><i
+                        class="fa-brands fa-youtube"></i></span>
+                <span class="btnLabel">Video</span></button>
+
+            <a type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu()"
+                href="#animalChoice"><span class="largeText">
+                    <i class="fa-solid fa-circle-chevron-up"></i>
+                </span><span class="btnLabel">New Animal</span></a>
+        </div>
     </header>
-    <!-- <button type="button" class="btn btn-warning" id="audioButton">
-        <i class="fa-solid fa-volume-xmark"></i><i class="fa-solid fa-volume-high"></i> -->
-    </button>
-    <section id="animalChoice" href="#animalChoice">
-        <div class="container" id="animalContentOne">
+
+    <section id="animalChoice" >
+        <div class="container" id="animalContentOne" href="#animalChoice">
             <div class=" position-absolute top start " id="headingTitle">
-                <h1 id=""><strong>Welcome to Askalotl</strong></h1>
+                <h1><strong>Welcome to Askalotl</strong></h1>
                 <br>
-                <h3 id="">(click me)<i class="fa-solid fa-hand-pointer"></i></h3>
+                <h2>(click me)<i class="fa-solid fa-hand-pointer"></i></h2>
                 <img class="animalChoiceImg" id="imgTopLeft" src="assets/images/pixelart-whale-reaching.png"
                     alt="Whale diving">
                 <img class="animalChoiceImg" id="imgTopRight" src="assets/images/pixelart-penguin-reaching.png"
@@ -82,7 +85,7 @@
             <div class=" position-absolute fixed-bottom  " id="introBanner">
                 <h2 id="introHeading">Are you ready?</h2>
                 <br>
-                <p id="">
+                <p>
                     Welcome to <strong>Askalotl</strong>. Press on the animal you like to learn more...
                 </p>
             </div>
@@ -91,12 +94,12 @@
         <hr>
     </section>
 
-    <section id="displaySection" href="#displaySection">
-        <div class="paragraph d-flex flex-column hide" id="introDiv">
+    <section id="displaySection" >
+        <div class="paragraph d-flex flex-column hide" id="introDiv" href="#displaySection">
             <!-- this will change depending on the selected animal using JS -->
             <!-- need to add img class to hide and update JS to show/hide
             Use a 'display:hide' class on the unselected -->
-            <img id="introImage" src="assets/images/whales-feeding.webp" alt="Whales feeding" sizes="width: 300px">
+            <img id="introImage" src="assets/images/whales-feeding.webp" alt="Whales feeding">
             <h2 id="introTitle">Animal...</h2>
             <p id="introText">
                 Blue whales are the biggest animals on
@@ -111,7 +114,7 @@
         <!-- Div contains the popQuiz elements and is hidden by default. -->
         <div class="container hide" id="popQuiz">
             <h1>Try a quiz!..</h1>
-            <h2 id="nameTitle"></h2>
+            <h2 id="nameTitle">---</h2>
             <div class="row " id="nameEntryDiv">
                 <div class="col-6 col-md-3">
                     <label for="nameEntry" class="form-label">Enter a name:</label>
@@ -138,7 +141,7 @@
                             <div id="questionDiv">
                                 <p id="questionP">to ask the user?</p>
                             </div>
-                            <div  id="radioContainer">
+                            <div id="radioContainer">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
                                         onclick="checkAnswer(this)">
@@ -176,34 +179,11 @@
         </div>
     </section>
 
-    <div class="hide" id="navBtnDiv">
-        <!-- 1 button to open the navMenu. Contains : 1 restart, 2 video, 3 quiz, 4 gallery buttons. Appears after going through the facts -->
-        <button type="button" class="btn btn-primary" id="optionBtn" onclick="showHideMenu()"><span class="largeText">
-                <i class="fa-solid fa-compass"></i>
-            </span><span class="btnLabel">Menu</span></button>
 
-        <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><span class="largeText">
-                <i class="fa-solid fa-photo-film"></i>
-            </span><span class="btnLabel">Gallery</span></a>
-
-        <button type="button" class="btn btn-primary hide" id="quizBtn" onclick="quizContents(),showHideMenu()"><span
-                class="largeText">
-                <i class="fa-solid fa-graduation-cap"></i>
-            </span> <span class="btnLabel">Quiz</span></button>
-
-        <button type="button" class="btn btn-primary hide" id="videoBtn" onclick="showHideMenu()" data-bs-toggle="modal"
-            data-bs-target="#videoModal"><span class="largeText"><i class="fa-brands fa-youtube"></i></span>
-            <span class="btnLabel">Video</span></button>
-
-        <a type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu()"
-            href="#animalChoice"><span class="largeText">
-                <i class="fa-solid fa-circle-chevron-up"></i>
-            </span><span class="btnLabel">New Animal</span></a>
-    </div>
 
     <!-- video displayed of user's chosen animal. embedded YT link. -->
-    <section id="videoSection" href="#videoSection">
-        <div class="modal" id="videoModal" tabindex="-1">
+    <section id="videoSection" >
+        <div class="modal" id="videoModal" tabindex="-1" href="#videoSection">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -212,53 +192,15 @@
                     </div>
                     <div class="modal-body">
                         <div class="  " id="videoDiv">
-                            <!-- <h2 id="videoTitle">Below is a video about Whales</h2> -->
                             <div class="ratio ratio-16x9 d-flex w-100">
                                 <iframe id="videoFrame" title="Whale video"
-                                    src="https://www.youtube.com/embed/o767PuYbEXg" frameborder="0"
+                                    src="https://www.youtube.com/embed/o767PuYbEXg"
                                     allowscreenSpace></iframe>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <!-- <button type="button" class="btn btn-primary">Finish</button> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section contains the HTML for the drawing canvas! penColor and reset call JS functions to change
-    and reset the canvas. showImg -->
-    <section id="drawingSection">
-        <!-- Modal used to contain the drawing elements for better UX on mobile -->
-        <!--TODO: #1 need to fix making the drawing transferring to the main page, not the modal... -->
-        <div class="modal" id="drawingModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Draw your favourite animal</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="drawing">
-                            <canvas id="drawingCanvas" width="250" height="300"
-                                style="border: 2px solid rebeccapurple"></canvas>
-                            <div class=".pointer">
-                                <img src="" alt="" id="newImg" />
-                            </div>
-                            <button id="showImg">click me</button>
-                            <button id="penColor" onclick="colorPicker()">Set Colour</button>
-                            <button id="reset" onclick="resetImg()">Reset</button>
-                            <input type="color" name="drawingColor" id="drawingColor" value="#000000" />
-                            <input type="range" name="drawingThickness" id="drawingThickness" min="1" max="10"
-                                value="1" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -273,12 +215,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
-
 <!-- load the script at the end after the html content -->
 <!-- GSAP cdn 2 links: gsap.min is the base data and splitText.min is used for advanced text anmimations -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-
 <script src="./assets/js/script.js"></script>
 
 </html>

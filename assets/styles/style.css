@@ -25,21 +25,21 @@ img {
   display: none !important;
 }
 /* wrapper div for alignment of headings etc */
-.wrapper {
+/* .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-}
+} */
 .disabled {
   pointer-events: none;
 }
 .screenSpace {
   height: 70vh;
 }
-.halfscreenSpace {
+/* .halfscreenSpace {
   height: 75vh;
-}
+} */
 .animalChoiceImg {
   position: absolute;
   width: 20vw;
@@ -101,9 +101,9 @@ margin: 10px;
 #videoDiv {
   display: none;
 }
-#factDiv {
+/* #factDiv {
   display: none;
-}
+} */
 #nameEntryDiv{
   align-items: baseline;
 }
@@ -222,12 +222,12 @@ margin: 10px;
 
 /* ID for the sticky button for audio mute toggling
 high z-index to ensure it does not get painted over! */
-#audioButton {
+/* #audioButton {
   position: fixed;
   bottom: 20px;
   right: 10px;
   z-index: 99;
-}
+} */
 #imgSelect {
   max-width: 400px;
   width: 95%;

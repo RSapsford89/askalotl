@@ -331,7 +331,7 @@
     {
       "animal": "Penguins",
       "question": "Who warms up the penguin eggs?",
-      "answerOne": "Only the mom",
+      "answerOne": "Only the mum",
       "answerTwo": "Only the dad",
       "answerThree": "Both parents take turns",
       "correctAnswer": "Both parents take turns"
