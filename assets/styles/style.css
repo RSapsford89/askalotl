@@ -84,7 +84,7 @@ img {
   /* align-self: center; */
 }
 #introTitle{
-  /* align-self: center; */
+margin: 10px;
 }
 #introButtonDiv {
   position: relative;
@@ -92,13 +92,20 @@ img {
   bottom: 5px;
 }
 #popQuiz {
-  height: 70vh;
+  height: 85vh;
+}
+
+#quizImg{
+  margin: 20px;
 }
 #videoDiv {
   display: none;
 }
 #factDiv {
   display: none;
+}
+#nameEntryDiv{
+  align-items: baseline;
 }
 /* Styles for the menu buttons */
 #navBtnDiv {
@@ -146,6 +153,7 @@ img {
   left: 0px;
   bottom: 0px;
   border: 2px;
+  border-radius:50%;
 }
 /* gallery page */
 /* carousel */
@@ -169,6 +177,8 @@ img {
   position: relative;
   break-inside: avoid;
   overflow: hidden;
+  width: fit-content;
+  margin: 10px;
 }
 .imgContainer img {
   width: 100%;
@@ -217,6 +227,9 @@ high z-index to ensure it does not get painted over! */
 @media (min-width: 700px) {
   .galleryGrid {
     column-count: 2;
+  }
+  #introTitle{
+    margin: 30px;
   }
 }
 

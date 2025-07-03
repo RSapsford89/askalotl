@@ -451,18 +451,22 @@ document.addEventListener("DOMContentLoaded", function () {
         switch (selectedAnimal) {
             case "whale":
                 quizImg.src="assets/images/whales-feeding.webp";
+                quizImg.alt="Whales feeding";
                 animalQuestions = factsData.whaleQuestions.length;
                 break;
             case "axolotl":
                 quizImg.src="assets/images/pink-and-black-axolotls.webp";
+                quizImg.alt="A pink and black axolotl in a tank"
                 animalQuestions = factsData.axolotlQuestions.length;
                 break;
             case "penguin":
                 quizImg.src="assets/images/penguins-on-ice-field.webp";
+                quizImg.alt="Penguins on an ice field";
                 animalQuestions = factsData.penguinQuestions.length;
                 break;
             case "cat":
                 quizImg.src="assets/images/snow-leopard.webp";
+                quizImg.alt="A snow leopard";
                 animalQuestions = factsData.catQuestions.length;
                 break;
             default:
