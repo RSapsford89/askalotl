@@ -156,18 +156,19 @@ document.addEventListener("DOMContentLoaded", function () {
         paragraph.style.display = "block";
         image.style.display = "block";
         title.style.display = "block";
-image.classList.remove("penguinChoice");
+        image.classList.remove("penguinChoice");
+        document.getElementById("nextFactBtn").innerHTML=`Next <i class="fa-solid fa-caret-right"></i>`;
         switch (animal) {
             case 'whale':
                 title.innerText = "Whales";
                 paragraph.innerText = whaleText;
-                image.src = "assets/images/whale-waving.webp";                
+                image.src = "assets/images/whale-waving.webp";
                 gsap.to("body", { backgroundColor: "#62929e", duration: 1.5 });
                 break;
             case 'axolotl':
                 title.innerText = "Axolotls";
                 paragraph.innerText = axolotlText;
-                image.src = "assets/images/pink-axolotl-close.webp";                
+                image.src = "assets/images/pink-axolotl-close.webp";
                 gsap.to("body", { backgroundColor: "#bb7cdf", duration: 1.5 });
                 break;
             case 'penguin':
@@ -175,7 +176,7 @@ image.classList.remove("penguinChoice");
                 paragraph.innerText = penguinText;
                 image.src = "assets/images/2-emperor-penguins.webp";
                 image.classList.add("penguinChoice");
-                gsap.to("body", { backgroundColor: "#4240b5", duration: 1.5 });
+                gsap.to("body", { backgroundColor: "#9eddee", duration: 1.5 });
                 break;
             case 'cat':
                 title.innerText = "Cats";
@@ -423,7 +424,7 @@ image.classList.remove("penguinChoice");
             }
         }
     }
-    
+
     let lastIndex = [];
     let correctAnswer;
     let score = 0;//used
@@ -468,7 +469,7 @@ image.classList.remove("penguinChoice");
         if (lastIndex.length >= 3) {
             lastIndex = [];//set back to empty for the next time an animal is chosen or the quiz is run
             endQuiz(score);//end the quiz
-            score=0;
+            score = 0;
             return;
         }
         // if number is already present (question asked...) try generating again
