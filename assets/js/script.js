@@ -152,34 +152,35 @@ document.addEventListener("DOMContentLoaded", function () {
         let catText = `Cats are playful, curious, and sometimes a little sneaky!
                 They love to chase things, pounce, and even climb up high to
                 explore. When they’re happy, they purr—a soft little rumbling sound
-                that means they feel cozy and safe.
-                `;
+                that means they feel cozy and safe.`;
         paragraph.style.display = "block";
         image.style.display = "block";
         title.style.display = "block";
+image.classList.remove("penguinChoice");
         switch (animal) {
             case 'whale':
                 title.innerText = "Whales";
                 paragraph.innerText = whaleText;
-                image.src = "assets/images/whales-feeding.webp";
+                image.src = "assets/images/whale-waving.webp";                
                 gsap.to("body", { backgroundColor: "#62929e", duration: 1.5 });
                 break;
             case 'axolotl':
                 title.innerText = "Axolotls";
                 paragraph.innerText = axolotlText;
-                image.src = "assets/images/pink-axolotl-close.webp";
+                image.src = "assets/images/pink-axolotl-close.webp";                
                 gsap.to("body", { backgroundColor: "#bb7cdf", duration: 1.5 });
                 break;
             case 'penguin':
                 title.innerText = "Penguins";
                 paragraph.innerText = penguinText;
                 image.src = "assets/images/2-emperor-penguins.webp";
+                image.classList.add("penguinChoice");
                 gsap.to("body", { backgroundColor: "#4240b5", duration: 1.5 });
                 break;
             case 'cat':
                 title.innerText = "Cats";
                 paragraph.innerText = catText;
-                image.src = "assets/images/cats-sleeping.webp";
+                image.src = "assets/images/cat-toe-beans.webp";
                 gsap.to("body", { backgroundColor: "#f04276", duration: 1.5 });
                 break;
             default:
@@ -263,7 +264,6 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     function nextFact(animal) {
         // display #factDiv to make this content visible
-        // document.getElementById("factDiv").style.display = "block";
         const title = document.getElementById("introTitle");
         const paragraph = document.getElementById("introText");
         const img = document.getElementById("introImage");
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let numberOfQuestions = 3;//There are a minimum 3 questions, so this is the default
         switch (animal) {
             case "whale":
-                img.src = "assets/images/whale-tail.webp";
+                img.src = "assets/images/whale-under-water.webp";
                 title.innerText = factsData.whaleFacts[factIndex].question;
                 paragraph.innerText = factsData.whaleFacts[factIndex].fact;
                 numberOfQuestions = factsData.whaleFacts.length;
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 break;
             case "cat":
-                img.src = "assets/images/kittens-in-basket.webp";
+                img.src = "assets/images/cheetah-in-tree.webp";
                 title.innerText = factsData.catFacts[factIndex].question;
                 paragraph.innerText = factsData.catFacts[factIndex].fact;
                 numberOfQuestions = factsData.catFacts.length;
