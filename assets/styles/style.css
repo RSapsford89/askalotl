@@ -55,9 +55,6 @@ img {
 .penguinChoice{
   object-position: 50% 25%;
 }
-#introDiv {
-  min-height: 600px;
-}
 #imgTopLeft {
   top: 25vh;
   left: 15vw;
@@ -74,15 +71,21 @@ img {
   bottom: 25vh;
   right: 20vw;
 }
-
+#introDiv {
+  min-height: 600px;
+  align-items: center;
+}
 #introImage {
   display: none;
   height: 300px;
   width: 300px;
   object-fit: cover;
   border-radius: 50%;
+  /* align-self: center; */
 }
-
+#introTitle{
+  /* align-self: center; */
+}
 #introButtonDiv {
   position: relative;
   margin-left: auto;

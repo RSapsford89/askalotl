@@ -440,6 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("quizForm").classList.remove("hide");
         document.getElementById("introDiv").classList.add("hide");
         document.getElementById("quizFeedback").classList.add("hide");
+        const quizImg = document.getElementById("quizImg");
         const question = document.getElementById("questionP");
         const answers = document.getElementsByClassName("form-check-label");
         const quizElement = document.getElementById("popQuiz");
@@ -449,15 +450,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         switch (selectedAnimal) {
             case "whale":
+                quizImg.src="assets/images/whales-feeding.webp";
                 animalQuestions = factsData.whaleQuestions.length;
                 break;
             case "axolotl":
+                quizImg.src="assets/images/pink-and-black-axolotls.webp";
                 animalQuestions = factsData.axolotlQuestions.length;
                 break;
             case "penguin":
+                quizImg.src="assets/images/penguins-on-ice-field.webp";
                 animalQuestions = factsData.penguinQuestions.length;
                 break;
             case "cat":
+                quizImg.src="assets/images/snow-leopard.webp";
                 animalQuestions = factsData.catQuestions.length;
                 break;
             default:
