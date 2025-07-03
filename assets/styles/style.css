@@ -46,9 +46,9 @@ img {
   height: auto;
   opacity: 0;
 }
-.form {
+/* .form {
   border: 5px solid black;
-}
+} */
 .largeText{
   font-size: 1.3rem;
 }
@@ -169,8 +169,15 @@ margin: 10px;
   width: 100%;
   display: block;
 }
+
 /* gallery layout */
+.gallery{
+  display: flex;
+    justify-content: center;
+
+}
 .galleryGrid {
+  /* display: flex; */
   column-count: 1;
 }
 .imgContainer {
@@ -178,7 +185,7 @@ margin: 10px;
   break-inside: avoid;
   overflow: hidden;
   width: fit-content;
-  margin: 10px;
+  margin-top: 10px;
 }
 .imgContainer img {
   width: 100%;
