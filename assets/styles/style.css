@@ -193,6 +193,11 @@ margin: 10px;
   display: block;
   justify-content: center;
 }
+.imgOpacity{
+  opacity: 0.3;
+  background-color: azure;
+  transition: opacity 0.5s;
+}
 
 /* ID for the sticky button for audio mute toggling
 high z-index to ensure it does not get painted over! */
