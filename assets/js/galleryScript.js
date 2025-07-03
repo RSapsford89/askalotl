@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         img.addEventListener("click", function() { 
             toggleImage(this); 
         });
-
     });
 
     function toggleImage(img){
@@ -19,5 +18,3 @@ document.addEventListener("DOMContentLoaded", function () {
         div.classList.toggle("hide");
     }
 });
-
-    
