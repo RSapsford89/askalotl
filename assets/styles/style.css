@@ -179,6 +179,7 @@ high z-index to ensure it does not get painted over! */
 }
 #imgSelect {
   max-width: 400px;
+  width: 95%;
   opacity: 0;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
@@ -203,6 +204,7 @@ high z-index to ensure it does not get painted over! */
 }
 
 /* media queries */
+
 /* media query for Gallery columns */
 @media (min-width: 700px) {
   .galleryGrid {

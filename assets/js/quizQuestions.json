@@ -29,6 +29,21 @@
       "animal": "Narwhal",
       "question": "Is there a unicorn whale?!",
       "fact": "The Narwhal has a great big tusk on its head which looks like a spiral. It really exists and live in the Arctic!"
+    },
+    {
+      "animal": "Whales",
+      "question": "Some whales can hold their breath for over an hour",
+      "fact": "This helps them dive deep in the ocean to search for food or explore!"
+    },
+    {
+      "animal": "Whales",
+      "question": "Baby whales are called calves",
+      "fact": "They drink their mother’s milk and stay close to her when young."
+    },
+    {
+      "animal": "Whales",
+      "question": "Toothed whales use echolocation",
+      "fact": "They send out sounds to bounce off objects and “see” underwater!"
     }
   ],
   "axolotlFacts": [
@@ -61,6 +76,21 @@
       "animal": "Axolotl",
       "question": "What is an Axolotl's favourite meal?",
       "fact": "Earthworms! They also like to eat insects and small fish too."
+    },
+    {
+      "animal": "Axolotl",
+      "question": "Why do axolotls always look like they're smiling?",
+      "fact": "Their mouths are shaped in a way that makes them look cheerful!"
+    },
+    {
+      "animal": "Axolotl",
+      "question": "They stay babies forever!",
+      "fact": "Axolotls never fully grow up—this is called neoteny."
+    },
+    {
+      "animal": "Axolotl",
+      "question": "What are 'water monsters'?",
+      "fact": "Axolotls earned this nickname because of their unusual, ancient look!"
     }
   ],
   "catFacts": [
@@ -90,12 +120,27 @@
       "fact": "Ancient Egyptians praised cats but evidence tells us we had them as pets for more than 10,000 years."
     },
     {
-      "animal": "Axolotl",
+      "animal": "Cat",
       "question": "Why do cats hate water?",
       "fact": "This is not true amongst all cats - the Tiger, Jaguar and Leopard all love to swim!"
+    },
+    {
+      "animal": "Cat",
+      "question": "Cats use whiskers to measure space",
+      "fact": "They help cats know if they can fit into tight places!"
+    },
+    {
+      "animal": "Cat",
+      "question": "Cats purr to relax and maybe even heal",
+      "fact": "Some scientists believe purring helps cats feel better when they’re sick or hurt."
+    },
+    {
+      "animal": "Cat",
+      "question": "Kittens open their eyes after birth",
+      "fact": "It takes about 7–10 days before a kitten opens its eyes for the first time."
     }
   ],
-    "penguinFacts": [
+  "penguinFacts": [
     {
       "animal": "Adele penguin",
       "question": "Where do they live",
@@ -125,8 +170,23 @@
       "animal": "Penguins",
       "question": "How do they keep warm in the snow?",
       "fact": "Penguins huddle together to share heat and fluff their feathers to keep the heat in their feathery coats."
+    },
+    {
+      "animal": "Penguins",
+      "question": "Penguins can jump from the water like rockets!",
+      "fact": "They zoom upwards quickly when swimming fast—it’s very fun to watch!"
+    },
+    {
+      "animal": "Penguins",
+      "question": "Penguins slide on their bellies",
+      "fact": "It’s called tobogganing and helps them move fast across icy lands."
+    },
+    {
+      "animal": "Penguins",
+      "question": "Penguin parents share egg-warming duties",
+      "fact": "Mum and dad take turns keeping their egg snug in the cold."
     }
-  ],   
+  ],
   "whaleQuestions": [
     {
       "animal": "Blue Whale",
@@ -151,6 +211,30 @@
       "answerTwo": "As loud as a roaring Lion",
       "answerThree": "Louder than jet plane",
       "correctAnswer": "Louder than jet plane"
+    },
+    {
+      "animal": "Humpback Whale",
+      "question": "What do whales use to find things in dark waters?",
+      "answerOne": "Eyes that glow",
+      "answerTwo": "Echolocation",
+      "answerThree": "Big whiskers",
+      "correctAnswer": "Echolocation"
+    },
+    {
+      "animal": "Whale",
+      "question": "What is a baby whale called?",
+      "answerOne": "Cub",
+      "answerTwo": "Calf",
+      "answerThree": "Pup",
+      "correctAnswer": "Calf"
+    },
+    {
+      "animal": "Whale",
+      "question": "How long can some whales hold their breath?",
+      "answerOne": "10 minutes",
+      "answerTwo": "30 minutes",
+      "answerThree": "Over an hour",
+      "correctAnswer": "Over an hour"
     }
   ],
   "axolotlQuestions": [
@@ -177,6 +261,30 @@
       "answerTwo": "Plants, algae and eggs",
       "answerThree": "Small rocks, twigs and leaves",
       "correctAnswer": "Insects, worms and small fish"
+    },
+    {
+      "animal": "Axolotl",
+      "question": "What do axolotls keep even when grown up?",
+      "answerOne": "Their baby face",
+      "answerTwo": "Their gills",
+      "answerThree": "Their tails",
+      "correctAnswer": "Their gills"
+    },
+    {
+      "animal": "Axolotl",
+      "question": "What shape does their mouth make?",
+      "answerOne": "A smile",
+      "answerTwo": "A frown",
+      "answerThree": "A zigzag",
+      "correctAnswer": "A smile"
+    },
+    {
+      "animal": "Axolotl",
+      "question": "Why are axolotls called 'water monsters'?",
+      "answerOne": "Because of their swimming style",
+      "answerTwo": "Because of their ancient features",
+      "answerThree": "Because they roar",
+      "correctAnswer": "Because of their ancient features"
     }
   ],
   "penguinQuestions": [
@@ -203,9 +311,33 @@
       "answerTwo": "Seals and Polar Bears",
       "answerThree": "Starfish and sea snails",
       "correctAnswer": "Fish"
+    },
+    {
+      "animal": "Penguins",
+      "question": "What is it called when penguins slide on their bellies?",
+      "answerOne": "Belly skiing",
+      "answerTwo": "Ice surfing",
+      "answerThree": "Tobogganing",
+      "correctAnswer": "Tobogganing"
+    },
+    {
+      "animal": "Penguins",
+      "question": "How do penguins leap from the water?",
+      "answerOne": "Like dolphins",
+      "answerTwo": "Like rockets",
+      "answerThree": "Like kangaroos",
+      "correctAnswer": "Like rockets"
+    },
+    {
+      "animal": "Penguins",
+      "question": "Who warms up the penguin eggs?",
+      "answerOne": "Only the mom",
+      "answerTwo": "Only the dad",
+      "answerThree": "Both parents take turns",
+      "correctAnswer": "Both parents take turns"
     }
   ],
-  "catQuestions":[
+  "catQuestions": [
     {
       "animal": "Snow Leopard",
       "question": "where do Snow Leopards live?",
@@ -229,6 +361,30 @@
       "answerTwo": "Since the Ancient Romans",
       "answerThree": "Since the Victorians",
       "correctAnswer": "Before the Ancient Egyptians"
+    },
+    {
+      "animal": "Pet Cat",
+      "question": "Why do cats have whiskers?",
+      "answerOne": "To tickle people",
+      "answerTwo": "To measure spaces",
+      "answerThree": "To scare birds",
+      "correctAnswer": "To measure spaces"
+    },
+    {
+      "animal": "Cat",
+      "question": "What sound might help cats feel better?",
+      "answerOne": "Meowing",
+      "answerTwo": "Growling",
+      "answerThree": "Purring",
+      "correctAnswer": "Purring"
+    },
+    {
+      "animal": "Kitten",
+      "question": "When do kittens open their eyes?",
+      "answerOne": "Right after birth",
+      "answerTwo": "After 7–10 days",
+      "answerThree": "After 1 month",
+      "correctAnswer": "After 7–10 days"
     }
-    ]
+  ]
 }
