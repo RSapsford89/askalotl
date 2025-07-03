@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function toggleImage(img){
         console.log(img.alt);
-       img.classList.toggle("imgOpacity");
-       showAltText(img.parentElement);
+        img.classList.toggle("imgOpacity");
+        showDescription(img.nextElementSibling);//found at https://www.javascripttutorial.net/javascript-dom/javascript-siblings/
     }
 
-    function showAltText(div){
-        div.innerHTML+=`<p>Test</p>`;
+    function showDescription(div){
+        div.classList.toggle("hide");
     }
 });
 
