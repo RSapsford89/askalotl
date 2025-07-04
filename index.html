@@ -28,10 +28,10 @@
                     class="largeText">
                     <i class="fa-solid fa-compass"></i>
                 </span><span class="btnLabel">Menu</span></button>
-
-            <a type="button" class="btn btn-primary hide" id="galleryBtn" href="gallery.html"><span class="largeText">
+                <!--On using JS in the button for alternative href https://www.geeksforgeeks.org/html/how-to-create-an-html-button-that-acts-like-a-link/ -->
+            <button type="button" class="btn btn-primary hide" id="galleryBtn" onclick="window.location.href='gallery.html'"><span class="largeText">
                     <i class="fa-solid fa-photo-film"></i>
-                </span><span class="btnLabel">Gallery</span></a>
+                </span><span class="btnLabel">Gallery</span></button>
 
             <button type="button" class="btn btn-primary hide" id="quizBtn"
                 onclick="quizContents(),showHideMenu()"><span class="largeText">
@@ -43,10 +43,9 @@
                         class="fa-brands fa-youtube"></i></span>
                 <span class="btnLabel">Video</span></button>
 
-            <a type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu()"
-                href="#animalChoice"><span class="largeText">
+            <button type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu();window.location.href='index.html#animalChoice'"><span class="largeText">
                     <i class="fa-solid fa-circle-chevron-up"></i>
-                </span><span class="btnLabel">New Animal</span></a>
+                </span><span class="btnLabel">New Animal</span></button>
         </div>
     </header>
 
