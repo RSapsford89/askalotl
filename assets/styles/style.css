@@ -1,21 +1,21 @@
 /* Andika and Arvo fonts from GoogleFonts */
 @import url("https://fonts.googleapis.com/css2?family=Andika:ital@0;1&family=Arvo:ital,wght@0,400;0,700;1,400&display=swap");
 
-html {
-  scroll-behavior: smooth;
-}
 body {
+  scroll-behavior: smooth;
   background-color: #bb7cdf;
   font-family: "Andika", serif;
   font-size: larger;
   margin: 10px;
   margin-bottom: 75px;
+  max-width: 100vw;
 }
 h1,
 h2,
 h3 {
   font-family: "Arvo", sans-serif;
 }
+
 /* default max-width for all images @300px */
 img {
   max-width: 300px;
@@ -37,6 +37,7 @@ img {
 .screenSpace {
   height: 70vh;
 }
+
 /* .halfscreenSpace {
   height: 75vh;
 } */
@@ -84,7 +85,7 @@ img {
   /* align-self: center; */
 }
 #introTitle{
-margin: 10px;
+margin: 5px;
 }
 #introButtonDiv {
   position: relative;
@@ -94,16 +95,12 @@ margin: 10px;
 #popQuiz {
   height: 85vh;
 }
-
 #quizImg{
   margin: 20px;
 }
 #videoDiv {
   display: none;
 }
-/* #factDiv {
-  display: none;
-} */
 #nameEntryDiv{
   align-items: baseline;
 }
@@ -245,7 +242,7 @@ high z-index to ensure it does not get painted over! */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   min-height: 80vh;
 }
 /* CSS to disable other touch actions for the canvas */
@@ -264,6 +261,22 @@ high z-index to ensure it does not get painted over! */
   #introTitle{
     margin: 30px;
   }
+  #imgTopLeft {
+  top: 15vh;
+  left: 15vw;
+}
+#imgTopRight {
+  top: 15vh;
+  right: 15vw;
+}
+#imgBottomLeft {
+  bottom: 15vh;
+  left: 20vw;
+}
+#imgBottomRight {
+  bottom: 15vh;
+  right: 20vw;
+}
 }
 
 @media (min-width: 900px) {

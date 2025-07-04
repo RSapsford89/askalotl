@@ -28,8 +28,9 @@
                     class="largeText">
                     <i class="fa-solid fa-compass"></i>
                 </span><span class="btnLabel">Menu</span></button>
-                <!--On using JS in the button for alternative href https://www.geeksforgeeks.org/html/how-to-create-an-html-button-that-acts-like-a-link/ -->
-            <button type="button" class="btn btn-primary hide" id="galleryBtn" onclick="window.location.href='gallery.html'"><span class="largeText">
+            <!--On using JS in the button for alternative href https://www.geeksforgeeks.org/html/how-to-create-an-html-button-that-acts-like-a-link/ -->
+            <button type="button" class="btn btn-primary hide" id="galleryBtn"
+                onclick="window.location.href='gallery.html'"><span class="largeText">
                     <i class="fa-solid fa-photo-film"></i>
                 </span><span class="btnLabel">Gallery</span></button>
 
@@ -43,25 +44,26 @@
                         class="fa-brands fa-youtube"></i></span>
                 <span class="btnLabel">Video</span></button>
 
-            <button type="button" class="btn btn-primary hide" id="restartBtn" onclick="showHideMenu();window.location.href='index.html#animalChoice'"><span class="largeText">
+            <button type="button" class="btn btn-primary hide" id="restartBtn"
+                onclick="showHideMenu();window.location.href='index.html#animalChoice'"><span class="largeText">
                     <i class="fa-solid fa-circle-chevron-up"></i>
                 </span><span class="btnLabel">New Animal</span></button>
         </div>
     </header>
 
-    <section id="animalChoice" >
+    <section id="animalChoice">
         <div class="container" id="animalContentOne" href="#animalChoice">
             <div class=" position-absolute top start " id="headingTitle">
                 <h1><strong>Welcome to Askalotl</strong></h1>
                 <br>
                 <h2>(click me)<i class="fa-solid fa-hand-pointer"></i></h2>
-                <img class="animalChoiceImg" id="imgTopLeft" src="assets/images/pixelart-whale-reaching.png"
+                <img class="animalChoiceImg" id="imgTopLeft" src="assets/images/pixelart-whale-reaching.webp"
                     alt="Whale diving">
-                <img class="animalChoiceImg" id="imgTopRight" src="assets/images/pixelart-penguin-reaching.png"
+                <img class="animalChoiceImg" id="imgTopRight" src="assets/images/pixelart-penguin-reaching.webp"
                     alt="Cat reaching">
-                <img class="animalChoiceImg" id="imgBottomLeft" src="assets/images/pixelart-axolotl-reaching.png"
+                <img class="animalChoiceImg" id="imgBottomLeft" src="assets/images/pixelart-axolotl-reaching.webp"
                     alt="Whale diving">
-                <img class="animalChoiceImg" id="imgBottomRight" src="assets/images/pixelart-cat-reaching.png"
+                <img class="animalChoiceImg" id="imgBottomRight" src="assets/images/pixelart-cat-reaching.webp"
                     alt="Whale diving">
             </div>
             <!-- animal selection image -->
@@ -85,19 +87,17 @@
                 <h2 id="introHeading">Are you ready?</h2>
                 <br>
                 <p>
-                    Welcome to <strong>Askalotl</strong>. Press on the animal you like to learn more...
+                    Welcome to <strong>Askalotl</strong>. Press on the animal you'd like to learn more about...
                 </p>
             </div>
             <div id="animalChoiceSpacer" class="screenSpace"></div>
         </div>
         <hr>
     </section>
-
-    <section id="displaySection" >
+<!-- main elements where site content is displayed. JS shows/hides and changes element contents in here -->
+    <section id="displaySection">
         <div class="paragraph d-flex flex-column hide" id="introDiv" href="#displaySection">
-            <!-- this will change depending on the selected animal using JS -->
-            <!-- need to add img class to hide and update JS to show/hide
-            Use a 'display:hide' class on the unselected -->
+
             <img id="introImage" src="assets/images/whales-feeding.webp" alt="Whales feeding">
             <h2 id="introTitle">Animal...</h2>
             <p id="introText">
@@ -181,7 +181,7 @@
 
 
     <!-- video displayed of user's chosen animal. embedded YT link. -->
-    <section id="videoSection" >
+    <section id="videoSection">
         <div class="modal" id="videoModal" tabindex="-1" href="#videoSection">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -193,8 +193,7 @@
                         <div class="  " id="videoDiv">
                             <div class="ratio ratio-16x9 d-flex w-100">
                                 <iframe id="videoFrame" title="Whale video"
-                                    src="https://www.youtube.com/embed/o767PuYbEXg"
-                                    allowscreenSpace></iframe>
+                                    src="https://www.youtube.com/embed/o767PuYbEXg" allowscreenSpace></iframe>
                             </div>
                         </div>
                     </div>
