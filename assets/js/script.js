@@ -87,7 +87,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('nextFactBtn').addEventListener('click', () => {
             nextFact(selectedAnimal);
         });
+        //information found on YouTube and JS docs but solution used based on AI suggestions for the Youtube API connection
+        Array.from(document.getElementsByClassName("modalClose")).forEach(btn => {
+            btn.addEventListener("click", () => {
+                // Find all iframe elements inside the modal
+                document.querySelectorAll(".modal iframe").forEach(frame => {
+                    if (frame.src.includes("youtube.com/embed")) {
+                        frame.contentWindow.postMessage(
+                            '{"event":"command","func":"pauseVideo","args":""}',
+                            '*'
+                        );
+                    }
+                });
+            });
+        });
     }
+
     buttonListener();
 
     // window resize event from MDN docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
@@ -107,22 +122,22 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (selectedAnimal) {
             case 'whale':
                 title.innerText = 'Watch a video about Whales';
-                video.src = 'https://www.youtube.com/embed/o767PuYbEXg';
+                video.src = 'https://www.youtube.com/embed/o767PuYbEXg?enablejsapi=1';
                 video.title = 'Whale video';
                 break;
             case 'axolotl':
                 title.innerText = 'Watch a video about Axolotls';
-                video.src = 'https://www.youtube.com/embed/tBEf7wqbroM';
+                video.src = 'https://www.youtube.com/embed/tBEf7wqbroM?enablejsapi=1';
                 video.title = 'Axolotl video';
                 break;
             case 'penguin':
                 title.innerText = 'Watch a video about Penguins';
-                video.src = 'https://www.youtube.com/embed/Oyo6lz839h4';
+                video.src = 'https://www.youtube.com/embed/Oyo6lz839h4?enablejsapi=1';
                 video.title = 'Penguin video';
                 break;
             case 'cat':
                 title.innerText = 'Watch a video about Cats';
-                video.src = 'https://www.youtube.com/embed/W86cTIoMv2U';
+                video.src = 'https://www.youtube.com/embed/W86cTIoMv2U?enablejsapi=1';
                 video.title = 'Cat video';
                 break;
             default:
