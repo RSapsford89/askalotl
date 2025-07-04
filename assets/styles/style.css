@@ -84,6 +84,22 @@ img {
   border-radius: 50%;
   /* align-self: center; */
 }
+/* This styling is to create the banner which welcomes the user */
+#introBanner {
+  bottom: 0vh;
+  opacity: 0;
+  background-color: aqua;
+  padding-left: 10px;
+}
+/* center and align on all screen sizes, in a column all text */
+#headingTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  min-height: 80vh;
+}
 #introTitle{
 margin: 5px;
 }
@@ -216,35 +232,13 @@ margin: 5px;
   background-color: azure;
   transition: opacity 0.5s;
 }
-
-/* ID for the sticky button for audio mute toggling
-high z-index to ensure it does not get painted over! */
-/* #audioButton {
-  position: fixed;
-  bottom: 20px;
-  right: 10px;
-  z-index: 99;
-} */
 #imgSelect {
   max-width: 400px;
   width: 95%;
   opacity: 0;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
-/* This styling is to create the banner which welcomes the user */
-#introBanner {
-  bottom: 0vh;
-  opacity: 0;
-  background-color: aqua;
-}
-#headingTitle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  min-height: 80vh;
-}
+
 /* CSS to disable other touch actions for the canvas */
 /* https://stackoverflow.com/questions/38958354/explain-situation-when-you-might-use-touch-action-manipulation */
 #drawingCanvas {

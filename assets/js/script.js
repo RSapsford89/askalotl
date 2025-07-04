@@ -523,9 +523,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("mapDiv").classList.remove("disabled");
             }
         });
-        // opactiy of 0, slide up from bottom
+        // opactiy of 0, slide down from top
         tl.to("#imgSelect",
-            { opacity: 1, y: '20vh', duration: 2, ease: "power1.out", },
+            { opacity: 1, y: '15vh', duration: 2, ease: "power1.out", },
 
         );
         tl.to("#introBanner", {
